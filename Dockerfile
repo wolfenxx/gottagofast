@@ -6,4 +6,6 @@ RUN apt update && \
     apt install git -y && \
     apt install neovim -y
 
+COPY updateItemService.ts updateItemService.ts
+
 CMD [ "/bin/bash" ]
