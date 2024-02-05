@@ -4,6 +4,7 @@ RUN apt update && \
     apt upgrade -y && \
     apt install tmux -y && \
     apt install git -y && \
+    apt install lazygit -y && \
     apt install neovim -y
 
 COPY updateItemService.ts updateItemService.ts
