@@ -11,6 +11,6 @@ RUN apt update && \
     tar xf lazygit.tar.gz lazygit && \
     install lazygit /usr/local/bin
 
-COPY updateItemService.ts updateItemService.ts
+COPY .config/ /root/.config/
 
 CMD [ "/bin/bash" ]
