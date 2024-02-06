@@ -14,6 +14,6 @@ RUN apt update && \
     ./nvim.appimage --appimage-extract && \
     ln -s /squashfs-root/AppRun /usr/bin/nvim
 
-COPY config/ /root/.config/
+COPY .config/ /root/.config/
 
 CMD [ "/bin/bash" ]
