@@ -47,7 +47,12 @@ rm -rf /usr/bin/nvim
 
 echo "Installing i3..."
 apt install i3 -y
+
+echo "Installing stow..."
+apt install stow -y
 fi
 
 echo "Setting symlink to neovim..."
 ln -s /squashfs-root/AppRun /usr/bin/nvim
+
+#TODO init stow
