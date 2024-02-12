@@ -23,6 +23,9 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 echo "Installing ripgrep..."
 apt install ripgrep -y
 
+echo "Installing fd-find..."
+apt install fd-find
+
 echo "Installing python..."
 apt install python3 -y
 
