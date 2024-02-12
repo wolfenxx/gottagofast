@@ -20,6 +20,9 @@ apt install tmux -y
 echo "Installing tmux plugin manager..."
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
+echo "Installing ripgrep..."
+apt install ripgrep -y
+
 echo "Installing python..."
 apt install python3 -y
 
