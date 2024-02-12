@@ -194,3 +194,6 @@ bar {
 
 assign [class="Gnome-terminal"] $ws1
 exec gnome-terminal -e tmux
+
+assign [class="Google-chrome"] $ws2
+exec google-chrome
