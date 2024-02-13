@@ -1,0 +1,8 @@
+\.git
+\.gitignore
+Dockerfile
+setup.sh
+
+^/README.*
+^/LICENSE.*
+^/COPYING
