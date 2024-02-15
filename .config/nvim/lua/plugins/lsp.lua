@@ -9,7 +9,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = {"lua_ls", "csharp_ls", "tsserver", "pyright"}			
+				ensure_installed = {"lua_ls", "tsserver", "pyright"}
 			})
 		end
 	},
@@ -18,7 +18,6 @@ return {
 		config = function()
 			local lspconfig = require("lspconfig")
 			lspconfig.lua_ls.setup({})
-			lspconfig.csharp_ls.setup({})
 			lspconfig.tsserver.setup({})
 			lspconfig.pyright.setup({})
 
