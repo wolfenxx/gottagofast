@@ -35,6 +35,9 @@ apt install jq -y
 echo "Installing python..."
 apt install python3 -y
 
+echo "Installing dotnet sdk..."
+apt install dotnet-sdk-8.0 -y
+
 echo "Installing nodejs..."
 curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
 apt install -y nodejs
