@@ -25,5 +25,8 @@ return {
 			vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
 			vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {})
 		end
+	},
+	{
+		"OmniSharp/omnisharp-vim"
 	}
 }

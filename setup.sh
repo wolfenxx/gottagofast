@@ -38,6 +38,12 @@ apt install python3 -y
 echo "Installing dotnet sdk..."
 apt install dotnet-sdk-8.0 -y
 
+echo "Installing aspnetcore runtime..."
+apt install aspnetcore-runtime-8.0 -y
+
+echo "Installing dotnet runtime..."
+apt install dotnet-runtime-8.0 -y
+
 echo "Installing nodejs..."
 curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
 apt install -y nodejs
