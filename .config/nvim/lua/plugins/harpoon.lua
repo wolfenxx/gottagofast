@@ -9,15 +9,15 @@ return {
 		-- commented out to use with telescope instead
 		--vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
 
-		vim.keymap.set("n", "<C-h>", function() harpoon:list():select(1) end)
-		vim.keymap.set("n", "<C-j>", function() harpoon:list():select(2) end)
-		vim.keymap.set("n", "<C-k>", function() harpoon:list():select(3) end)
-		vim.keymap.set("n", "<C-l>", function() harpoon:list():select(4) end)
+		vim.keymap.set("n", "<C-y>", function() harpoon:list():select(1) end)
+		vim.keymap.set("n", "<C-u>", function() harpoon:list():select(2) end)
+		vim.keymap.set("n", "<C-i>", function() harpoon:list():select(3) end)
+		vim.keymap.set("n", "<C-o>", function() harpoon:list():select(4) end)
 
-		vim.keymap.set("n", "<leader>hh", function() harpoon:list():removeAt(1) end)
-		vim.keymap.set("n", "<leader>jj", function() harpoon:list():removeAt(2) end)
-		vim.keymap.set("n", "<leader>kk", function() harpoon:list():removeAt(3) end)
-		vim.keymap.set("n", "<leader>ll", function() harpoon:list():removeAt(4) end)
+		vim.keymap.set("n", "<leader>yy", function() harpoon:list():removeAt(1) end)
+		vim.keymap.set("n", "<leader>uu", function() harpoon:list():removeAt(2) end)
+		vim.keymap.set("n", "<leader>ii", function() harpoon:list():removeAt(3) end)
+		vim.keymap.set("n", "<leader>oo", function() harpoon:list():removeAt(4) end)
 
 		-- Toggle previous & next buffers stored within Harpoon list
 		vim.keymap.set("n", "<C-S-P>", function() harpoon:list():prev() end)
