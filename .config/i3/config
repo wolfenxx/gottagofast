@@ -196,5 +196,4 @@ bar {
 bindsym $mod+Ctrl+greater move workspace to output right
 bindsym $mod+Ctrl+less move workspace to output left
 
-assign [class="Gnome-terminal"] $ws1
-exec gnome-terminal -e tmux
+exec --no-startup-id i3-msg "workspace 1: Terminal; exec gnome-terminal -e tmux"
