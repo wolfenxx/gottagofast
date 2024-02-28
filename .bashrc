@@ -96,7 +96,7 @@ alias l='ls -CF'
 alias lg='lazygit'
 
 # general aliases
-alias sd='shutdown'
+alias sd='shutdown 0'
 alias rs='reboot'
 alias bk='cd ..'
 
