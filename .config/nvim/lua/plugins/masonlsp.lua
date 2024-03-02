@@ -45,7 +45,7 @@ return {
 
 			local opts = { noremap = true, silent = true }
 			local on_attach = function(client, bufnr)
-				opts.bufnr = bufnr
+				opts.buffer = bufnr
 
 				vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
 				vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
@@ -53,8 +53,8 @@ return {
 				vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
 				vim.keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
 				vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, opts)
-				vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, {})
-				vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
+				vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+				vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 			end
 
 			lspconfig.lua_ls.setup({
