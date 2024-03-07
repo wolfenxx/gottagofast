@@ -28,6 +28,7 @@ return {
 					"prettierd",
 					"stylua",
 					"eslint_d",
+					"csharpier",
 				},
 			})
 		end,
