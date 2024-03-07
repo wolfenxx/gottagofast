@@ -99,7 +99,7 @@ alias lg='lazygit'
 alias sd='shutdown 0'
 alias rs='reboot'
 alias bk='cd ..'
-alias hm='cd ~'
+alias hd='cd ~'
 alias gg='cd ~/repos/gottagofast'
 alias pr='cd ~/projects'
 
