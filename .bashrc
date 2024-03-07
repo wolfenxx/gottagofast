@@ -99,6 +99,9 @@ alias lg='lazygit'
 alias sd='shutdown 0'
 alias rs='reboot'
 alias bk='cd ..'
+alias hm='cd ~'
+alias gg='cd ~/repos/gottagofast'
+alias pr='cd ~/projects'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
