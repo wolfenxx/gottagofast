@@ -66,6 +66,10 @@ curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
 chmod u+x nvim.appimage
 ./nvim.appimage --appimage-extract
 
+echo "Installing netcoredbg..."
+cp -r netcoredbg /usr/local/bin/
+chmod 744 /usr/local/bin/netcoredbg/*
+
 if [ -z "$IS_DOCKER" ] || [ "$IS_DOCKER" != "true"]; then
 echo “Moving squashfs-root to root directory...”
 mv squashfs-root /
