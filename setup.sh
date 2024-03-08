@@ -68,7 +68,7 @@ chmod u+x nvim.appimage
 
 echo "Installing netcoredbg..."
 cp -r netcoredbg /usr/local/bin/
-chmod 744 /usr/local/bin/netcoredbg/*
+chmod 777 /usr/local/bin/netcoredbg/*
 
 if [ -z "$IS_DOCKER" ] || [ "$IS_DOCKER" != "true"]; then
 echo “Moving squashfs-root to root directory...”
