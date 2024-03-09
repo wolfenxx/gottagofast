@@ -70,6 +70,9 @@ echo "Installing netcoredbg..."
 cp -r netcoredbg /usr/local/bin/
 chmod 777 /usr/local/bin/netcoredbg/*
 
+echo "Installing atuin..."
+/bin/bash -c "$(curl --proto '=https' --tlsv1.2 -sSf https://setup.atuin.sh)"
+
 if [ -z "$IS_DOCKER" ] || [ "$IS_DOCKER" != "true"]; then
 echo “Moving squashfs-root to root directory...”
 mv squashfs-root /
