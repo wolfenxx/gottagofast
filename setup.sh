@@ -66,12 +66,25 @@ curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
 chmod u+x nvim.appimage
 ./nvim.appimage --appimage-extract
 
+echo "Installing homebrew..."
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+echo "Installing gcc..."
+brew install gcc
+
 echo "Installing netcoredbg..."
 cp -r netcoredbg /usr/local/bin/
 chmod 777 /usr/local/bin/netcoredbg/*
 
-echo "Installing atuin..."
-/bin/bash -c "$(curl --proto '=https' --tlsv1.2 -sSf https://setup.atuin.sh)"
+echo "Installing silicon..."
+apt install expat -y
+apt install libxml2-dev -y
+apt install pkg-config libasound2-dev libssl-dev cmake libfreetype6-dev libexpat1-dev libxcb-composite0-dev libharfbuzz-dev -y
+brew install silicon
+
+echo "Installing JetBrains fonts..."
+apt install fonts-jetbrains-mono
 
 if [ -z "$IS_DOCKER" ] || [ "$IS_DOCKER" != "true"]; then
 echo “Moving squashfs-root to root directory...”
