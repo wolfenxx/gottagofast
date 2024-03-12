@@ -4,61 +4,61 @@ return {
 		vim.api.nvim_create_augroup("omnisharp", { clear = true })
 		vim.api.nvim_create_autocmd("FileType", {
 			group = "omnisharp",
-			command = "nmap <silent> <buffer> <Leader>osgd <Plug>(omnisharp_go_to_definition)",
+			command = "nmap <silent> <buffer> <Leader>gd <Plug>(omnisharp_go_to_definition)",
 			pattern = "cs",
 		})
 		vim.api.nvim_create_autocmd("FileType", {
 			group = "omnisharp",
-			command = "nmap <silent> <buffer> <Leader>osfu <Plug>(omnisharp_find_usages)",
+			command = "nmap <silent> <buffer> <Leader>fu <Plug>(omnisharp_find_usages)",
 			pattern = "cs",
 		})
 		vim.api.nvim_create_autocmd("FileType", {
 			group = "omnisharp",
-			command = "nmap <silent> <buffer> <Leader>osfi <Plug>(omnisharp_find_implementations)",
+			command = "nmap <silent> <buffer> <Leader>fi <Plug>(omnisharp_find_implementations)",
 			pattern = "cs",
 		})
 		vim.api.nvim_create_autocmd("FileType", {
 			group = "omnisharp",
-			command = "nmap <silent> <buffer> <Leader>ospd <Plug>(omnisharp_preview_definition)",
+			command = "nmap <silent> <buffer> <Leader>pd <Plug>(omnisharp_preview_definition)",
 			pattern = "cs",
 		})
 		vim.api.nvim_create_autocmd("FileType", {
 			group = "omnisharp",
-			command = "nmap <silent> <buffer> <Leader>ospi <Plug>(omnisharp_preview_implementations)",
+			command = "nmap <silent> <buffer> <Leader>pi <Plug>(omnisharp_preview_implementations)",
 			pattern = "cs",
 		})
 		vim.api.nvim_create_autocmd("FileType", {
 			group = "omnisharp",
-			command = "nmap <silent> <buffer> <Leader>ostl <Plug>(omnisharp_type_lookup)",
+			command = "nmap <silent> <buffer> <Leader>tl <Plug>(omnisharp_type_lookup)",
 			pattern = "cs",
 		})
 		vim.api.nvim_create_autocmd("FileType", {
 			group = "omnisharp",
-			command = "nmap <silent> <buffer> <Leader>osdc <Plug>(omnisharp_documentation)",
+			command = "nmap <silent> <buffer> <Leader>dc <Plug>(omnisharp_documentation)",
 			pattern = "cs",
 		})
 		vim.api.nvim_create_autocmd("FileType", {
 			group = "omnisharp",
-			command = "nmap <silent> <buffer> <Leader>osfs <Plug>(omnisharp_find_symbol)",
+			command = "nmap <silent> <buffer> <Leader>fs <Plug>(omnisharp_find_symbol)",
 			pattern = "cs",
 		})
 		vim.api.nvim_create_autocmd("FileType", {
 			group = "omnisharp",
-			command = "nmap <silent> <buffer> <Leader>osfx <Plug>(omnisharp_fix_usings)",
+			command = "nmap <silent> <buffer> <Leader>fx <Plug>(omnisharp_fix_usings)",
 			pattern = "cs",
 		})
 
 		-- Find all code errors/warnings for the current solution and populate the quickfix window
 		vim.api.nvim_create_autocmd("FileType", {
 			group = "omnisharp",
-			command = "nmap <silent> <buffer> <Leader>osgcc <Plug>(omnisharp_global_code_check)",
+			command = "nmap <silent> <buffer> <Leader>gcc <Plug>(omnisharp_global_code_check)",
 			pattern = "cs",
 		})
 
 		-- Contextual code actions (uses fzf, vim-clap, CtrlP or unite.vim selector when available)
 		vim.api.nvim_create_autocmd("FileType", {
 			group = "omnisharp",
-			command = "nmap <silent> <buffer> <Leader>osca <Plug>(omnisharp_code_actions)",
+			command = "nmap <silent> <buffer> <Leader>ca <Plug>(omnisharp_code_actions)",
 			pattern = "cs",
 		})
 
@@ -69,7 +69,7 @@ return {
 		})
 		vim.api.nvim_create_autocmd("FileType", {
 			group = "omnisharp",
-			command = "nmap <silent> <buffer> <Leader>osnm <Plug>(omnisharp_rename)",
+			command = "nmap <silent> <buffer> <Leader>rn <Plug>(omnisharp_rename)",
 			pattern = "cs",
 		})
 		vim.api.nvim_create_autocmd("FileType", {
