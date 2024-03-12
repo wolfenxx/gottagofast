@@ -10,9 +10,9 @@ return {
 		config = function()
 			require("mason-lspconfig").setup({
 				ensure_installed = {
-					"lua_ls",
-					"tsserver",
-					"pyright",
+					"lua_ls", -- language server
+					"tsserver", -- language server
+					"pyright", -- language server
 				},
 			})
 		end,
@@ -24,11 +24,11 @@ return {
 
 			installer.setup({
 				ensure_installed = {
-					"prettier",
-					"prettierd",
-					"stylua",
-					"eslint_d",
-					"csharpier",
+					"prettier", -- formatter
+					"prettierd", -- formatter
+					"stylua", -- formatter
+					"eslint_d", -- linter
+					"csharpier", -- formatter
 				},
 			})
 		end,

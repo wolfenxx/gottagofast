@@ -34,12 +34,12 @@ return {
 		})
 		vim.api.nvim_create_autocmd("FileType", {
 			group = "omnisharp",
-			command = "nmap <silent> <buffer> <Leader>dc <Plug>(omnisharp_documentation)",
+			command = "nmap <silent> <buffer> <Leader>doc <Plug>(omnisharp_documentation)",
 			pattern = "cs",
 		})
 		vim.api.nvim_create_autocmd("FileType", {
 			group = "omnisharp",
-			command = "nmap <silent> <buffer> <Leader>fs <Plug>(omnisharp_find_symbol)",
+			command = "nmap <silent> <buffer> <Leader>fsy <Plug>(omnisharp_find_symbol)",
 			pattern = "cs",
 		})
 		vim.api.nvim_create_autocmd("FileType", {
