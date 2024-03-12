@@ -45,11 +45,11 @@ echo "Installing dotnet runtime..."
 apt install dotnet-runtime-8.0 -y
 
 echo "Installing mono runtime..."
-apt install ca-certificates gnupg
+apt install ca-certificates gnupg -y
 gpg --homedir /tmp --no-default-keyring --keyring /usr/share/keyrings/mono-official-archive-keyring.gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
 echo "deb [signed-by=/usr/share/keyrings/mono-official-archive-keyring.gpg] https://download.mono-project.com/repo/ubuntu stable-focal main" | sudo tee /etc/apt/sources.list.d/mono-official-stable.list
 apt update
-apt install mono-devel
+apt install mono-devel -y
 
 echo "Installing nodejs..."
 curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
@@ -67,7 +67,7 @@ chmod u+x nvim.appimage
 ./nvim.appimage --appimage-extract
 
 echo "Installing homebrew..."
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+yes | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 echo "Installing gcc..."
