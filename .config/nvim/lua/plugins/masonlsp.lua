@@ -30,6 +30,11 @@ return {
 					"stylua", -- formatter
 					"eslint_d", -- linter
 					"csharpier", -- formatter
+					"mypy", -- static typing analysis
+					"ruff", -- linter
+					"isort", -- formatter
+					"black", -- formatter
+					"debugpy", -- debug adapter
 				},
 			})
 		end,
@@ -62,6 +67,7 @@ return {
 			lspconfig.lua_ls.setup({
 				capabilities = capabilities,
 				on_attach = on_attach,
+				filetypes = { "lua" },
 				settings = {
 					Lua = {
 						diagnostics = {
@@ -80,11 +86,13 @@ return {
 			lspconfig.tsserver.setup({
 				capabilities = capabilities,
 				on_attach = on_attach,
+				filetypes = { "javascript", "typescript" },
 			})
 
 			lspconfig.pyright.setup({
 				capabilities = capabilities,
 				on_attach = on_attach,
+				filetypes = { "python" },
 			})
 		end,
 	},
