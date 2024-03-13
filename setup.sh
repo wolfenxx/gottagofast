@@ -117,3 +117,6 @@ echo "Setting symlink to neovim..."
 ln -s /squashfs-root/AppRun /usr/bin/nvim
 
 #TODO init stow
+echo "Performing clean up..."
+yes | rm lazygit lazygit.tar.gz nvim.appimage 
+rm -rf squashfs-root/

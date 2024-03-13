@@ -26,6 +26,7 @@ return {
 				ensure_installed = {
 					"prettier", -- formatter
 					"prettierd", -- formatter
+					"js-debug-adapter", -- debug adapter
 					"stylua", -- formatter
 					"eslint_d", -- linter
 					"csharpier", -- formatter
