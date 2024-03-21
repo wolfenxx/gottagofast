@@ -130,3 +130,6 @@ fi
 
 [[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# disable screen saver
+xset s off -dpms
