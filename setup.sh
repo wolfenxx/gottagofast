@@ -34,6 +34,7 @@ apt install jq -y
 
 echo "Installing python..."
 apt install python3 -y
+apt install python3.10-venv -y
 
 echo "Installing dotnet sdk..."
 apt install dotnet-sdk-8.0 -y
