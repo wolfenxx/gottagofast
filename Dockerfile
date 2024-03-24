@@ -4,8 +4,7 @@ COPY .bashrc/ /root/.bashrc
 
 COPY netcoredbg netcoredbg
 
-RUN sed -i -e 's/\r$//' ~/.bashrc && \
-    echo "Updating package list..." && \
+RUN echo "Updating package list..." && \
     apt update && \
     echo "Upgrading packages..." && \
     apt upgrade -y && \
