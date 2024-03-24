@@ -95,6 +95,9 @@ alias l='ls -CF'
 # lazygit aliases
 alias lg='lazygit'
 
+# nvim aliases
+alias nv='nvim .'
+
 # general aliases
 alias sd='shutdown 0'
 alias rs='reboot'
