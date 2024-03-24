@@ -1,7 +1,5 @@
 FROM ubuntu:22.04
 
-COPY .config/ /root/.config/
-
 COPY .bashrc/ /root/.bashrc
 
 COPY netcoredbg netcoredbg
@@ -13,6 +11,8 @@ RUN sed -i -e 's/\r$//' ~/.bashrc && \
     apt upgrade -y && \
     echo "Installing build essentials..." && \
     apt install build-essential -y && \
+    echo "Installing x11-xserver-utils..." && \
+    apt install x11-xserver-utils -y && \
     echo "Installing curl..." && \
     apt install curl -y && \
     echo "Installing git..." && \
@@ -73,6 +73,8 @@ RUN sed -i -e 's/\r$//' ~/.bashrc && \
     brew install silicon && \
     echo "Installing JetBrains fonts..." && \
     apt install fonts-jetbrains-mono
+
+COPY .config/ /root/.config/
 
 WORKDIR /root
 

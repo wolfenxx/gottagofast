@@ -8,6 +8,9 @@ apt upgrade -y
 echo "Installing build essentials..."
 apt install build-essential -y
 
+echo "Installing x11-xserver-utils..."
+apt install x11-xserver-utils -y
+
 echo "Installing curl..."
 apt install curl -y
 
@@ -66,6 +69,9 @@ echo "Installing neovim..."
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
 chmod u+x nvim.appimage
 ./nvim.appimage --appimage-extract
+mv squashfs-root /
+rm -rf /usr/bin/nvim
+ln -s /squashfs-root/AppRun /usr/bin/nvim
 
 echo "Installing homebrew..."
 yes | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -87,13 +93,6 @@ brew install silicon
 echo "Installing JetBrains fonts..."
 apt install fonts-jetbrains-mono
 
-if [ -z "$IS_DOCKER" ] || [ "$IS_DOCKER" != "true"]; then
-echo “Moving squashfs-root to root directory...”
-mv squashfs-root /
-
-echo "Removing existing nvim directory..."
-rm -rf /usr/bin/nvim
-
 echo "Installing i3..."
 apt install i3 -y
 
@@ -112,10 +111,6 @@ echo \
   tee /etc/apt/sources.list.d/docker.list > /dev/null
 	apt update
 	apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
-fi
-
-echo "Setting symlink to neovim..."
-ln -s /squashfs-root/AppRun /usr/bin/nvim
 
 #TODO init stow
 echo "Performing clean up..."
