@@ -64,6 +64,10 @@ return {
 
 							["ac"] = { query = "@class.outer" },
 							["ic"] = { query = "@class.inner" },
+							-- to add
+							-- @block
+							-- @comment
+							-- @return
 						},
 					},
 					swap = {
