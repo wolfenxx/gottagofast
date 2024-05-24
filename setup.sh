@@ -5,6 +5,15 @@ apt update
 echo "Upgrading packages..."
 apt upgrade -y
 
+echo "Installing bat..."
+apt install bat -y
+
+echo "Installing eza..."
+wget -c https://github.com/eza-community/eza/releases/latest/download/eza_x86_64-unknown-linux-gnu.tar.gz -O - | tar xz
+chmod +x eza
+chown root:root eza
+mv eza /usr/local/bin/eza
+
 echo "Installing build essentials..."
 apt install build-essential -y
 
