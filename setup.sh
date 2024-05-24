@@ -89,6 +89,12 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 echo "Installing gcc..."
 brew install gcc
 
+echo "Installing difftastic..."
+brew install difftastic
+
+echo "Installing jless..."
+brew install jless
+
 echo "Installing netcoredbg..."
 cp -r netcoredbg /usr/local/bin/
 chmod 777 /usr/local/bin/netcoredbg/*

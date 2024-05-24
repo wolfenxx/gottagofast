@@ -107,6 +107,9 @@ alias gg='cd ~/repos/gottagofast'
 alias pr='cd ~/projects'
 alias cl='clear'
 alias cat='batcat'
+alias ls='eza'
+alias ll='eza -alh'
+alias tree='eza --tree'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
