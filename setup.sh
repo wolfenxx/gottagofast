@@ -74,6 +74,9 @@ curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/lates
 tar xf lazygit.tar.gz lazygit
 install lazygit /usr/local/bin
 
+echo "Installing lazydocker..."
+brew install jesseduffield/lazydocker/lazydocker
+
 echo "Installing neovim..."
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
 chmod u+x nvim.appimage
