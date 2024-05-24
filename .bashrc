@@ -94,6 +94,7 @@ alias l='ls -CF'
 
 # lazygit aliases
 alias lg='lazygit'
+alias ldr='lazydocker'
 
 # nvim aliases
 alias nv='nvim .'
