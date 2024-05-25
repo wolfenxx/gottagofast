@@ -87,11 +87,6 @@ fi
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-
 # lazygit aliases
 alias lg='lazygit'
 alias ldr='lazydocker'
@@ -111,6 +106,8 @@ alias cat='batcat'
 alias ls='eza'
 alias ll='eza -alh'
 alias tree='eza --tree'
+alias fe='yazi'
+alias cd='z'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -138,6 +135,7 @@ fi
 
 [[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+eval "$(zoxide init bash)"
 
 # disable screen saver
 xset s off -dpms

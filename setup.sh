@@ -98,6 +98,13 @@ brew install difftastic
 echo "Installing jless..."
 brew install jless
 
+echo "Installing yazi..."
+brew install yazi ffmpegthumbnailer unar poppler fd
+brew tap homebrew/cask-fonts && brew install --cask font-symbols-only-nerd-font
+
+echo "Installing zoxide..."
+brew install zoxide
+
 echo "Installing netcoredbg..."
 cp -r netcoredbg /usr/local/bin/
 chmod 777 /usr/local/bin/netcoredbg/*
@@ -131,7 +138,13 @@ echo \
 groupadd docker
 usermod -aG docker $USER
 
-#TODO init stow
+echo "Installing btop..."
+sh ./btop/install.sh
+sh ./btop/setuid.sh
+
+echo "Initializing stow..."
+stow -d .config -t ~/.config .
+
 echo "Performing clean up..."
 yes | rm lazygit lazygit.tar.gz nvim.appimage 
 rm -rf squashfs-root/
