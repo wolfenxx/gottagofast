@@ -143,7 +143,7 @@ sh ./btop/install.sh
 sh ./btop/setuid.sh
 
 echo "Initializing stow..."
-stow -d .config -t ~/.config .
+stow -d $(pwd)/.config -t ~/.config .
 
 echo "Performing clean up..."
 yes | rm lazygit lazygit.tar.gz nvim.appimage 
