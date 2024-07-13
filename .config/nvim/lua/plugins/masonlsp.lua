@@ -13,6 +13,7 @@ return {
 					"lua_ls", -- language server
 					"tsserver", -- language server
 					"pyright", -- language server
+					"clangd", -- language server
 				},
 			})
 		end,
@@ -34,7 +35,9 @@ return {
 					"ruff", -- linter
 					"isort", -- formatter
 					"black", -- formatter
-					"debugpy", -- debug adapter
+					"debugpy", -- debug adapter for python
+					"clang-format", -- formatter
+					"codelldb", -- debug adapter for cpp
 				},
 			})
 		end,
@@ -93,6 +96,12 @@ return {
 				capabilities = capabilities,
 				on_attach = on_attach,
 				filetypes = { "python" },
+			})
+
+			lspconfig.clangd.setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+				filetypes = { "cpp" },
 			})
 		end,
 	},

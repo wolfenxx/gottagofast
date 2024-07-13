@@ -17,6 +17,7 @@ return {
 					"dockerfile",
 					"python",
 					"c_sharp",
+					"cpp",
 				},
 				incremental_selection = {
 					enable = true,

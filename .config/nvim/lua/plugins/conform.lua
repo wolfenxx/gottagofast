@@ -13,6 +13,7 @@ return {
 				javascript = { { "prettierd", "prettier" } },
 				typescript = { { "prettierd", "prettier" } },
 				cs = { "csharpier" },
+				cpp = { "clang_format" },
 			},
 			format_on_save = {
 				lsp_fallback = true,

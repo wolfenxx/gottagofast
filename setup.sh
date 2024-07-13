@@ -24,6 +24,9 @@ apt install build-essential -y
 echo "Installing x11-xserver-utils..."
 apt install x11-xserver-utils -y
 
+# C and C++ compiler
+apt install clang -y
+
 # HTTP requests
 echo "Installing curl..."
 apt install curl -y

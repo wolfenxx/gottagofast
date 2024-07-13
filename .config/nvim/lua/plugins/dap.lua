@@ -13,6 +13,16 @@ return {
 		end,
 	},
 	{
+		"jay-babu/mason-nvim-dap.nvim",
+		dependencies = {
+			"williamboman/mason.nvim",
+			"mfussenegger/nvim-dap",
+		},
+		config = function()
+			require("mason-nvim-dap").setup()
+		end,
+	},
+	{
 		"mfussenegger/nvim-dap",
 		dependencies = {
 			"rcarriga/nvim-dap-ui",
@@ -72,6 +82,32 @@ return {
 					program = function()
 						return vim.fn.input("Path to dll", vim.fn.getcwd() .. "/bin/Debug/", "file")
 					end,
+				},
+			}
+
+			-- C++
+			dap.adapters.codelldb = {
+				type = "server",
+				host = "127.0.0.1",
+				port = 8123,
+				executable = {
+					command = "codelldb",
+					args = {
+						"--port",
+						"8123",
+					},
+				},
+			}
+
+			dap.configurations.cpp = {
+				{
+					type = "codelldb",
+					request = "launch",
+					program = function()
+						return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+					end,
+					cwd = "${workspaceFolder}",
+					terminal = "console",
 				},
 			}
 
