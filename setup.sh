@@ -167,12 +167,6 @@ echo "Installing btop..."
 sh ./btop/install.sh
 sh ./btop/setuid.sh
 
-echo "Establishing symbolic links..."
-ln -sd $(pwd)/.config/nvim ~/.config/nvim
-ln -s $(pwd)/.bashrc ~/.bashrc
-ln -sd $(pwd)/.config/i3 ~/.config/i3
-ln -sd $(pwd)/.config/tmux ~/.config/tmux
-
 echo "Performing clean up..."
 yes | rm lazygit lazygit.tar.gz nvim.appimage 
 rm -rf squashfs-root/
