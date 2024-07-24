@@ -17,12 +17,21 @@
     );
     in
     {
-      nixosConfigurations.vm = nixpkgs.lib.nixosSystem {
-	      pkgs = legacyPackages.${system};
-	      # specialArgs = { inherit pkgs; };
-	      modules = [
+      # nixosConfigurations.vm = nixpkgs.lib.nixosSystem {
+	    #   pkgs = legacyPackages.${system};
+	    #   # specialArgs = { inherit pkgs; };
+	    #   modules = [
+	    #     ./configuration.nix
+	    #   ];
+      # };
+
+      nixosConfigurations = {
+        vm = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
 	        ./configuration.nix
-	      ];
+	        ];
+        };
       };
     };
 }
