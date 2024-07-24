@@ -17,7 +17,7 @@
     );
     in
     {
-      vm = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.vm = nixpkgs.lib.nixosSystem {
 	      pkgs = legacyPackages.${system};
 	      # specialArgs = { inherit pkgs; };
 	      modules = [
