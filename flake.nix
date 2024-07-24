@@ -17,8 +17,6 @@
     );
     in
     {
-      packages.${system}.default = legacyPackages.${system};
-      
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
 	      pkgs = legacyPackages.${system};
 	      # specialArgs = { inherit pkgs; };
