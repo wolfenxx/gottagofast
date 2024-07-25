@@ -18,10 +18,11 @@
     in
     {
       nixosConfigurations = {
-        vm = nixpkgs.lib.nixosSystem {
+        vm-desktop = nixpkgs.lib.nixosSystem {
           inherit system;
           pkgs = legacyPackages.${system};
           modules = [
+            ./nixos/hardware-configuration/vm-desktop-hardware.nix
 	          ./configuration.nix
 	        ];
         };
