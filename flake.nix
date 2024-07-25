@@ -1,10 +1,6 @@
 {
   description = "NixOS Flake";
-
-  inputs = {
-    nixpkgs.url = "nixpkgs/nixos-24.05";
-  };
-
+  inputs.nixpkgs.url = "nixpkgs/nixos-24.05";
   outputs = { self, nixpkgs, ... }@inputs: 
     let
       system = "x86_64-linux";
@@ -18,6 +14,13 @@
     in
     {
       nixosConfigurations = {
+        default = nixpkgs.lib.nixosSystem {
+          inherit system;
+          pkgs = legacyPackages.${system};
+          modules = [
+	          ./configuration.nix
+	        ];
+        };
         vm-desktop = nixpkgs.lib.nixosSystem {
           inherit system;
           pkgs = legacyPackages.${system};
@@ -26,7 +29,6 @@
 	          ./configuration.nix
 	        ];
         };
-
         desktop = nixpkgs.lib.nixosSystem {
           inherit system;
           pkgs = legacyPackages.${system};
