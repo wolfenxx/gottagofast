@@ -48,10 +48,11 @@
         };
       };
 
-      packages.${system}.default = pkgs.writeShellApplication {
-        name = "install";
-        runtimeInputs = with pkgs; [ git ];
-        text = ''${./install.sh} "$@"'';
-      }
+      packages.${system}.default = {
+        install = pkgs.writeShellApplication {
+          name = "install";
+          runtimeInputs = with pkgs; [ git ];
+          text = ''${./install.sh} "$@"'';
+      };
     };
 }
