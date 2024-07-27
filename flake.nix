@@ -69,8 +69,8 @@
           install = pkgs.writeShellApplication {
             name = "install";
             runtimeInputs = with pkgs; [ git ]; # I could make this fancier by adding other deps
-	    text = builtins.readFile ./configure.sh;
-            #text = ''${./configure.sh} "$@"'';
+	    #text = builtins.readFile ./configure.sh;
+            text = ''${./install.sh} "$@"'';
           };
         });
 
