@@ -54,6 +54,6 @@
           runtimeInputs = with pkgs; [ git ];
           text = ''${./install.sh} "$@"'';
       };
-    }
-  }
+    };
+  };
 }
