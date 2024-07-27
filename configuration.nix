@@ -78,6 +78,7 @@
     isNormalUser = true;
     description = userSettings.username;
     extraGroups = [ "networkmanager" "wheel" "docker" ];
+    uid = 1000;
     packages = with pkgs; [
     #  thunderbird
     ];
