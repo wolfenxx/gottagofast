@@ -72,5 +72,14 @@
             text = ''${./configure.sh} "$@"'';
           };
         });
+
+      apps = forAllSystems (system: {
+        default = self.apps.${system}.install;
+
+        install = {
+          type = "app";
+          program = "${self.packages.${system}.install}/bin/install";
+        };
+      });
     };
 }
