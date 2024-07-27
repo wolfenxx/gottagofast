@@ -1,18 +1,27 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, systemSettings, userSettings, ... }:
 
 {
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = systemSettings.hostname; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
+  # Bootloader
+  # Use systemd-boot if uefi, default to grub otherwise
+  boot.loader.systemd-boot.enable = if (systemSettings.bootMode == "uefi") then true else false;
+  boot.loader.efi.canTouchEfiVariables = if (systemSettings.bootMode == "uefi") then true else false;
+  boot.loader.efi.efiSysMountPoint = systemSettings.bootMountPath; # does nothing if running bios rather than uefi
+  boot.loader.grub.enable = if (systemSettings.bootMode == "uefi") then false else true;
+  boot.loader.grub.device = systemSettings.grubDevice; # does nothing if running uefi rather than bios
+  boot.loader.grub.useOSProber = if (systemSettings.bootMode == "uefi") then false else true;
+
   # Enable networking
   networking.networkmanager.enable = true;
 
   # Set your time zone.
-  time.timeZone = "America/Chicago";
+  time.timeZone = systemSettings.timezone;
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -65,9 +74,9 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.wolfen = {
+  users.users.${userSettings.username} = {
     isNormalUser = true;
-    description = "wolfen";
+    description = userSettings.name;
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
     #  thunderbird
