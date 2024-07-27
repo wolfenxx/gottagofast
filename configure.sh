@@ -7,7 +7,7 @@ if [ $# -gt 0 ]
   then
     SCRIPT_DIR=$1
   else
-    SCRIPT_DIR=~/repos
+    SCRIPT_DIR=~/repos/gottagofast
 fi
 nix-shell -p git --command "git clone https://github.com/wolfenxx/gottagofast $SCRIPT_DIR"
 
