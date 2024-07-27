@@ -48,7 +48,7 @@
         };
       };
 
-      packages.${system}.default = {
+      packages.${systemSettings.system}.default = {
         install = pkgs.writeShellApplication {
           name = "install";
           runtimeInputs = with pkgs; [ git ];
