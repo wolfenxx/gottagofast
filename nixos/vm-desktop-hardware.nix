@@ -12,9 +12,9 @@
   boot.extraModulePackages = [ ];
 
   # Bootloader
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/sda";
-  boot.loader.grub.useOSProber = true;
+  # boot.loader.grub.enable = true;
+  # boot.loader.grub.device = "/dev/sda";
+  # boot.loader.grub.useOSProber = true;
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/93104f04-8de0-492d-9e51-4cbe2a37300c";

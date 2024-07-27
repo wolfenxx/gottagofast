@@ -23,6 +23,15 @@
         config.allowUnfree = true;
       }
     );
+
+      # Systems that can run tests:
+      supportedSystems = [ "x86_64-linux" ];
+
+      # Function to generate a set based on supported systems:
+      forAllSystems = inputs.nixpkgs.lib.genAttrs supportedSystems;
+
+      # Attribute set of nixpkgs for each system:
+      nixpkgsFor = forAllSystems (system: import inputs.nixpkgs { inherit system; });
     in
     {
       nixosConfigurations = {
@@ -31,8 +40,8 @@
           pkgs = legacyPackages.${systemSettings.system};
           modules = [
             ./nixos/hardware-configuration.nix
-	          ./configuration.nix
-	        ];
+	    ./configuration.nix
+	  ];
           specialArgs = {
             inherit systemSettings;
             inherit userSettings;
@@ -43,17 +52,25 @@
           pkgs = legacyPackages.${systemSettings.system};
           modules = [
             ./nixos/vm-desktop-hardware.nix
-	          ./configuration.nix
-	        ];
+	    ./configuration.nix
+	  ];
+          specialArgs = {
+            inherit systemSettings;
+            inherit userSettings;
+          };
         };
       };
 
-      packages.${systemSettings.system}.default = {
-        install = pkgs.writeShellApplication {
-          name = "install";
-          runtimeInputs = with pkgs; [ git ];
-          text = ''${./install.sh} "$@"'';
-        };
-      };
+      packages = forAllSystems (system:
+        let pkgs = nixpkgsFor.${system};
+        in {
+          default = self.packages.${system}.install;
+
+          install = pkgs.writeShellApplication {
+            name = "install";
+            runtimeInputs = with pkgs; [ git ]; # I could make this fancier by adding other deps
+            text = ''${./configure.sh} "$@"'';
+          };
+        });
     };
 }

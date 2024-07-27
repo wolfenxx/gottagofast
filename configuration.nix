@@ -92,7 +92,7 @@
   systemd.services."autovt@tty1".enable = false;
 
   # Install firefox.
-  programs.firefox.enable = true;
+  # programs.firefox.enable = true;
   
   # Install chromium extensions
   programs.chromium.extensions = [
