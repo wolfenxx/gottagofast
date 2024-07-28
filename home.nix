@@ -59,6 +59,7 @@ in
      #dotnet-runtime_8
      #dotnet-aspnetcore_8	
      unzip
+     kitty
   ];
 
   programs.bash = {
