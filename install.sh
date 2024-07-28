@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Automated script to install my dotfiles
 
