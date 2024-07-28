@@ -70,7 +70,7 @@
             name = "install";
             runtimeInputs = with pkgs; [ git ]; # I could make this fancier by adding other deps
             text = ''
-	      chmod +x ./install.sh
+	      chmod +rwx ./install.sh
 	      ${./install.sh} "$@"
 	    '';
           };
