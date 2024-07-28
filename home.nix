@@ -58,6 +58,11 @@ in
     shellAliases = shellAliases;
   };
 
+  programs.bat = {
+    enable = true;
+    package = pkgs.bat;
+  };
+  
   programs.chromium = {
     enable = true;
     package = pkgs.brave;
