@@ -35,25 +35,12 @@
     in
     {
       nixosConfigurations = {
-        default = nixpkgs.lib.nixosSystem {
+        system = lib.nixosSystem {
           system = systemSettings.system;
-          pkgs = legacyPackages.${systemSettings.system};
           modules = [
             ./nixos/hardware-configuration.nix
-	    ./configuration.nix
-	  ];
-          specialArgs = {
-            inherit systemSettings;
-            inherit userSettings;
-          };
-        };
-        vm = nixpkgs.lib.nixosSystem {
-          system = systemSettings.system;
-          pkgs = legacyPackages.${systemSettings.system};
-          modules = [
-            ./nixos/vm-desktop-hardware.nix
-	    ./configuration.nix
-	  ];
+            ./configuration.nix
+          ];
           specialArgs = {
             inherit systemSettings;
             inherit userSettings;
