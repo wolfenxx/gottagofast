@@ -92,23 +92,6 @@
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
 
-  # Shell aliases
-  environment.interactiveShellInit = ''
-    alias sd='shutdown 0'
-    alias rs='reboot'
-    alias bk='cd ..'
-    alias hd='cd ~'
-    alias gg='cd ~/repos/gottagofast'
-    alias pr='cd ~/projects'
-    alias cl='clear'
-    alias bat='batcat'
-    alias cat='batcat'
-    alias ls='eza'
-    alias ll='eza -alh'
-    alias tree='eza --tree'
-    alias fe='yazi'
-  '';
-
   # Enable virtualization for Docker daemon
   virtualisation.docker.enable = true;
 

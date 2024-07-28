@@ -1,5 +1,21 @@
 { config, pkgs, userSettings, ... }:
-
+let
+  shellAliases = {
+    sd = "shutdown 0";
+    rs = "reboot";
+    bk = "cd ..";
+    hd = "cd ~";
+    gg = "cd ~/repos/gottagofast";
+    pr = "cd ~/projects";
+    cl = "clear";
+    bat = "batcat";
+    cat = "batcat";
+    ls = "eza";
+    ll = "eza -alh";
+    tree = "eza --tree";
+    fe = "yazi";
+  };
+in
 {
   home.username = userSettings.username;
   home.homeDirectory = "/home/"+userSettings.username;
@@ -32,6 +48,12 @@
      silicon
      btop
   ];
+
+  programs.bash = {
+    enable = true;
+    enableCompletion = true;
+    shellAliases = shellAliases;
+  };
 
   programs.chromium = {
     enable = true;
