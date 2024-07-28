@@ -69,15 +69,7 @@
           install = pkgs.writeShellApplication {
             name = "install";
             runtimeInputs = with pkgs; [ git ];
-	    buildInputs = with pkgs; [ coreutils ];
-            text = ''
-	      ${./install.sh} "$@"
-	    '';
-	    shellHook = ''
-	      echo "setting permission"
-	      chmod +rwx ${./install.sh}
-	      ls -l ${./install.sh}
-	    '';
+            text = ''${./install.sh} "$@"'';
           };
         });
 
