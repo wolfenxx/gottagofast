@@ -69,6 +69,7 @@
           install = pkgs.writeShellApplication {
             name = "install";
             runtimeInputs = with pkgs; [ git ];
+	    buildInputs = with pkgs; [ coreutils ];
             text = ''
 	      ${./install.sh} "$@"
 	    '';
