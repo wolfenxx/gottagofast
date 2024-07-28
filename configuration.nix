@@ -132,30 +132,7 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-     neovim
-     git
-     google-chrome
-     i3
-     tmux
-     bat
-     eza
-     curl
-     ripgrep
-     fzf
-     jq
-     python3
-     nodejs_20
-     lazygit
-     lazydocker
-     docker
-     difftastic
-     jless
-     yazi
-     zoxide
-     silicon
-     btop
-  ];
+  environment.systemPackages = with pkgs; [];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   

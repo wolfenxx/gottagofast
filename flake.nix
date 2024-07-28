@@ -1,6 +1,10 @@
 {
   description = "NixOS Flake";
-  inputs.nixpkgs.url = "nixpkgs/nixos-24.05";
+  inputs = {
+    nixpkgs.url = "nixpkgs/nixos-24.05";
+    home-manager.url = "github:nix-community/home-manager/release-24.05";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+  };
   outputs = { self, nixpkgs, ... }@inputs: 
     let
       # ---- SYSTEM SETTINGS ---- #
@@ -23,8 +27,10 @@
       import inputs.nixpkgs {
         system = systemSettings.system;
         config.allowUnfree = true;
-      }
-    );
+       }
+      );
+
+      home-manager = inputs.home-manager;
 
       # Systems that can run tests:
       supportedSystems = [ "x86_64-linux" ];
@@ -36,6 +42,24 @@
       nixpkgsFor = forAllSystems (system: import inputs.nixpkgs { inherit system; });
     in
     {
+      homeConfigurations = {
+        user = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [
+            ./home.nix
+          ];
+          extraSpecialArgs = {
+          # inherit pkgs-stable;
+          # inherit pkgs-emacs;
+          # inherit pkgs-kdenlive;
+          # inherit pkgs-nwg-dock-hyprland;
+          # inherit systemSettings;
+            inherit userSettings;
+          # inherit inputs;
+          };
+        };
+      };
+
       nixosConfigurations = {
         system = nixpkgs.lib.nixosSystem {
           system = systemSettings.system;
