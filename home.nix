@@ -44,12 +44,16 @@ in
      lazygit
      lazydocker
      docker
+		 docker-compose
      difftastic
      jless
      yazi
      zoxide
      silicon
      btop
+		 gcc
+		 gnumake
+		 unzip
   ];
 
   programs.bash = {
@@ -67,4 +71,9 @@ in
       { id = "eimadpbcbfnmbkopoojfekhnkhdbieeh"; } # dark reader
     ];
   };
+
+  home.file = {
+	  ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink ./.config/nvim;
+    ".config/tmux".source = config.lib.file.mkOutOfStoreSymlink ./.config/tmux;
+	};
 }
