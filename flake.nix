@@ -73,7 +73,9 @@
 	      ${./install.sh} "$@"
 	    '';
 	    shellHook = ''
+	      echo "setting permission"
 	      chmod +rwx ${./install.sh}
+	      ls -l ${./install.sh}
 	    '';
           };
         });
