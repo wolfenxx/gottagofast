@@ -35,7 +35,7 @@
     in
     {
       nixosConfigurations = {
-        system = lib.nixosSystem {
+        system = nixpkgs.lib.nixosSystem {
           system = systemSettings.system;
           modules = [
             ./nixos/hardware-configuration.nix
