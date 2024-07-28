@@ -8,8 +8,8 @@ let
     gg = "cd ~/repos/gottagofast";
     pr = "cd ~/projects";
     cl = "clear";
-    bat = "batcat";
-    cat = "batcat";
+    bat = "bat";
+    cat = "bat";
     ls = "eza";
     ll = "eza -alh";
     tree = "eza --tree";
@@ -58,11 +58,6 @@ in
     shellAliases = shellAliases;
   };
 
-  programs.bat = {
-    enable = true;
-    package = pkgs.bat;
-  };
-  
   programs.chromium = {
     enable = true;
     package = pkgs.brave;
