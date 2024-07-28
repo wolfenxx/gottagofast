@@ -92,16 +92,6 @@
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
 
-  # Install firefox.
-  # programs.firefox.enable = true;
-  
-  # Install chromium extensions
-  programs.chromium.extensions = [
-    "eimadpbcbfnmbkopoojfekhnkhdbieeh" # dark reader
-    "cjpalhdlnbpafiamejdnhcphjbkeiagm" # ublock origin
-    "ldgfbffkinooeloadekpmfoklnobpien" # raindrop
-  ];
-
   # Shell aliases
   environment.interactiveShellInit = ''
     alias sd='shutdown 0'
@@ -127,8 +117,6 @@
     enable = true;
     setSocketVariable = true;
   };
-
-  # nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget

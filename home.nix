@@ -11,7 +11,7 @@
   home.packages = with pkgs; [
      neovim
      git
-     google-chrome
+     brave
      i3
      tmux
      bat
@@ -33,12 +33,13 @@
      btop
   ];
 
-  #xdg.enable = true;
-  #xdg.userDirs = {
-  #  extraConfig = {
-  #   XDG_GAME_DIR = "${config.home.homeDirectory}/Media/Games";
-  #    XDG_GAME_SAVE_DIR = "${config.home.homeDirectory}/Media/Game Saves";
-  #  };
-  #};
-
+  programs.chromium = {
+    enable = true;
+    package = pkgs.brave;
+    extensions = [
+      { id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; } # ublock origin
+      { id = "ldgfbffkinooeloadekpmfoklnobpien"; } # raindrop
+      { id = "eimadpbcbfnmbkopoojfekhnkhdbieeh"; } # dark reader
+    ];
+  };
 }
