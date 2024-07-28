@@ -60,6 +60,7 @@ in
      #dotnet-aspnetcore_8	
      unzip
      kitty
+     discord
   ];
 
   programs.bash = {
@@ -77,6 +78,10 @@ in
       { id = "eimadpbcbfnmbkopoojfekhnkhdbieeh"; } # dark reader
     ];
   };
+
+	wayland.windowManager.hyprland = {
+	  enable = true;
+	};
 
   home.file = {
     ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink ./.config/nvim;
