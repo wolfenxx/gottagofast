@@ -22,13 +22,21 @@
         username = "wolfen";
       };
 
-      pkgs = nixpkgs.legacyPackages.${systemSettings.system};
-      legacyPackages = nixpkgs.lib.genAttrs [ systemSettings.system ] (system:
-      import inputs.nixpkgs {
+      # pkgs = nixpkgs.legacyPackages.${systemSettings.system};
+
+      pkgs = import inputs.nixpkgs {
         system = systemSettings.system;
-        config.allowUnfree = true;
-       }
-      );
+	config = {
+	  allowUnfree = true;
+	};
+      };
+
+      #legacyPackages = nixpkgs.lib.genAttrs [ systemSettings.system ] (system:
+      #import inputs.nixpkgs {
+      #  system = systemSettings.system;
+      #  config.allowUnfree = true;
+      # }
+      #);
 
       home-manager = inputs.home-manager;
 
@@ -63,7 +71,7 @@
       nixosConfigurations = {
         system = nixpkgs.lib.nixosSystem {
           system = systemSettings.system;
-          pkgs = legacyPackages.${systemSettings.system};
+          inherit pkgs;
           modules = [
             ./nixos/hardware-configuration.nix
             ./configuration.nix
