@@ -44,16 +44,21 @@ in
      lazygit
      lazydocker
      docker
-		 docker-compose
+     docker-compose
      difftastic
      jless
      yazi
      zoxide
      silicon
      btop
-		 gcc
-		 gnumake
-		 unzip
+     gcc
+     mono
+     gnumake
+     netcoredbg
+     dotnet-sdk_8
+     #dotnet-runtime_8
+     #dotnet-aspnetcore_8	
+     unzip
   ];
 
   programs.bash = {
