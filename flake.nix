@@ -68,10 +68,12 @@
 
           install = pkgs.writeShellApplication {
             name = "install";
-            runtimeInputs = with pkgs; [ git ]; # I could make this fancier by adding other deps
+            runtimeInputs = with pkgs; [ git ];
             text = ''
-	      chmod +rwx ${./install.sh}
 	      ${./install.sh} "$@"
+	    '';
+	    shellHook = ''
+	      chmod +rwx ${./install.sh}
 	    '';
           };
         });
