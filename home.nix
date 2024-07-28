@@ -78,7 +78,7 @@ in
   };
 
   home.file = {
-	  ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink ./.config/nvim;
+    ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink ./.config/nvim;
     ".config/tmux".source = config.lib.file.mkOutOfStoreSymlink ./.config/tmux;
-	};
+  };
 }
