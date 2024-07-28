@@ -14,6 +14,9 @@ let
     ll = "eza -alh";
     tree = "eza --tree";
     fe = "yazi";
+    nv = "nvim .";
+    lg = "lazygit";
+    ldr = "lazydocker";
   };
 in
 {
