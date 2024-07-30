@@ -86,7 +86,7 @@ in
   };
 
   wayland.windowManager.hyprland = {
-    enable = false;
+    enable = true;
   };
 
   home.file = {
