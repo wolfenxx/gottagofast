@@ -67,6 +67,8 @@ in
      rofi-wayland
      grim
      slurp
+     swaylock
+     wlogout
   ];
 
   programs.bash = {
