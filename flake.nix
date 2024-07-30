@@ -23,10 +23,11 @@
         username = "wolfen";
       };
 
-      pkgs = import inputs.nixpkgs { system = systemSettings.system;
-	      config = {
-	        allowUnfree = true;
-	      };
+      pkgs = import inputs.nixpkgs { 
+        system = systemSettings.system;
+          config = {
+            allowUnfree = true;
+          };
       };
 
       home-manager = inputs.home-manager;
