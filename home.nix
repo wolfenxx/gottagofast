@@ -61,12 +61,12 @@ in
      unzip
      kitty
      discord
-		 waybar
-		 libnotify
-		 dunst
-		 rofi-wayland
-		 grim
-		 slurp
+     waybar
+     libnotify
+     dunst
+     rofi-wayland
+     grim
+     slurp
   ];
 
   programs.bash = {
@@ -85,13 +85,13 @@ in
     ];
   };
 
-	wayland.windowManager.hyprland = {
-	  enable = false;
-	};
+  wayland.windowManager.hyprland = {
+    enable = false;
+  };
 
   home.file = {
     ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink ./.config/nvim;
     ".config/tmux".source = config.lib.file.mkOutOfStoreSymlink ./.config/tmux;
-		".config/hypr".source = config.lib.file.mkOutOfStoreSymlink ./.config/hypr; 
+    ".config/hypr".source = config.lib.file.mkOutOfStoreSymlink ./.config/hypr; 
   };
 }
