@@ -19,4 +19,4 @@ git add .
 
 sudo nixos-rebuild switch --flake $SCRIPT_DIR#system;
 
-sudo home-manager switch --flake $SCRIPT_DIR#user;
+home-manager switch --flake $SCRIPT_DIR#user;
