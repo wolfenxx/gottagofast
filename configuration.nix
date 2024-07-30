@@ -20,8 +20,8 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-	programs.hyprland.enable = true;
-	programs.hyprland.package = inputs.hyprland.packages."${systemSettings.system}".hyprland;
+  # programs.hyprland.enable = true;
+  # programs.hyprland.package = inputs.hyprland.packages."${systemSettings.system}".hyprland;
 
   # Set your time zone.
   time.timeZone = systemSettings.timezone;
