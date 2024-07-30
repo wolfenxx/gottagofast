@@ -23,21 +23,11 @@
         username = "wolfen";
       };
 
-      # pkgs = nixpkgs.legacyPackages.${systemSettings.system};
-
-      pkgs = import inputs.nixpkgs {
-        system = systemSettings.system;
-	config = {
-	  allowUnfree = true;
-	};
+      pkgs = import inputs.nixpkgs { system = systemSettings.system;
+	      config = {
+	        allowUnfree = true;
+	      };
       };
-
-      #legacyPackages = nixpkgs.lib.genAttrs [ systemSettings.system ] (system:
-      #import inputs.nixpkgs {
-      #  system = systemSettings.system;
-      #  config.allowUnfree = true;
-      # }
-      #);
 
       home-manager = inputs.home-manager;
 
@@ -58,13 +48,8 @@
             ./home.nix
           ];
           extraSpecialArgs = {
-          # inherit pkgs-stable;
-          # inherit pkgs-emacs;
-          # inherit pkgs-kdenlive;
-          # inherit pkgs-nwg-dock-hyprland;
-          # inherit systemSettings;
             inherit userSettings;
-          # inherit inputs;
+            inherit inputs;
           };
         };
       };
@@ -80,6 +65,7 @@
           specialArgs = {
             inherit systemSettings;
             inherit userSettings;
+						inherit inputs;
           };
         };
       };

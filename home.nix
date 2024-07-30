@@ -25,7 +25,7 @@ in
 
   programs.home-manager.enable = true;
 
-  home.stateVersion = "24.05"; # Please read the comment before changing.
+  home.stateVersion = "24.05";
 
   home.packages = with pkgs; [
      neovim
@@ -61,6 +61,12 @@ in
      unzip
      kitty
      discord
+		 waybar
+		 libnotify
+		 dunst
+		 rofi-wayland
+		 grim
+		 slurp
   ];
 
   programs.bash = {
@@ -86,5 +92,6 @@ in
   home.file = {
     ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink ./.config/nvim;
     ".config/tmux".source = config.lib.file.mkOutOfStoreSymlink ./.config/tmux;
+		".config/hypr".source = config.lib.file.mkOutOfStoreSymlink ./.config/hypr; 
   };
 }

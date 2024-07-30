@@ -1,4 +1,4 @@
-{ config, pkgs, systemSettings, userSettings, ... }:
+{ config, pkgs, inputs, systemSettings, userSettings, ... }:
 
 {
   networking.hostName = systemSettings.hostname; # Define your hostname.
@@ -21,7 +21,7 @@
   networking.networkmanager.enable = true;
 
 	programs.hyprland.enable = true;
-	#programs.hyprland.package = pkgs.hyprland.packages."${systemSettings.system}".hyprland;
+	programs.hyprland.package = inputs.hyprland.packages."${systemSettings.system}".hyprland;
 
   # Set your time zone.
   time.timeZone = systemSettings.timezone;
