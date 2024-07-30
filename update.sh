@@ -1,12 +1,6 @@
 #!/bin/sh
 
-# Clone dotfiles
-if [ $# -gt 0 ]
-  then
-    SCRIPT_DIR=$1
-  else
-    SCRIPT_DIR=~/repos/gottagofast
-fi
+SCRIPT_DIR=~/repos/gottagofast
 
 # Generate hardware config for new system
 sudo nixos-generate-config --show-hardware-config > $SCRIPT_DIR/nixos/hardware-configuration.nix
@@ -19,3 +13,10 @@ else
     grubDevice=$(findmnt / | awk -F' ' '{ print $2 }' | sed 's/\[.*\]//g' | tail -n 1 | lsblk -no pkname | tail -n 1 )
     sed -i "0,/grubDevice.*=.*\".*\";/s//grubDevice = \"\/dev\/$grubDevice\";/" $SCRIPT_DIR/flake.nix
 fi
+
+cd $SCRIPT_DIR
+git add .
+
+sudo nixos-rebuild switch --flake $SCRIPT_DIR#system;
+
+sudo home-manager switch --flake $SCRIPT_DIR#user;
