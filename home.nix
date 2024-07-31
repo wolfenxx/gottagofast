@@ -69,6 +69,9 @@ in
      slurp
      swaylock
      wlogout
+     dolphin
+     hyprpaper
+     networkmanagerapplet
   ];
 
   programs.bash = {
