@@ -101,5 +101,6 @@ in
     ".config/tmux".source = config.lib.file.mkOutOfStoreSymlink ./.config/tmux;
     ".config/hypr".source = config.lib.file.mkOutOfStoreSymlink ./.config/hypr; 
     ".config/kitty".source = config.lib.file.mkOutOfStoreSymlink ./.config/kitty;
+    ".config/yazi".source = config.lib.file.mkOutOfStoreSymlink ./.config/yazi;
   };
 }
