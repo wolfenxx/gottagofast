@@ -64,6 +64,7 @@ in
      waybar
      libnotify
      dunst
+     wofi
      rofi-wayland
      grim
      slurp
