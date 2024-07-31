@@ -12,6 +12,8 @@ fi
 
 nix-shell -p git --command "git clone https://github.com/wolfenxx/gottagofast $SCRIPT_DIR"
 
+nix-shell -p git --command "git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm"
+
 # Generate hardware config for new system
 sudo nixos-generate-config --show-hardware-config > $SCRIPT_DIR/nixos/hardware-configuration.nix
 
