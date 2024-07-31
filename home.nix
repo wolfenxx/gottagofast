@@ -100,5 +100,6 @@ in
     ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink ./.config/nvim;
     ".config/tmux".source = config.lib.file.mkOutOfStoreSymlink ./.config/tmux;
     ".config/hypr".source = config.lib.file.mkOutOfStoreSymlink ./.config/hypr; 
+    ".config/kitty".source = config.lib.file.mkOutOfStoreSymlink ./.config/kitty;
   };
 }
