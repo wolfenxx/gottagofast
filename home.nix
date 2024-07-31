@@ -102,5 +102,6 @@ in
     ".config/hypr".source = config.lib.file.mkOutOfStoreSymlink ./.config/hypr; 
     ".config/kitty".source = config.lib.file.mkOutOfStoreSymlink ./.config/kitty;
     ".config/yazi".source = config.lib.file.mkOutOfStoreSymlink ./.config/yazi;
+    ".config/waybar".source = config.lib.file.mkOutOfStoreSymlink ./.config/waybar;
   };
 }
