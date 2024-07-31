@@ -3,6 +3,7 @@ let
   shellAliases = {
     sd = "shutdown 0";
     rs = "reboot";
+    lo = "session=`loginctl session-status | head -n 1 | awk '{print $1}'`; loginctl terminate-session $session";
     bk = "cd ..";
     hd = "cd ~";
     gg = "cd ~/repos/gottagofast";
