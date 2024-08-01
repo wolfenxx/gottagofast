@@ -74,6 +74,7 @@ in
      dolphin
      hyprpaper
      networkmanagerapplet
+     nerdfonts
   ];
 
   programs.bash = {

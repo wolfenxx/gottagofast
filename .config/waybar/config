@@ -4,23 +4,18 @@
     "height": 24,
     "spacing": 5,
 
-    "modules-left": ["hyprland/workspaces", "group/usage"],
+    "modules-left": ["hyprland/workspaces"],
     "modules-center": ["clock"],
-    "modules-right": ["wireplumber", "group/bat", "group/net", "tray"],
+    "modules-right": ["battery", "group/levels", "group/net", "tray"],
 
-    "group/usage": {
+    "group/levels": {
         "orientation": "horizontal",
-        "modules": ["memory", "temperature"]
-    },
-
-    "group/bat": {
-        "orientation": "horizontal",
-        "modules": ["battery", "backlight"]
+        "modules": ["wireplumber", "backlight"]
     },
 
     "group/net": {
         "orientation": "horizontal",
-        "modules": ["hyprland/language", "network", "bluetooth"]
+        "modules": ["network", "bluetooth"]
     },
 
     "hyprland/workspaces": {
@@ -45,7 +40,7 @@
     },
 
     "clock": {
-        "format": "{:%d.%m.%Y | %H:%M}"
+        "format": "{:%I:%M %p | %m/%d/%Y}"
     },
 
     "wireplumber": {
@@ -55,7 +50,7 @@
     },
 
     "battery": {
-        "bat": "BAT1",
+        "bat": "BAT0",
         "interval": 60,
         "format": "{icon}  {capacity}%",
         "format-icons": ["\uf244", "\uf243", "\uf242", "\uf241", "\uf240"],
@@ -63,15 +58,6 @@
 
     "backlight": {
         "format": "\udb80\udcdf  {percent}%"
-    },
-
-    "memory": {
-        "interval": 30,
-        "format": "\uf4bc  {used:0.1f}G"
-    },
-
-    "temperature": {
-        "format": " {temperatureC}°C"
     },
 
     "network": {
@@ -92,10 +78,6 @@
         "tooltip-format": "{controller_alias}\t{controller_address}",
         "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
         "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
-    },
-
-    "hyprland/language": {
-        "format": "{short}"
     },
 
     "tray": {
