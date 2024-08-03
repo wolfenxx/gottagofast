@@ -31,7 +31,8 @@
 }
 
 #wireplumber,
-#bat,
+#batteryt,
+#clock,
 #tray,
 #usage,
 #net {
@@ -43,6 +44,7 @@
 }
 
 #battery,
+#clock,
 #memory,
 #language,
 #network {

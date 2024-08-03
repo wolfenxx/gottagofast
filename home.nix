@@ -75,6 +75,9 @@ in
      hyprpaper
      networkmanagerapplet
      nerdfonts
+     xdg-desktop-portal-hyprland
+     zoom
+     slack
   ];
 
   programs.bash = {
