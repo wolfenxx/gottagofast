@@ -74,6 +74,7 @@ in
      dolphin
      hyprpaper
      networkmanagerapplet
+     roboto
      nerdfonts
      xdg-desktop-portal-hyprland
      zoom
@@ -108,5 +109,6 @@ in
     ".config/kitty".source = config.lib.file.mkOutOfStoreSymlink ./.config/kitty;
     ".config/yazi".source = config.lib.file.mkOutOfStoreSymlink ./.config/yazi;
     ".config/waybar".source = config.lib.file.mkOutOfStoreSymlink ./.config/waybar;
+    ".config/rofi".source = config.lib.file.mkOutOfStoreSymlink ./.config/rofi;
   };
 }
