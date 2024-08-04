@@ -22,13 +22,22 @@
 
   programs.hyprland.enable = true;
   # programs.hyprland.package = inputs.hyprland.packages."${systemSettings.system}".hyprland;
+  programs.gamemode.enable = true;
+  programs.steam = {
+    enable = true;
+    gamescopeSession.enable = true;
+  };
 
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = ["nvidia"];
 
 	hardware = {
-	  opengl.enable = true;
-		nvidia = {
+    opengl = {
+      enable = true;
+      driSupport = true;
+      driSupport32Bit = true;
+    };
+    nvidia = {
       modesetting.enable = true;
       powerManagement.enable = false;
       powerManagement.finegrained = false;

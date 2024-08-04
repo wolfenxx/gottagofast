@@ -78,6 +78,7 @@ in
      xdg-desktop-portal-hyprland
      zoom
      slack
+     protonup
   ];
 
   programs.bash = {
