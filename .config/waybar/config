@@ -31,7 +31,7 @@
     },
 
     "clock": {
-        "format": "{:%I:%M %p | %m/%d/%Y}"
+        "format": "{:%I:%M %p | %A, %B %d %Y}"
     },
 
     "wireplumber": {
