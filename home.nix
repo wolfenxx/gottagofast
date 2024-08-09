@@ -71,6 +71,7 @@ in
      grim
      slurp
      swaylock
+     hyprlock
      wlogout
      dolphin
      hyprpaper
@@ -84,12 +85,15 @@ in
      qjackctl
      brightnessctl
      obs-studio
+     ardour
+     fastfetch
   ];
 
   programs.bash = {
     enable = true;
     enableCompletion = true;
     shellAliases = shellAliases;
+    bashrcExtra = "fastfetch";
   };
 
   programs.chromium = {
