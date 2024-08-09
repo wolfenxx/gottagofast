@@ -80,6 +80,7 @@ in
      zoom
      slack
      protonup
+     qjackctl
   ];
 
   programs.bash = {
