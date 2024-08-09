@@ -78,7 +78,7 @@ in
      roboto
      nerdfonts
      xdg-desktop-portal-hyprland
-     zoom
+     zoom-us
      slack
      protonup
      qjackctl
