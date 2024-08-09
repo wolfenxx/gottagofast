@@ -70,7 +70,6 @@ in
      rofi-wayland
      grim
      slurp
-     swaylock
      hyprlock
      wlogout
      dolphin
