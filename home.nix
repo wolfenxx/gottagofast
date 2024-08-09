@@ -81,6 +81,7 @@ in
      slack
      protonup
      qjackctl
+     brightnessctl
   ];
 
   programs.bash = {

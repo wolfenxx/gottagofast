@@ -31,10 +31,11 @@
 }
 
 #wireplumber,
-#batteryt,
 #clock,
 #tray,
 #usage,
+#backlight,
+#battery,
 #net {
     background-color: @background-alt;
     border-radius: 3px;
@@ -43,10 +44,6 @@
     margin-left: 0.3em;
 }
 
-#battery,
-#clock,
-#memory,
-#language,
 #network {
     margin-right: 0.8em;
 }
