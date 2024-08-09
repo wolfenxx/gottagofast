@@ -3,7 +3,7 @@ let
   shellAliases = {
     sd = "shutdown 0";
     rs = "reboot";
-    lo = "session=`loginctl session-status | head -n 1 | awk '{print $1}'`; loginctl terminate-session $session";
+    lo = "loginctl terminate-user $USER";
     bk = "cd ..";
     hd = "cd ~";
     gg = "cd ~/repos/gottagofast";
@@ -18,6 +18,7 @@ let
     nv = "nvim .";
     lg = "lazygit";
     ldr = "lazydocker";
+    hms = "home-manager switch --flake /home/wolfen/repos/gottagofast#user";
   };
 in
 {
@@ -82,6 +83,7 @@ in
      protonup
      qjackctl
      brightnessctl
+     obs-studio
   ];
 
   programs.bash = {
@@ -112,5 +114,6 @@ in
     ".config/yazi".source = config.lib.file.mkOutOfStoreSymlink ./.config/yazi;
     ".config/waybar".source = config.lib.file.mkOutOfStoreSymlink ./.config/waybar;
     ".config/rofi".source = config.lib.file.mkOutOfStoreSymlink ./.config/rofi;
+    ".config/wlogout".source = config.lib.file.mkOutOfStoreSymlink ./.config/wlogout;
   };
 }
