@@ -9,7 +9,7 @@
 
     "group/levels": {
         "orientation": "horizontal",
-        "modules": ["wireplumber", "backlight"]
+        "modules": ["pulseaudio", "backlight"]
     },
 
     "group/net": {
@@ -34,7 +34,7 @@
         "format": "{:%I:%M %p | %a %b %d %Y}"
     },
 
-    "wireplumber": {
+    "pulseaudio": {
         "format": "\udb81\udd7e  {volume}%",
         "max-volume": 100,
         "scroll-step": 5
