@@ -101,7 +101,6 @@ in
     prefix = "C-a";
     mouse = true;
     keyMode = "vi";
-    terminal = "tmux-256color";
     plugins = with pkgs; [
       tmuxPlugins.sensible
       tmuxPlugins.vim-tmux-navigator
@@ -117,6 +116,8 @@ in
       bind-key -T copy-mode-vi v send-keys -X begin-selection
       bind-key -T copy-mode-vi C-v send-keys -X rectangle toggle
       bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
+      set -g default-terminal "xterm-256color"
+      set-option -ga terminal-overrides ",xterm-256color:Tc"
       set -g @catppuccin_flavour "mocha"
       set -g @catppuccin_status_modules_right "date_time"
       set -g @catppuccin_window_number_position "left"
