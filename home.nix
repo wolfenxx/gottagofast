@@ -95,42 +95,6 @@ in
     bashrcExtra = "fastfetch";
   };
 
-	programs.tmux = {
-    enable = true;
-    plugins = with pkgs; [
-      tmuxPlugins.sensible
-      tmuxPlugins.vim-tmux-navigator
-      tmuxPlugins.yank
-      tmuxPlugins.battery
-      tmuxPlugins.catppuccin
-    ];
-    extraConfig = ''
-     set -g mouse on                                                              
-     set -g base-index 1                                                          
-     set -g pane-base-index 1                                                     
-     set-window-option -g pane-base-index 1                                       
-     set-option -g renumber-windows on                                            
-     bind -n M-H previous-window                                                  
-     bind -n M-L next-window                                                      
-     unbind C-b                                                                   
-     set -g prefix C-a                                                            
-     bind C-a send-prefix                                                         
-     set-window-option -g mode-keys vi                                            
-     bind-key -T copy-mode-vi v send-keys -X begin-selection                      
-     bind-key -T copy-mode-vi C-v send-keys -X rectangle toggle                   
-     bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel            
-     bind '"' split-window -v -c "#{pane_current_path}"                           
-     bind % split-window -h -c "#{pane_current_path}"                             
-     set -g default-terminal "xterm-256color"                                     
-     set-option -ga terminal-overrides ",xterm-256color:Tc"                       
-     set -g @catppuccin_flavour "mocha"                                           
-     set -g @catppuccin_status_modules_right "battery date_time"                  
-     set -g @catppuccin_window_number_position "left"                             
-     set -g @catppuccin_window_current_text "#{pane_current_path}"                
-     set -g @catppuccin_date_time_text "%m-%d-%Y %I:%M%p"
-     run-shell ${pkgs.tmuxPlugins.catppuccin}/share/tmux-plugins/catppuccin/catppuccin.tmux
-    ''; 
-	};
 
   programs.chromium = {
     enable = true;
@@ -147,7 +111,14 @@ in
   };
 
   home.file = {
-    ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink ./.config/nvim;
+    ".config/nvim" = {
+      source = ./.config/nvim;
+      recursive = true;
+    };
+    ".config/tmux" = {
+      source = ./.config/tmux;
+      recursive = true;
+    };
     ".config/hypr".source = config.lib.file.mkOutOfStoreSymlink ./.config/hypr; 
     ".config/kitty".source = config.lib.file.mkOutOfStoreSymlink ./.config/kitty;
     ".config/yazi".source = config.lib.file.mkOutOfStoreSymlink ./.config/yazi;
