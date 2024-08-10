@@ -95,6 +95,36 @@ in
     bashrcExtra = "fastfetch";
   };
 
+	programs.tmux = {
+    enable = true;
+    baseIndex = 1;
+    prefix = "C-a";
+    mouse = true;
+    keyMode = "vi";
+    terminal = "tmux-256color";
+    plugins = with pkgs; [
+      tmuxPlugins.sensible
+      tmuxPlugins.vim-tmux-navigator
+      tmuxPlugins.yank
+      tmuxPlugins.battery
+      tmuxPlugins.catppuccin
+    ];
+    extraConfig = ''
+      bind -n M-H previous-window
+      bind -n M-L next-window
+      bind '"' split-window -v -c "#{pane_current_path}"
+      bind % split-window -h -c "#{pane_current_path}"
+      bind-key -T copy-mode-vi v send-keys -X begin-selection
+      bind-key -T copy-mode-vi C-v send-keys -X rectangle toggle
+      bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
+      set -g @catppuccin_flavour "mocha"
+      set -g @catppuccin_status_modules_right "date_time"
+      set -g @catppuccin_window_number_position "left"
+      set -g @catppuccin_window_current_text "#{pane_current_path}"
+      set -g @catppuccin_date_time_text "%m-%d-%Y %I:%M%p"
+    ''; 
+	};
+
   programs.chromium = {
     enable = true;
     package = pkgs.brave;
@@ -111,7 +141,6 @@ in
 
   home.file = {
     ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink ./.config/nvim;
-    ".config/tmux".source = config.lib.file.mkOutOfStoreSymlink ./.config/tmux;
     ".config/hypr".source = config.lib.file.mkOutOfStoreSymlink ./.config/hypr; 
     ".config/kitty".source = config.lib.file.mkOutOfStoreSymlink ./.config/kitty;
     ".config/yazi".source = config.lib.file.mkOutOfStoreSymlink ./.config/yazi;
