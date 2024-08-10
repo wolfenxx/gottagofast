@@ -83,6 +83,7 @@ in
      slack
      protonup
      qjackctl
+     pulsemixer
      brightnessctl
      obs-studio
      ardour
