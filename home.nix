@@ -126,5 +126,6 @@ in
     ".config/rofi".source = config.lib.file.mkOutOfStoreSymlink ./.config/rofi;
     ".config/wlogout".source = config.lib.file.mkOutOfStoreSymlink ./.config/wlogout;
     ".config/dunst".source = config.lib.file.mkOutOfStoreSymlink ./.config/dunst;
+    ".config/fastfetch".source = config.lib.file.mkOutOfStoreSymlink ./.config/fastfetch;
   };
 }
