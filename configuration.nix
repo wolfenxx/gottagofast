@@ -22,7 +22,7 @@
 
   # Enable Hyprland
   programs.hyprland.enable = true;
-  programs.hyprland.package = pkgs.hyprland;
+  # programs.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland;
  
   # Gaming modules
   programs.gamemode.enable = true;
