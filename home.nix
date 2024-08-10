@@ -97,10 +97,6 @@ in
 
 	programs.tmux = {
     enable = true;
-    baseIndex = 1;
-    prefix = "C-a";
-    mouse = true;
-    keyMode = "vi";
     plugins = with pkgs; [
       tmuxPlugins.sensible
       tmuxPlugins.vim-tmux-navigator
@@ -109,20 +105,29 @@ in
       tmuxPlugins.catppuccin
     ];
     extraConfig = ''
-      bind -n M-H previous-window
-      bind -n M-L next-window
-      bind '"' split-window -v -c "#{pane_current_path}"
-      bind % split-window -h -c "#{pane_current_path}"
-      bind-key -T copy-mode-vi v send-keys -X begin-selection
-      bind-key -T copy-mode-vi C-v send-keys -X rectangle toggle
-      bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
-      set -g default-terminal "xterm-256color"
-      set-option -ga terminal-overrides ",xterm-256color:Tc"
-      set -g @catppuccin_flavour "mocha"
-      set -g @catppuccin_status_modules_right "date_time"
-      set -g @catppuccin_window_number_position "left"
-      set -g @catppuccin_window_current_text "#{pane_current_path}"
-      set -g @catppuccin_date_time_text "%m-%d-%Y %I:%M%p"
+     set -g mouse on                                                              
+     set -g base-index 1                                                          
+     set -g pane-base-index 1                                                     
+     set-window-option -g pane-base-index 1                                       
+     set-option -g renumber-windows on                                            
+     bind -n M-H previous-window                                                  
+     bind -n M-L next-window                                                      
+     unbind C-b                                                                   
+     set -g prefix C-a                                                            
+     bind C-a send-prefix                                                         
+     set-window-option -g mode-keys vi                                            
+     bind-key -T copy-mode-vi v send-keys -X begin-selection                      
+     bind-key -T copy-mode-vi C-v send-keys -X rectangle toggle                   
+     bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel            
+     bind '"' split-window -v -c "#{pane_current_path}"                           
+     bind % split-window -h -c "#{pane_current_path}"                             
+     set -g default-terminal "xterm-256color"                                     
+     set-option -ga terminal-overrides ",xterm-256color:Tc"                       
+     set -g @catppuccin_flavour "mocha"                                           
+     set -g @catppuccin_status_modules_right "battery date_time"                  
+     set -g @catppuccin_window_number_position "left"                             
+     set -g @catppuccin_window_current_text "#{pane_current_path}"                
+     set -g @catppuccin_date_time_text "%m-%d-%Y %I:%M%p"
     ''; 
 	};
 
