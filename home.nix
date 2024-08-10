@@ -34,13 +34,13 @@ in
      git
      brave
      google-chrome
-     i3
      tmux
      bat
      eza
      curl
      ripgrep
      fzf
+     fd
      jq
      python3
      nodejs_20
@@ -55,6 +55,7 @@ in
      silicon
      btop
      gcc
+     clang
      mono
      gnumake
      netcoredbg

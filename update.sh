@@ -14,9 +14,6 @@ else
     sed -i "0,/grubDevice.*=.*\".*\";/s//grubDevice = \"\/dev\/$grubDevice\";/" $SCRIPT_DIR/flake.nix
 fi
 
-cd $SCRIPT_DIR
-git add .
-
 sudo nixos-rebuild switch --flake $SCRIPT_DIR#system;
 
 home-manager switch --flake $SCRIPT_DIR#user;
