@@ -33,6 +33,7 @@ in
      neovim
      git
      brave
+     google-chrome
      i3
      tmux
      bat
