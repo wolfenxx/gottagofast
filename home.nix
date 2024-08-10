@@ -128,6 +128,7 @@ in
      set -g @catppuccin_window_number_position "left"                             
      set -g @catppuccin_window_current_text "#{pane_current_path}"                
      set -g @catppuccin_date_time_text "%m-%d-%Y %I:%M%p"
+     run-shell ${pkgs.tmuxPlugins.catppuccin}/share/tmux-plugins/catppuccin/catppuccin.tmux
     ''; 
 	};
 
