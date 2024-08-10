@@ -20,8 +20,11 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  # Enable Hyprland
   programs.hyprland.enable = true;
-  # programs.hyprland.package = inputs.hyprland.packages."${systemSettings.system}".hyprland;
+  programs.hyprland.package = pkgs.hyprland;
+ 
+  # Gaming modules
   programs.gamemode.enable = true;
   programs.steam = {
     enable = true;
