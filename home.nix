@@ -55,7 +55,7 @@ in
      silicon
      btop
      gcc
-     clang
+     #clang
      mono
      gnumake
      netcoredbg
