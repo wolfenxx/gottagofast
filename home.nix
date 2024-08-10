@@ -75,6 +75,7 @@ in
      wlogout
      dolphin
      hyprpaper
+     hyprpicker
      networkmanagerapplet
      roboto
      nerdfonts
