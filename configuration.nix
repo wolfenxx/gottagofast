@@ -81,6 +81,13 @@
     variant = "";
   };
 
+  services.xserver.config = ''
+    Section "Monitor"
+      Identifier "Unknown-1"
+      Option "Ignore" "true"
+    EndSection
+	'';
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
