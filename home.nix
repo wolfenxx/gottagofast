@@ -88,6 +88,8 @@ in
      obs-studio
      ardour
      fastfetch
+     arandr
+     autorandr
   ];
 
   programs.bash = {
