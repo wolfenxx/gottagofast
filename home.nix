@@ -90,6 +90,7 @@ in
      fastfetch
      arandr
      autorandr
+     webcord
   ];
 
   programs.bash = {
