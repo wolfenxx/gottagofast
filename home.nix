@@ -64,7 +64,6 @@ in
      #dotnet-aspnetcore_8	
      unzip
      kitty
-     discord
      waybar
      libnotify
      dunst
