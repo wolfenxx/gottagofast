@@ -105,9 +105,7 @@
     description = userSettings.username;
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     uid = 1000;
-    packages = with pkgs; [
-    #  thunderbird
-    ];
+    packages = with pkgs; [];
   };
 
   # Enable automatic login for the user.

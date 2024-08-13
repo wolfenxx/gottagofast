@@ -61,6 +61,7 @@
           inherit pkgs;
           modules = [
             ./nixos/hardware-configuration.nix
+            ./virtualization.nix
             ./configuration.nix
           ];
           specialArgs = {
