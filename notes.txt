@@ -14,3 +14,6 @@ sudo /run/current-system/bin/switch-to-configuration boot
 
 # For virtualisation the following command needs to executed to auto-start the virtual network
 sudo virsh net-autostart default
+
+# The Windows VM also needs the following installed from within the VM itself
+https://github.com/virtio-win/virtio-win-pkg-scripts/tree/master
