@@ -34,6 +34,8 @@
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = ["nvidia"];
 
+  services.blueman.enable = true;
+
 	hardware = {
     opengl = {
       enable = true;
@@ -47,6 +49,10 @@
       open = false;
       nvidiaSettings = true;
       package = config.boot.kernelPackages.nvidiaPackages.stable;
+    };
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
     };
 	};
 
