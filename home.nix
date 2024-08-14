@@ -90,6 +90,7 @@ in
      arandr
      autorandr
      webcord
+     gparted
   ];
 
   programs.bash = {
