@@ -19,6 +19,8 @@ let
     lg = "lazygit";
     ldr = "lazydocker";
     hms = "home-manager switch --flake /home/wolfen/repos/gottagofast#user";
+    gparted = "sudo -E gparted";
+    gp = "sudo -E gparted";
   };
 in
 {
