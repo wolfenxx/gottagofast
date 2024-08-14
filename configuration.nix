@@ -123,13 +123,8 @@
     setSocketVariable = true;
   };
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [];
-
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
-  
   system.stateVersion = "24.05";
 }
