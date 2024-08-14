@@ -91,6 +91,7 @@ in
      autorandr
      webcord
      gparted
+     wl-clipboard-rs
   ];
 
   programs.bash = {
