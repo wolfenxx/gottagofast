@@ -94,6 +94,7 @@ in
      webcord
      gparted
      wl-clipboard-rs
+     parted
   ];
 
   programs.bash = {
