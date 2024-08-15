@@ -3,7 +3,7 @@
 SCRIPT_DIR=~/repos/gottagofast
 
 # Generate hardware config for new system
-sudo nixos-generate-config --show-hardware-config > $SCRIPT_DIR/nixos/hardware-configuration.nix
+sudo nixos-generate-config --show-hardware-config > $SCRIPT_DIR/hardware-configuration.nix
 
 # Check if uefi or bios
 if [ -d /sys/firmware/efi/efivars ]; then

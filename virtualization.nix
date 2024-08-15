@@ -1,7 +1,6 @@
 { config, pkgs, inputs, systemSettings, userSettings, ... }:
 
 {
-
   # Enable dconf (System Management Tool)
   programs.dconf.enable = true;
 
@@ -32,6 +31,6 @@
     };
     spiceUSBRedirection.enable = true;
   };
-  services.spice-vdagentd.enable = true;
 
+  services.spice-vdagentd.enable = true;
 }

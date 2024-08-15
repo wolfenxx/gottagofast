@@ -19,44 +19,16 @@
   programs.hyprland.enable = true;
   # programs.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland;
  
-  # Gaming modules
-  programs.gamemode.enable = true;
-  programs.steam = {
-    enable = true;
-    gamescopeSession.enable = true;
-  };
-
-  # Load nvidia driver for Xorg and Wayland
-  services.xserver.videoDrivers = ["nvidia"];
-
+  # Bluetooth
   services.blueman.enable = true;
-
-	hardware = {
-    opengl = {
-      enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
-    };
-    nvidia = {
-      modesetting.enable = true;
-      powerManagement.enable = false;
-      powerManagement.finegrained = false;
-      open = false;
-      nvidiaSettings = true;
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
-    };
-    bluetooth = {
-      enable = true;
-      powerOnBoot = true;
-    };
-	};
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
 
   # Set your time zone.
   time.timeZone = systemSettings.timezone;
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_US.UTF-8";
     LC_IDENTIFICATION = "en_US.UTF-8";
@@ -114,16 +86,8 @@
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
 
-  # Enable virtualization for Docker daemon
-  virtualisation.docker.enable = true;
-
-  # Use Docker without root access
-  virtualisation.docker.rootless = {
-    enable = true;
-    setSocketVariable = true;
-  };
-
   environment.systemPackages = with pkgs; [];
+
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   system.stateVersion = "24.05";

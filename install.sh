@@ -1,7 +1,5 @@
 #!/bin/sh
 
-# Automated script to install my dotfiles
-
 # Clone dotfiles
 if [ $# -gt 0 ]
   then
@@ -15,7 +13,7 @@ nix-shell -p git --command "git clone https://github.com/wolfenxx/gottagofast $S
 nix-shell -p git --command "git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm"
 
 # Generate hardware config for new system
-sudo nixos-generate-config --show-hardware-config > $SCRIPT_DIR/nixos/hardware-configuration.nix
+sudo nixos-generate-config --show-hardware-config > $SCRIPT_DIR/hardware-configuration.nix
 
 # Check if uefi or bios
 if [ -d /sys/firmware/efi/efivars ]; then

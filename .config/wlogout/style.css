@@ -26,25 +26,25 @@ button:focus, button:active, button:hover {
 }
 
 #lock {
-    background-image: image(url("/home/wolfen/repos/gottagofast/lock.png"), url("/usr/home/wolfen/repos/gottagofast/lock.png"));
+    background-image: image(url("/home/wolfen/repos/gottagofast/images/lock.png"), url("/usr/home/wolfen/repos/gottagofast/images/lock.png"));
 }
 
 #logout {
-    background-image: image(url("/home/wolfen/repos/gottagofast/logout.png"), url("/home/wolfen/repos/gottagofast/logout.png"));
+    background-image: image(url("/home/wolfen/repos/gottagofast/images/logout.png"), url("/home/wolfen/repos/gottagofast/images/logout.png"));
 }
 
 #suspend {
-    background-image: image(url("/home/wolfen/repos/gottagofast/suspend.png"), url("/home/wolfen/repos/gottagofast/suspend.png"));
+    background-image: image(url("/home/wolfen/repos/gottagofast/images/suspend.png"), url("/home/wolfen/repos/gottagofast/images/suspend.png"));
 }
 
 #hibernate {
-    background-image: image(url("/home/wolfen/repos/gottagofast/hibernate.png"), url("/home/wolfen/repos/gottagofast/hibernate.png"));
+    background-image: image(url("/home/wolfen/repos/gottagofast/images/hibernate.png"), url("/home/wolfen/repos/gottagofast/images/hibernate.png"));
 }
 
 #shutdown {
-    background-image: image(url("/home/wolfen/repos/gottagofast/shutdown.png"), url("/home/wolfen/repos/gottagofast/shutdown.png"));
+    background-image: image(url("/home/wolfen/repos/gottagofast/images/shutdown.png"), url("/home/wolfen/repos/gottagofast/images/shutdown.png"));
 }
 
 #reboot {
-    background-image: image(url("/home/wolfen/repos/gottagofast/reboot.png"), url("/home/wolfen/repos/gottagofast/reboot.png"));
+    background-image: image(url("/home/wolfen/repos/gottagofast/images/reboot.png"), url("/home/wolfen/repos/gottagofast/images/reboot.png"));
 }

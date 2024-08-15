@@ -13,7 +13,7 @@
         system = "x86_64-linux";
         hostname = "nixos";
         timezone = "America/Chicago";
-        bootMode = "bios"; # uefi or bios
+        bootMode = "uefi"; # uefi or bios
         bootMountPath = "/boot"; # mount path for efi boot partition; only used for uefi boot mode
         grubDevice = "/dev/sda"; # device identifier for grub; only used for legacy (bios) boot mode
       };
@@ -60,8 +60,10 @@
           system = systemSettings.system;
           inherit pkgs;
           modules = [
-            ./nixos/hardware-configuration.nix
+            ./hardware-configuration.nix
             ./virtualization.nix
+            ./containerization.nix
+            ./gaming.nix
             ./configuration.nix
           ];
           specialArgs = {
