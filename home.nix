@@ -96,6 +96,7 @@ in
      gparted
      wl-clipboard-rs
      parted
+     python311Packages.ds4drv
   ];
 
   programs.bash = {

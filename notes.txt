@@ -17,3 +17,6 @@ sudo virsh net-autostart default
 
 # The Windows VM also needs the following installed from within the VM itself
 https://github.com/virtio-win/virtio-win-pkg-scripts/tree/master
+
+# Add the following to Steam launch options for games for extra performance
+gamemoderun %command% gamescope %command%
