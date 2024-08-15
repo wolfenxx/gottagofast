@@ -22,6 +22,8 @@ let
     gparted = "sudo -E gparted";
     gp = "sudo -E gparted";
     ff = "fzf --bind 'enter:become(nvim {})'";
+    bluetooth = "blueman-manager";
+    blueman = "blueman-manager";
   };
 in
 {
