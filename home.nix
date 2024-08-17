@@ -99,6 +99,7 @@ in
      wl-clipboard-rs
      parted
      mpv
+     bluez
      #python311Packages.ds4drv
   ];
 
