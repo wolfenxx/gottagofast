@@ -98,6 +98,7 @@ in
      gparted
      wl-clipboard-rs
      parted
+     mpv
      #python311Packages.ds4drv
   ];
 
