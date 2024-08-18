@@ -1,5 +1,6 @@
 return {
 	"stevearc/conform.nvim",
+  version = "7.0.0", -- higher version requires nvim >= .10
 	-- event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		local conform = require("conform")
