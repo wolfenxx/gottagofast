@@ -60,13 +60,11 @@ in
      silicon
      btop
      gcc
-     #clang
      mono
      gnumake
      netcoredbg
      dotnet-sdk_8
-     #dotnet-runtime_8
-     #dotnet-aspnetcore_8	
+     omnisharp-roslyn
      unzip
      kitty
      waybar
@@ -107,7 +105,9 @@ in
     enable = true;
     enableCompletion = true;
     shellAliases = shellAliases;
-    bashrcExtra = "fastfetch";
+    bashrcExtra = ''
+      fastfetch
+    '';
   };
 
   programs.chromium = {
@@ -141,5 +141,6 @@ in
     ".config/wlogout".source = config.lib.file.mkOutOfStoreSymlink ./.config/wlogout;
     ".config/dunst".source = config.lib.file.mkOutOfStoreSymlink ./.config/dunst;
     ".config/fastfetch".source = config.lib.file.mkOutOfStoreSymlink ./.config/fastfetch;
+    "omnisharp".source = "${pkgs.omnisharp-roslyn}";
   };
 }

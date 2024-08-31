@@ -70,7 +70,7 @@ return {
 			-- C#
 			dap.adapters.coreclr = {
 				type = "executable",
-				command = "/usr/local/bin/netcoredbg/netcoredbg",
+				command = "netcoredbg",
 				args = { "--interpreter=vscode" },
 			}
 
