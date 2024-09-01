@@ -98,7 +98,6 @@ in
      parted
      mpv
      bluez
-     #python311Packages.ds4drv
   ];
 
   programs.bash = {
