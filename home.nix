@@ -105,6 +105,7 @@ in
     enableCompletion = true;
     shellAliases = shellAliases;
     bashrcExtra = ''
+      export DOTNET_ROOT="${pkgs.dotnet-sdk_8}"
       fastfetch
     '';
   };
