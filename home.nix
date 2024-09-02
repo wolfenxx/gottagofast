@@ -98,6 +98,7 @@ in
      parted
      mpv
      bluez
+     stylua
   ];
 
   programs.bash = {
@@ -142,5 +143,6 @@ in
     ".config/dunst".source = config.lib.file.mkOutOfStoreSymlink ./.config/dunst;
     ".config/fastfetch".source = config.lib.file.mkOutOfStoreSymlink ./.config/fastfetch;
     "omnisharp".source = "${pkgs.omnisharp-roslyn}";
+    "stylua".source = "${pkgs.stylua}";
   };
 }

@@ -1,11 +1,16 @@
 return {
 	"stevearc/conform.nvim",
-  version = "7.0.0", -- higher version requires nvim >= .10
+	version = "7.0.0", -- higher version requires nvim >= .10
 	-- event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		local conform = require("conform")
 
 		conform.setup({
+			formatters = {
+				stylua = {
+					command = "/home/wolfen/stylua/bin/stylua",
+				},
+			},
 			formatters_by_ft = {
 				lua = { "stylua" },
 				-- Conform will run multiple formatters sequentially
