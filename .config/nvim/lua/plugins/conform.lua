@@ -10,6 +10,9 @@ return {
 				stylua = {
 					command = "/home/wolfen/stylua/bin/stylua",
 				},
+				clang_format = {
+					command = "/home/wolfen/clang-tools/bin/clang-format",
+				},
 			},
 			formatters_by_ft = {
 				lua = { "stylua" },

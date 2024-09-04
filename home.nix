@@ -59,7 +59,9 @@ in
      zoxide
      silicon
      btop
-     gcc
+     clang
+     clang-tools
+     #gcc
      mono
      gnumake
      netcoredbg
@@ -144,5 +146,6 @@ in
     ".config/fastfetch".source = config.lib.file.mkOutOfStoreSymlink ./.config/fastfetch;
     "omnisharp".source = "${pkgs.omnisharp-roslyn}";
     "stylua".source = "${pkgs.stylua}";
+    "clang-tools".source = "${pkgs.clang-tools}";
   };
 }
