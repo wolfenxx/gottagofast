@@ -59,6 +59,7 @@
 
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
+	hardware.pulseaudio.support32Bit = true;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -73,7 +74,7 @@
   users.users.${userSettings.username} = {
     isNormalUser = true;
     description = userSettings.username;
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [ "networkmanager" "audio" "wheel" "docker" ];
     uid = 1000;
     packages = with pkgs; [];
   };

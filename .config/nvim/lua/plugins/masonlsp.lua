@@ -14,6 +14,7 @@ return {
 					"tsserver", -- language server
 					"pyright", -- language server
 					"clangd", -- language server
+					"csharp_ls", --language server
 				},
 			})
 		end,
@@ -73,6 +74,9 @@ return {
 				filetypes = { "lua" },
 				settings = {
 					Lua = {
+						misc = {
+							executablePath = "/home/wolfen/lua-language-server/bin/lua-language-server", --NIXOS
+						},
 						diagnostics = {
 							globals = { "vim" },
 						},
@@ -96,6 +100,17 @@ return {
 				capabilities = capabilities,
 				on_attach = on_attach,
 				filetypes = { "python" },
+			})
+
+			lspconfig.csharp_ls.setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+				filetypes = { "cs" },
+				settings = {
+					misc = {
+						executablePath = "/home/wolfen/csharp-ls/bin/csharp-ls", --NIXOS
+					},
+				},
 			})
 
 			lspconfig.clangd.setup({

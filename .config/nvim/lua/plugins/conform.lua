@@ -8,10 +8,10 @@ return {
 		conform.setup({
 			formatters = {
 				stylua = {
-					command = "/home/wolfen/stylua/bin/stylua",
+					command = "/home/wolfen/stylua/bin/stylua", --NIXOS
 				},
 				clang_format = {
-					command = "/home/wolfen/clang-tools/bin/clang-format",
+					command = "/home/wolfen/clang-tools/bin/clang-format", --NIXOS
 				},
 			},
 			formatters_by_ft = {

@@ -61,11 +61,12 @@ in
      btop
      clang
      clang-tools
-     #gcc
+     lldb
      mono
      gnumake
      netcoredbg
      dotnet-sdk_8
+     csharp-ls
      omnisharp-roslyn
      unzip
      kitty
@@ -100,6 +101,9 @@ in
      parted
      mpv
      bluez
+     file
+     lua
+     lua-language-server
      stylua
   ];
 
@@ -145,7 +149,10 @@ in
     ".config/dunst".source = config.lib.file.mkOutOfStoreSymlink ./.config/dunst;
     ".config/fastfetch".source = config.lib.file.mkOutOfStoreSymlink ./.config/fastfetch;
     "omnisharp".source = "${pkgs.omnisharp-roslyn}";
+    "csharp-ls".source = "${pkgs.csharp-ls}";
     "stylua".source = "${pkgs.stylua}";
     "clang-tools".source = "${pkgs.clang-tools}";
+    "lldb".source = "${pkgs.lldb}";
+    "lua-language-server".source = "${pkgs.lua-language-server}";
   };
 }

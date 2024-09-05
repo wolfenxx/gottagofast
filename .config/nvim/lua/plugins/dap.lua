@@ -38,7 +38,8 @@ return {
 			-- JS/TS
 			dap.adapters["pwa-node"] = {
 				type = "server",
-				host = "127.0.0.1",
+				host = "::1", --NIXOS
+				--host = "127.0.0.1",
 				port = 8123,
 				executable = {
 					command = "js-debug-adapter",
@@ -91,7 +92,8 @@ return {
 				host = "127.0.0.1",
 				port = 8123,
 				executable = {
-					command = "codelldb",
+					command = "/home/wolfen/lldb/bin/lldb-vscode", --NIXOS
+					-- command = "codelldb",
 					args = {
 						"--port",
 						"8123",
