@@ -5,12 +5,15 @@
 
   # Bootloader
   # Use systemd-boot if uefi, default to grub otherwise
+	boot.loader.timeout = 60;
   boot.loader.systemd-boot.enable = if (systemSettings.bootMode == "uefi") then true else false;
   boot.loader.efi.canTouchEfiVariables = if (systemSettings.bootMode == "uefi") then true else false;
   boot.loader.efi.efiSysMountPoint = systemSettings.bootMountPath; # does nothing if running bios rather than uefi
   boot.loader.grub.enable = if (systemSettings.bootMode == "uefi") then false else true;
   boot.loader.grub.device = systemSettings.grubDevice; # does nothing if running uefi rather than bios
   boot.loader.grub.useOSProber = if (systemSettings.bootMode == "uefi") then false else true;
+	boot.loader.grub.gfxmodeEfi = "1920x1080";
+	boot.loader.grub.gfxmodeBios = "1920x1080";
 
   # Enable networking
   networking.networkmanager.enable = true;
