@@ -105,6 +105,7 @@ in
      lua
      lua-language-server
      stylua
+     cypress
   ];
 
   programs.bash = {
@@ -113,6 +114,8 @@ in
     shellAliases = shellAliases;
     bashrcExtra = ''
       export DOTNET_ROOT="${pkgs.dotnet-sdk_8}"
+      export CYPRESS_INSTALL_BINARY=0
+      export CYPRESS_RUN_BINARY=${pkgs.cypress}/bin/Cypress
       fastfetch
     '';
   };
