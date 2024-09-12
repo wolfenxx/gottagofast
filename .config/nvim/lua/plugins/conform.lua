@@ -13,6 +13,9 @@ return {
 				clang_format = {
 					command = "/home/wolfen/clang-tools/bin/clang-format", --NIXOS
 				},
+				biome = {
+					command = "/home/wolfen/biome/bin/biome", --NIXOS
+				},
 			},
 			formatters_by_ft = {
 				lua = { "stylua" },
@@ -21,6 +24,7 @@ return {
 				-- Use a sub-list to run only the first available formatter
 				javascript = { "prettierd", "prettier", stop_after_first = true },
 				typescript = { "prettierd", "prettier", stop_after_first = true },
+				json = { "biome" },
 				cs = { "csharpier" },
 				cpp = { "clang_format" },
 			},

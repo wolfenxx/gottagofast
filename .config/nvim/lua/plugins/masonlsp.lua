@@ -34,7 +34,7 @@ return {
 				ensure_installed = {
 					"prettier", -- js/ts formatter
 					"prettierd", -- js/ts formatter
-					"biome", -- js/ts/json formatter, json language server
+					"biome", -- js/ts/json formatter, js/ts linter
 					"js-debug-adapter", -- js/ts debug adapter
 					"stylua", -- lua formatter
 					"eslint_d", -- js/ts linter
