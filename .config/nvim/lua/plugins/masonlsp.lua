@@ -16,9 +16,9 @@ return {
 					"clangd", -- C++ language server
 					"csharp_ls", -- C# language server
 					"dockerls", -- Dockerfile language server
-					"sqls", -- SQL language server
-					"nil_ls", -- NIX language server
-					"hyprls", -- Hyprlang language server
+					--"sqls", -- SQL language server
+					--"nil_ls", -- NIX language server
+					--"hyprls", -- Hyprlang language server
 					"lemminx", -- XML language server
 					"yamlls", -- YAML language server
 				},
