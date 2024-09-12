@@ -107,6 +107,13 @@ in
      stylua
      cypress
      postman
+     docker-ls
+     sqls
+     nil
+     hyprls
+     lemminx
+     yaml-language-server
+     biome
   ];
 
   programs.bash = {
@@ -158,5 +165,12 @@ in
     "clang-tools".source = "${pkgs.clang-tools}";
     "lldb".source = "${pkgs.lldb}";
     "lua-language-server".source = "${pkgs.lua-language-server}";
+    "docker-ls".source = "${pkgs.docker-ls}";
+    "sqls".source = "${pkgs.sqls}";
+    "nil".source = "${pkgs.nil}";
+    "hyprls".source = "${pkgs.hyprls}";
+    "lemminx".source = "${pkgs.lemminx}";
+    "yaml-language-server".source = "${pkgs.yaml-language-server}";
+    "biome".source = "${pkgs.biome}";
   };
 }

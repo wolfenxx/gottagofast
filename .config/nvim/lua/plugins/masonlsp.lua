@@ -10,11 +10,17 @@ return {
 		config = function()
 			require("mason-lspconfig").setup({
 				ensure_installed = {
-					"lua_ls", -- language server
-					"tsserver", -- language server
-					"pyright", -- language server
-					"clangd", -- language server
-					"csharp_ls", --language server
+					"lua_ls", -- lua language server
+					"tsserver", -- js/ts language server
+					"pyright", -- python language server
+					"clangd", -- C++ language server
+					"csharp_ls", -- C# language server
+					"dockerls", -- Dockerfile language server
+					"sqls", -- SQL language server
+					"nil_ls", -- NIX language server
+					"hyprls", -- Hyprlang language server
+					"lemminx", -- XML language server
+					"yamlls", -- YAML language server
 				},
 			})
 		end,
@@ -26,19 +32,20 @@ return {
 
 			installer.setup({
 				ensure_installed = {
-					"prettier", -- formatter
-					"prettierd", -- formatter
-					"js-debug-adapter", -- debug adapter
-					"stylua", -- formatter
-					"eslint_d", -- linter
-					"csharpier", -- formatter
-					"mypy", -- static typing analysis
-					"ruff", -- linter
-					"isort", -- formatter
-					"black", -- formatter
-					"debugpy", -- debug adapter for python
-					"clang-format", -- formatter
-					"codelldb", -- debug adapter for cpp
+					"prettier", -- js/ts formatter
+					"prettierd", -- js/ts formatter
+					"biome", -- js/ts/json formatter, json language server
+					"js-debug-adapter", -- js/ts debug adapter
+					"stylua", -- lua formatter
+					"eslint_d", -- js/ts linter
+					"csharpier", -- C# formatter
+					"mypy", -- python static typing analysis
+					"ruff", -- python linter
+					"isort", -- python formatter
+					"black", -- python formatter
+					"debugpy", -- python debug adapter
+					"clang-format", -- C++ formatter
+					"codelldb", -- C++ debug adapter
 				},
 			})
 		end,
