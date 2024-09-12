@@ -110,7 +110,7 @@ in
      docker-ls
      sqls
      nil
-     hyprls
+     #hyprls # requires nixos-unstable
      lemminx
      yaml-language-server
      biome
@@ -168,7 +168,7 @@ in
     "docker-ls".source = "${pkgs.docker-ls}";
     "sqls".source = "${pkgs.sqls}";
     "nil".source = "${pkgs.nil}";
-    "hyprls".source = "${pkgs.hyprls}";
+    #"hyprls".source = "${pkgs.hyprls}"; # requires nixos-unstable
     "lemminx".source = "${pkgs.lemminx}";
     "yaml-language-server".source = "${pkgs.yaml-language-server}";
     "biome".source = "${pkgs.biome}";
