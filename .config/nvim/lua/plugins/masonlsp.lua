@@ -125,6 +125,72 @@ return {
 				on_attach = on_attach,
 				filetypes = { "cpp" },
 			})
+
+			lspconfig.biome.setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+				filetypes = { "json" },
+				settings = {
+					misc = {
+						executablePath = "/home/wolfen/biome/bin/biome", --NIXOS
+					},
+				},
+			})
+
+			lspconfig.dockerls.setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+				filetypes = { "Dockerfile" },
+				settings = {
+					misc = {
+						executablePath = "/home/wolfen/docker-ls/bin/docker-ls", --NIXOS
+					},
+				},
+			})
+
+			lspconfig.lemminx.setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+				filetypes = { "xml" },
+				settings = {
+					misc = {
+						executablePath = "/home/wolfen/lemminx/bin/lemminx", --NIXOS
+					},
+				},
+			})
+
+			lspconfig.yamlls.setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+				filetypes = { "yaml" },
+				settings = {
+					misc = {
+						executablePath = "/home/wolfen/yaml-language-server/bin/yaml-language-server", --NIXOS
+					},
+				},
+			})
+
+			lspconfig.sqls.setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+				filetypes = { "sql" },
+				settings = {
+					misc = {
+						executablePath = "/home/wolfen/sqls/bin/sqls", --NIXOS
+					},
+				},
+			})
+
+			lspconfig.nil_ls.setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+				filetypes = { "nix" },
+				settings = {
+					misc = {
+						executablePath = "/home/wolfen/nil/bin/nil", --NIXOS
+					},
+				},
+			})
 		end,
 	},
 }
