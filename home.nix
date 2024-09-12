@@ -106,6 +106,7 @@ in
      lua-language-server
      stylua
      cypress
+     postman
   ];
 
   programs.bash = {
