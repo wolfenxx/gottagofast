@@ -114,6 +114,7 @@ in
      lemminx
      yaml-language-server
      biome
+     powershell
   ];
 
   programs.bash = {
