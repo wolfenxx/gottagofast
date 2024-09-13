@@ -123,8 +123,18 @@ in
     shellAliases = shellAliases;
     bashrcExtra = ''
       export DOTNET_ROOT="${pkgs.dotnet-sdk_8}"
+
       export CYPRESS_INSTALL_BINARY=0
       export CYPRESS_RUN_BINARY=${pkgs.cypress}/bin/Cypress
+
+      export ST__Application__BindingBasePort=2000
+      export ST__Application__PublicUrl=http://localhost:2000
+      export ST_EnableBackgroundServices=true
+      export ST_SQL=sqlserver://st:$5t-m$5q1$@localhost
+      export ST__MockServices__UseMockServices=true
+      export ST__Application__ServiceNameBase=ServiceTitan
+      export ST__TenantDataService__Enabled=true
+
       fastfetch
     '';
   };
