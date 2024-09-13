@@ -134,7 +134,6 @@ in
     extensions = [
       { id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; } # ublock origin
       { id = "ldgfbffkinooeloadekpmfoklnobpien"; } # raindrop
-      { id = "eimadpbcbfnmbkopoojfekhnkhdbieeh"; } # dark reader
     ];
   };
 
