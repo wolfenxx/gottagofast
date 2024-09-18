@@ -33,4 +33,7 @@
   };
 
   services.spice-vdagentd.enable = true;
+
+  # Enable nested virtualization
+  boot.extraModprobeConfig = "options kvm_intel nested=1";
 }
