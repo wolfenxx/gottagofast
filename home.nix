@@ -24,6 +24,7 @@ let
     ff = "fzf --bind 'enter:become(nvim {})'";
     bluetooth = "blueman-manager";
     blueman = "blueman-manager";
+    pm = "pulsemixer";
   };
 in
 {
