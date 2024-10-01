@@ -115,6 +115,9 @@ in
      yaml-language-server
      biome
      powershell
+     easyeffects
+     spotify
+     spotube
   ];
 
   programs.bash = {
