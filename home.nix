@@ -79,7 +79,6 @@ in
      slurp
      hyprlock
      wlogout
-     dolphin
      hyprpaper
      networkmanagerapplet
      roboto
