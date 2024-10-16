@@ -25,6 +25,7 @@ let
     bluetooth = "blueman-manager";
     blueman = "blueman-manager";
     pm = "pulsemixer";
+    cy = "cd ~/repos/cypress/";
   };
 in
 {
