@@ -119,6 +119,10 @@ in
      easyeffects
      spotify
      spotube
+     teleport
+     nushell
+     openlens
+     starship
   ];
 
   programs.bash = {
