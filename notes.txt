@@ -1,10 +1,13 @@
-# Notes On Cleaning Up NIX Generations/Old/Garbage
+# clean up nix store
+nix-store --gc
+
+# Cleaning Up NIX Generations/Old/Garbage
 
 nix-env --list-generations
 
-nix-collect-garbage  --delete-old
+nix-collect-garbage --delete-old
 
-nix-collect-garbage  --delete-generations 1 2 3
+nix-collect-garbage --delete-generations 1 2 3
 
 # recommeneded to sometimes run as sudo to collect additional garbage
 sudo nix-collect-garbage -d
@@ -27,3 +30,6 @@ dotnet tool install csharpier
 
 # Run excalidraw image/container locally
 docker run --rm -dit --name excalidraw -p 5000:80 excalidraw/excalidraw:latest
+
+# Build dotnet
+nix-build servicetitan.nix -A passthru.fetch-deps
