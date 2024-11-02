@@ -32,9 +32,8 @@ in
   home.username = userSettings.username;
   home.homeDirectory = "/home/"+userSettings.username;
 
-  programs.home-manager.enable = true;
-
   home.stateVersion = "24.05";
+  programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
      neovim
@@ -112,7 +111,7 @@ in
      docker-ls
      sqls
      nil
-     #hyprls # requires nixos-unstable
+     hyprls
      lemminx
      yaml-language-server
      biome
@@ -122,7 +121,7 @@ in
      spotube
      teleport
      nushell
-     openlens
+     lens
      starship
   ];
 
@@ -187,7 +186,7 @@ in
     "docker-ls".source = "${pkgs.docker-ls}";
     "sqls".source = "${pkgs.sqls}";
     "nil".source = "${pkgs.nil}";
-    #"hyprls".source = "${pkgs.hyprls}"; # requires nixos-unstable
+    "hyprls".source = "${pkgs.hyprls}";
     "lemminx".source = "${pkgs.lemminx}";
     "yaml-language-server".source = "${pkgs.yaml-language-server}";
     "biome".source = "${pkgs.biome}";
