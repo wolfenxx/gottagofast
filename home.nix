@@ -123,6 +123,7 @@ in
      nushell
      lens
      starship
+     obsidian
   ];
 
   programs.bash = {
