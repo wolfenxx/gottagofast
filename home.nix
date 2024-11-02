@@ -68,6 +68,7 @@ in
      gnumake
      netcoredbg
      dotnet-sdk_8
+     nuget-to-nix
      csharp-ls
      omnisharp-roslyn
      unzip
