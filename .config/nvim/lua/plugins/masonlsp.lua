@@ -11,7 +11,7 @@ return {
 			require("mason-lspconfig").setup({
 				ensure_installed = {
 					"lua_ls", -- lua language server
-					"tsserver", -- js/ts language server
+					"ts_ls", -- js/ts language server
 					"pyright", -- python language server
 					"clangd", -- C++ language server
 					"csharp_ls", -- C# language server
@@ -80,10 +80,10 @@ return {
 				on_attach = on_attach,
 				filetypes = { "lua" },
 				settings = {
+					misc = {
+						executablePath = "/home/wolfen/lua-language-server/bin/lua-language-server", --NIXOS
+					},
 					Lua = {
-						misc = {
-							executablePath = "/home/wolfen/lua-language-server/bin/lua-language-server", --NIXOS
-						},
 						diagnostics = {
 							globals = { "vim" },
 						},
@@ -97,7 +97,7 @@ return {
 				},
 			})
 
-			lspconfig.tsserver.setup({
+			lspconfig.ts_ls.setup({
 				capabilities = capabilities,
 				on_attach = on_attach,
 				filetypes = { "javascript", "typescript" },
