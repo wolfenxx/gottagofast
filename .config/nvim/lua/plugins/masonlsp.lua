@@ -10,7 +10,7 @@ return {
 		config = function()
 			require("mason-lspconfig").setup({
 				ensure_installed = {
-					"lua_ls", -- lua language server
+					--"lua_ls", -- lua language server -- uncomment for non-nixos setup
 					"ts_ls", -- js/ts language server
 					"pyright", -- python language server
 					"clangd", -- C++ language server
