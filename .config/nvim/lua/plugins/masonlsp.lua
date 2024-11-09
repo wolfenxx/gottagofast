@@ -195,7 +195,7 @@ return {
 			lspconfig.hyprls.setup({
 				capabilities = capabilities,
 				on_attach = on_attach,
-				pattern = { "hypr*.conf" },
+				filetypes = { "hyprlang" },
 				settings = {
 					misc = {
 						executablePath = "/home/wolfen/hyprls/bin/hyprls", --NIXOS
