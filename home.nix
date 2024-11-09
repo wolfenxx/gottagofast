@@ -1,4 +1,4 @@
-{ config, pkgs, userSettings, ... }:
+{ config, pkgs, pkgs-stable, userSettings, ... }:
 let
   shellAliases = {
     sd = "shutdown 0";
@@ -27,6 +27,10 @@ let
     pm = "pulsemixer";
     cy = "cd ~/repos/cypress/";
   };
+
+	stable-packages = with pkgs-stable; [
+		openlens
+	];
 in
 {
   home.username = userSettings.username;
@@ -121,11 +125,10 @@ in
      spotube
      teleport
      nushell
-     lens
      starship
      obsidian
      glow
-  ];
+  ] ++ stable-packages; 
 
   programs.bash = {
     enable = true;
