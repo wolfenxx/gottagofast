@@ -13,8 +13,10 @@ return {
 		--   "BufNewFile path/to/my-vault/*.md",
 		-- },
 		dependencies = {
-			-- Required.
 			"nvim-lua/plenary.nvim",
+			"hrsh7th/nvim-cmp",
+			"nvim-telescope/telescope.nvim",
+			"nvim-treesitter/nvim-treesitter",
 		},
 		opts = {
 			ui = {
