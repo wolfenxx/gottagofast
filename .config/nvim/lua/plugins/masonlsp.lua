@@ -10,17 +10,17 @@ return {
 		config = function()
 			require("mason-lspconfig").setup({
 				ensure_installed = {
-					--"lua_ls", -- lua language server -- uncomment for non-nixos setup
+					--"lua_ls", -- lua language server. Uncomment for non-nixos setup
 					"ts_ls", -- js/ts language server
 					"pyright", -- python language server
 					"clangd", -- C++ language server
-					"csharp_ls", -- C# language server
-					"dockerls", -- Dockerfile language server
-					--"sqls", -- SQL language server
-					--"nil_ls", -- NIX language server
-					--"hyprls", -- Hyprlang language server
-					"lemminx", -- XML language server
-					"yamlls", -- YAML language server
+					-- "csharp_ls", -- C# language server. Uncomment for non-nixos setup
+					-- "dockerls", -- Dockerfile language server. Uncomment for non-nixos setup
+					-- "sqls", -- SQL language server. Uncomment for non-nixos setup
+					-- "nil_ls", -- NIX language server. Uncomment for non-nixos setup
+					-- "hyprls", -- Hyprlang language server. Uncomment for non-nixos setup
+					-- "lemminx", -- XML language server. Uncomment for non-nixos setup
+					-- "yamlls", -- YAML language server. Uncomment for non-nixos setup
 				},
 			})
 		end,
@@ -34,7 +34,7 @@ return {
 				ensure_installed = {
 					"prettier", -- js/ts formatter
 					"prettierd", -- js/ts formatter
-					"biome", -- js/ts/json formatter, js/ts linter
+					-- "biome", -- js/ts/json formatter, js/ts linter. Uncomment for non-nixos setup
 					"js-debug-adapter", -- js/ts debug adapter
 					"stylua", -- lua formatter
 					"eslint_d", -- js/ts linter
@@ -195,7 +195,7 @@ return {
 			lspconfig.hyprls.setup({
 				capabilities = capabilities,
 				on_attach = on_attach,
-				filetypes = { "hypr*.conf" },
+				pattern = { "hypr*.conf" },
 				settings = {
 					misc = {
 						executablePath = "/home/wolfen/hyprls/bin/hyprls", --NIXOS
