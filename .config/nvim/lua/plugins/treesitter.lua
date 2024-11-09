@@ -25,6 +25,8 @@ return {
 					"powershell",
 					"nix",
 					"hyprlang",
+					"markdown",
+					"markdown_inline",
 				},
 				incremental_selection = {
 					enable = true,

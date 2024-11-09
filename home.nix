@@ -124,6 +124,7 @@ in
      lens
      starship
      obsidian
+     glow
   ];
 
   programs.bash = {
