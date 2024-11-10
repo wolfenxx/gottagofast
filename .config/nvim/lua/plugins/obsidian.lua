@@ -25,7 +25,7 @@ return {
 			workspaces = {
 				{
 					name = "notes",
-					path = "~/repos/notes/",
+					path = "~/repos/astralnotes/",
 				},
 			},
 		},

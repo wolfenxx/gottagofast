@@ -26,6 +26,7 @@ let
     blueman = "blueman-manager";
     pm = "pulsemixer";
     cy = "cd ~/repos/cypress/";
+    ast = "cd ~/repos/astralnotes/";
   };
 
 	stable-packages = with pkgs-stable; [
