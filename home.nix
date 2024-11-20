@@ -30,7 +30,8 @@ let
   };
 
 	stable-packages = with pkgs-stable; [
-		openlens
+    openlens
+    easyeffects
 	];
 in
 {
@@ -121,7 +122,6 @@ in
      yaml-language-server
      biome
      powershell
-     easyeffects
      spotify
      spotube
      teleport
