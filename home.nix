@@ -129,6 +129,7 @@ in
      starship
      obsidian
      glow
+     nuget-to-nix
   ] ++ stable-packages; 
 
   programs.bash = {
