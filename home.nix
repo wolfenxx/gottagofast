@@ -88,8 +88,6 @@ in
      wlogout
      hyprpaper
      networkmanagerapplet
-     roboto
-     nerdfonts
      xdg-desktop-portal-hyprland
      zoom-us
      slack
@@ -114,6 +112,7 @@ in
      stylua
      cypress
      postman
+     bruno
      docker-ls
      sqls
      nil

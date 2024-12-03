@@ -94,5 +94,12 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  fonts.packages = with pkgs; [
+    iosevka
+    roboto
+    fantasque-sans-mono
+    nerd-fonts.mononoki
+	];
+
   system.stateVersion = "24.05";
 }
