@@ -12,4 +12,8 @@ return {
 		--   If not available, we use `mini` as the fallback
 		"rcarriga/nvim-notify",
 	},
+	config = function()
+		require("telescope").load_extension("noice")
+		vim.keymap.set("n", "<Leader>dm", "<cmd>NoiceDismiss<CR>", {})
+	end,
 }
