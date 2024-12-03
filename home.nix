@@ -129,6 +129,7 @@ in
      starship
      obsidian
      glow
+     sqlite
   ] ++ stable-packages; 
 
   programs.bash = {
