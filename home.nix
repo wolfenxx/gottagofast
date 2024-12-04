@@ -18,7 +18,7 @@ let
     nv = "nvim .";
     lg = "lazygit";
     ldr = "lazydocker";
-    hms = "home-manager switch --flake /home/wolfen/repos/gottagofast#user";
+    hms = "home-manager switch --flake ~/repos/gottagofast#user";
     gparted = "sudo -E gparted";
     gp = "sudo -E gparted";
     ff = "fzf --bind 'enter:become(nvim {})'";
