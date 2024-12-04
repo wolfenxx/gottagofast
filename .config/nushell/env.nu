@@ -101,8 +101,8 @@ use std "path add"
 # source ($nu.default-config-dir | path join 'custom.nu')
 
 #mkdir ~/.cache/starship
-starship init nu | save -f ~/.cache/starship/init.nu
+#starship init nu | save -f ~/.cache/starship/init.nu
 
-$env.STARSHIP_CONFIG = "~/.config/starship/starship.toml"
+#$env.STARSHIP_CONFIG = "~/.config/starship/starship.toml"
 #mkdir ~/.cache/carapace
-carapace _carapace nushell | save --force ~/.cache/carapace/init.nu
+#carapace _carapace nushell | save --force ~/.cache/carapace/init.nu
