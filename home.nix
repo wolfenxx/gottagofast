@@ -10,7 +10,6 @@ let
     cl = "clear";
     bat = "bat";
     cat = "bat";
-    ll = "eza -alh";
     tree = "eza --tree";
     fe = "yazi";
     nv = "nvim .";
@@ -139,16 +138,7 @@ in
 
       export CYPRESS_INSTALL_BINARY=0
       export CYPRESS_RUN_BINARY=${pkgs.cypress}/bin/Cypress
-
-      eval "$(starship init bash)"
-
-      source <(carapace _carapace)
-
-      alias lo='loginctl terminate-user $USER'
-      alias ls='eza'
-
-      fastfetch
-    '';
+    '' + builtins.readFile ./.config/bash/.bashrc;
   };
 
   programs.nushell = {
