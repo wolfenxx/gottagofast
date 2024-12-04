@@ -145,7 +145,7 @@ in
 
       source <(carapace _carapace)
 
-			alias lo = "loginctl terminate-user $USER"
+      alias lo='loginctl terminate-user $USER'
 
       fastfetch
     '';
@@ -157,7 +157,7 @@ in
     configFile.source = ./.config/nushell/config.nu;
     envFile.source = ./.config/nushell/env.nu;
 		extraConfig = ''
-      alias lo = "loginctl terminate-user $env.USER"
+      alias lo = loginctl terminate-user $env.USER
 		'';
 	};
 
