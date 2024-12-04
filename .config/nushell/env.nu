@@ -35,16 +35,16 @@ def create_right_prompt [] {
 }
 
 # Use nushell functions to define your right and left prompt
-$env.PROMPT_COMMAND = {|| create_left_prompt }
+#$env.PROMPT_COMMAND = {|| create_left_prompt }
 # FIXME: This default is not implemented in rust code as of 2023-09-08.
-$env.PROMPT_COMMAND_RIGHT = {|| create_right_prompt }
+#$env.PROMPT_COMMAND_RIGHT = {|| create_right_prompt }
 
 # The prompt indicators are environmental variables that represent
 # the state of the prompt
-$env.PROMPT_INDICATOR = {|| "> " }
-$env.PROMPT_INDICATOR_VI_INSERT = {|| ": " }
-$env.PROMPT_INDICATOR_VI_NORMAL = {|| "> " }
-$env.PROMPT_MULTILINE_INDICATOR = {|| "::: " }
+#$env.PROMPT_INDICATOR = {|| "> " }
+#$env.PROMPT_INDICATOR_VI_INSERT = {|| ": " }
+#$env.PROMPT_INDICATOR_VI_NORMAL = {|| "> " }
+#$env.PROMPT_MULTILINE_INDICATOR = {|| "::: " }
 
 # If you want previously entered commands to have a different prompt from the usual one,
 # you can uncomment one or more of the following lines.
@@ -103,7 +103,6 @@ use std "path add"
 mkdir ~/.cache/starship
 starship init nu | save -f ~/.cache/starship/init.nu
 
-#$env.STARSHIP_CONFIG = /Users/omerxx/.config/starship/starship.toml
-#$env.NIX_CONF_DIR = /Users/omerxx/.config/nix
+$env.STARSHIP_CONFIG = ~/.config/starship/starship.toml
 mkdir ~/.cache/carapace
 carapace _carapace nushell | save --force ~/.cache/carapace/init.nu
