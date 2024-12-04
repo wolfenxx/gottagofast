@@ -158,6 +158,11 @@ in
     '';
   };
 
+  programs.nushell = {
+		enable = true;
+		configFile.source = ./.config/nushell/config.nu;
+	};
+
   programs.chromium = {
     enable = true;
     package = pkgs.brave;
@@ -188,7 +193,8 @@ in
     ".config/wlogout".source = config.lib.file.mkOutOfStoreSymlink ./.config/wlogout;
     ".config/dunst".source = config.lib.file.mkOutOfStoreSymlink ./.config/dunst;
     ".config/fastfetch".source = config.lib.file.mkOutOfStoreSymlink ./.config/fastfetch;
-    ".config/nushell".source = config.lib.file.mkOutOfStoreSymlink ./.config/nushell;
+		#".config/nushell".source = config.lib.file.mkOutOfStoreSymlink ./.config/nushell;
+		".config/nushell/env.nu".source = config.lib.file.mkOutOfStoreSymlink ./.config/nushell/env.nu;
     ".config/starship.toml".source = config.lib.file.mkOutOfStoreSymlink ./.config/starship/starship.toml;
     "omnisharp".source = "${pkgs.omnisharp-roslyn}";
     "csharp-ls".source = "${pkgs.csharp-ls}";
