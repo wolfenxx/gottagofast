@@ -142,14 +142,6 @@ in
       export CYPRESS_INSTALL_BINARY=0
       export CYPRESS_RUN_BINARY=${pkgs.cypress}/bin/Cypress
 
-      export ST__Application__BindingBasePort=2000
-      export ST__Application__PublicUrl=http://localhost:2000
-      export ST_EnableBackgroundServices=true
-      export ST_SQL=sqlserver://st:$5t-m$5q1$@localhost
-      export ST__MockServices__UseMockServices=true
-      export ST__Application__ServiceNameBase=ServiceTitan
-      export ST__TenantDataService__Enabled=true
-
       eval "$(starship init bash)"
 
       source <(carapace _carapace)
@@ -158,11 +150,12 @@ in
     '';
   };
 
-  # programs.nushell = {
-		# enable = true;
-  #   shellAliases = shellAliases;
-		# configFile.source = ./.config/nushell/config.nu;
-	# };
+  programs.nushell = {
+    enable = true;
+    shellAliases = shellAliases;
+    configFile.source = ./.config/nushell/config.nu;
+    envFile.source = ./.config/nushell/env.nu;
+	};
 
   programs.chromium = {
     enable = true;
@@ -194,8 +187,6 @@ in
     ".config/wlogout".source = config.lib.file.mkOutOfStoreSymlink ./.config/wlogout;
     ".config/dunst".source = config.lib.file.mkOutOfStoreSymlink ./.config/dunst;
     ".config/fastfetch".source = config.lib.file.mkOutOfStoreSymlink ./.config/fastfetch;
-		".config/nushell/config.nu".source = config.lib.file.mkOutOfStoreSymlink ./.config/nushell/config.nu;
-		".config/nushell/env.nu".source = config.lib.file.mkOutOfStoreSymlink ./.config/nushell/env.nu;
     ".config/starship.toml".source = config.lib.file.mkOutOfStoreSymlink ./.config/starship/starship.toml;
     "omnisharp".source = "${pkgs.omnisharp-roslyn}";
     "csharp-ls".source = "${pkgs.csharp-ls}";
