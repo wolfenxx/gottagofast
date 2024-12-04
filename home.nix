@@ -3,7 +3,6 @@ let
   shellAliases = {
     sd = "shutdown 0";
     rs = "reboot";
-    lo = "loginctl terminate-user $USER";
     bk = "cd ..";
     hd = "cd ~";
     gg = "cd ~/repos/gottagofast";
@@ -146,6 +145,8 @@ in
 
       source <(carapace _carapace)
 
+			alias lo = "loginctl terminate-user $USER"
+
       fastfetch
     '';
   };
@@ -155,6 +156,9 @@ in
     shellAliases = shellAliases;
     configFile.source = ./.config/nushell/config.nu;
     envFile.source = ./.config/nushell/env.nu;
+		extraConfig = ''
+      alias lo = "loginctl terminate-user $env.USER"
+		'';
 	};
 
   programs.chromium = {
