@@ -183,6 +183,7 @@ in
     ".config/wlogout".source = config.lib.file.mkOutOfStoreSymlink ./.config/wlogout;
     ".config/dunst".source = config.lib.file.mkOutOfStoreSymlink ./.config/dunst;
     ".config/fastfetch".source = config.lib.file.mkOutOfStoreSymlink ./.config/fastfetch;
+    ".config/starship.toml".source = config.lib.file.mkOutOfStoreSymlink ./.config/starship/starship.toml;
     "omnisharp".source = "${pkgs.omnisharp-roslyn}";
     "csharp-ls".source = "${pkgs.csharp-ls}";
     "stylua".source = "${pkgs.stylua}";
