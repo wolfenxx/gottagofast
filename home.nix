@@ -152,6 +152,8 @@ in
 
       eval "$(starship init bash)"
 
+      source <(carapace _carapace)
+
       fastfetch
     '';
   };
