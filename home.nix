@@ -149,6 +149,8 @@ in
       export ST__Application__ServiceNameBase=ServiceTitan
       export ST__TenantDataService__Enabled=true
 
+      eval "$(starship init bash)"
+
       fastfetch
     '';
   };
