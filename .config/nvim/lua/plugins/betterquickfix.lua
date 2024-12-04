@@ -1,6 +1,6 @@
 return {
 	"kevinhwang91/nvim-bqf",
 	config = function()
-		require("nvim-bqf").setup({})
+		require("bqf").setup({})
 	end,
 }
