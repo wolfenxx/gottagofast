@@ -125,6 +125,7 @@ in
      spotube
      teleport
      nushell
+     carapace
      starship
      obsidian
      glow
@@ -185,6 +186,7 @@ in
     ".config/wlogout".source = config.lib.file.mkOutOfStoreSymlink ./.config/wlogout;
     ".config/dunst".source = config.lib.file.mkOutOfStoreSymlink ./.config/dunst;
     ".config/fastfetch".source = config.lib.file.mkOutOfStoreSymlink ./.config/fastfetch;
+    ".config/nushell".source = config.lib.file.mkOutOfStoreSymlink ./.config/nushell;
     ".config/starship.toml".source = config.lib.file.mkOutOfStoreSymlink ./.config/starship/starship.toml;
     "omnisharp".source = "${pkgs.omnisharp-roslyn}";
     "csharp-ls".source = "${pkgs.csharp-ls}";

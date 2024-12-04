@@ -27,6 +27,8 @@ return {
 					"hyprlang",
 					"markdown",
 					"markdown_inline",
+					"toml",
+					"nu",
 				},
 				incremental_selection = {
 					enable = true,
