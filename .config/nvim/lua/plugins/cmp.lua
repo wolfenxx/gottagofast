@@ -17,6 +17,29 @@ return {
 		require("luasnip.loaders.from_vscode").lazy_load()
 		require("luasnip.loaders.from_snipmate").lazy_load()
 
+		-- `/` cmdline setup.
+		cmp.setup.cmdline("/", {
+			mapping = cmp.mapping.preset.cmdline(),
+			sources = {
+				{ name = "buffer" },
+			},
+		})
+
+		-- `:` cmdline setup.
+		cmp.setup.cmdline(":", {
+			mapping = cmp.mapping.preset.cmdline(),
+			sources = cmp.config.sources({
+				{ name = "path" },
+			}, {
+				{
+					name = "cmdline",
+					option = {
+						ignore_cmds = { "Man", "!" },
+					},
+				},
+			}),
+		})
+
 		cmp.setup({
 			completion = {
 				completeopt = "menu,menuone,preview",
@@ -48,28 +71,6 @@ return {
 				{ name = "vim-dadbod-completion" },
 				{ name = "buffer" },
 			},
-		})
-
-		cmp.setup.cmdline("/", {
-			mapping = cmp.mapping.preset.cmdline(),
-			sources = {
-				{ name = "buffer" },
-			},
-		})
-
-		cmp.setup.cmdline(":", {
-			mapping = cmp.mapping.preset.cmdline(),
-			sources = cmp.config.sources({
-				{ name = "path" },
-				{
-					{
-						name = "cmdline",
-						option = {
-							ignore_cmds = { "Man", "!" },
-						},
-					},
-				},
-			}),
 		})
 	end,
 }
