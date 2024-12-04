@@ -103,7 +103,7 @@ use std "path add"
 mkdir ~/.cache/starship
 starship init nu | save -f ~/.cache/starship/init.nu
 
-$env.STARSHIP_CONFIG = /Users/omerxx/.config/starship/starship.toml
-$env.NIX_CONF_DIR = /Users/omerxx/.config/nix
+#$env.STARSHIP_CONFIG = /Users/omerxx/.config/starship/starship.toml
+#$env.NIX_CONF_DIR = /Users/omerxx/.config/nix
 mkdir ~/.cache/carapace
 carapace _carapace nushell | save --force ~/.cache/carapace/init.nu
