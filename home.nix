@@ -155,7 +155,7 @@ in
     enable = true;
     shellAliases = shellAliases;
     configFile.source = ./.config/nushell/config.nu;
-    envFile.source = ./.config/nushell/env.nu;
+		#envFile.source = ./.config/nushell/env.nu;
 		extraConfig = ''
       alias lo = loginctl terminate-user $env.USER
 		'';
@@ -192,6 +192,7 @@ in
     ".config/dunst".source = config.lib.file.mkOutOfStoreSymlink ./.config/dunst;
     ".config/fastfetch".source = config.lib.file.mkOutOfStoreSymlink ./.config/fastfetch;
     ".config/starship.toml".source = config.lib.file.mkOutOfStoreSymlink ./.config/starship/starship.toml;
+    ".config/nushell/env.nu".source = config.lib.file.mkOutOfStoreSymlink ./.config/nushell/env.nu;
     "omnisharp".source = "${pkgs.omnisharp-roslyn}";
     "csharp-ls".source = "${pkgs.csharp-ls}";
     "stylua".source = "${pkgs.stylua}";
