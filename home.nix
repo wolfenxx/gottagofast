@@ -10,7 +10,6 @@ let
     cl = "clear";
     bat = "bat";
     cat = "bat";
-    ls = "eza";
     ll = "eza -alh";
     tree = "eza --tree";
     fe = "yazi";
@@ -146,6 +145,7 @@ in
       source <(carapace _carapace)
 
       alias lo='loginctl terminate-user $USER'
+      alias ls='eza'
 
       fastfetch
     '';
@@ -192,7 +192,6 @@ in
     ".config/dunst".source = config.lib.file.mkOutOfStoreSymlink ./.config/dunst;
     ".config/fastfetch".source = config.lib.file.mkOutOfStoreSymlink ./.config/fastfetch;
     ".config/starship.toml".source = config.lib.file.mkOutOfStoreSymlink ./.config/starship/starship.toml;
-		#".config/nushell/env.nu".source = config.lib.file.mkOutOfStoreSymlink ./.config/nushell/env.nu;
     "omnisharp".source = "${pkgs.omnisharp-roslyn}";
     "csharp-ls".source = "${pkgs.csharp-ls}";
     "stylua".source = "${pkgs.stylua}";
