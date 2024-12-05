@@ -1,4 +1,8 @@
 $env.EDITOR = "nvim"
+$env.PROMPT_INDICATOR = {|| " " }
+$env.PROMPT_INDICATOR_VI_INSERT = {|| " " }
+$env.PROMPT_INDICATOR_VI_NORMAL = {|| " " }
+$env.PROMPT_MULTILINE_INDICATOR = {|| "::: " }
 
 mkdir ~/.cache/starship
 starship init nu | save -f ~/.cache/starship/init.nu

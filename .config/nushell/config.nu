@@ -34,17 +34,17 @@ $env.config = {
         # table: '%m/%d/%y %I:%M:%S%p'          # generally shows up in tabular outputs such as ls. commenting this out will change it to the default human readable datetime format
     }
 
-    explore: {
-        status_bar_background: { fg: "#1D1F21", bg: "#C4C9C6" },
-        command_bar_text: { fg: "#C4C9C6" },
-        highlight: { fg: "black", bg: "yellow" },
-        status: {
-            error: { fg: "white", bg: "red" },
-            warn: {}
-            info: {}
-        },
-        selected_cell: { bg: light_blue },
-    }
+	#    explore: {
+	#        status_bar_background: { fg: "#1D1F21", bg: "#C4C9C6" },
+	#        command_bar_text: { fg: "#C4C9C6" },
+	#        highlight: { fg: "black", bg: "yellow" },
+	#        status: {
+	#            error: { fg: "white", bg: "red" },
+	#            warn: {}
+	#            info: {}
+	#        },
+	#        selected_cell: { bg: light_blue },
+	#    }
 
     history: {
         max_size: 100_000 # Session has to be reloaded for this to take effect
@@ -73,8 +73,8 @@ $env.config = {
 
     cursor_shape: {
         emacs: block # block, underscore, line, blink_block, blink_underscore, blink_line, inherit to skip setting cursor shape (line is the default)
-        vi_insert: block # block, underscore, line, blink_block, blink_underscore, blink_line, inherit to skip setting cursor shape (block is the default)
-        vi_normal: underscore # block, underscore, line, blink_block, blink_underscore, blink_line, inherit to skip setting cursor shape (underscore is the default)
+        vi_insert: blink_line # block, underscore, line, blink_block, blink_underscore, blink_line, inherit to skip setting cursor shape (block is the default)
+        vi_normal: block # block, underscore, line, blink_block, blink_underscore, blink_line, inherit to skip setting cursor shape (underscore is the default)
     }
 
     footer_mode: 25 # always, never, (int)number of rows, auto
@@ -234,7 +234,7 @@ $env.config = {
     keybindings: [
         {
             name: delete_one_word_backward
-            modifier: control
+            modifier: alt
             keycode: backspace
             mode: [emacs, vi_normal, vi_insert]
             event: {edit: backspaceword}
