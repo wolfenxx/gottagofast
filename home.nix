@@ -151,6 +151,20 @@ in
 		'';
 	};
 
+  programs.kitty = {
+    enable = true;
+		extraConfig = ''
+      shell ${pkgs.nushell}/bin/nu
+    '' + builtins.readFile ./.config/kitty/kitty.conf;
+	};
+
+  programs.tmux = {
+    enable = true;
+		extraConfig = ''
+      set-option -g default-shell ${pkgs.nushell}/bin/nu
+    '' + builtins.readFile ./.config/tmux/tmux.conf;
+	};
+
   programs.chromium = {
     enable = true;
     package = pkgs.brave;
@@ -169,12 +183,8 @@ in
       source = ./.config/nvim;
       recursive = true;
     };
-    ".config/tmux" = {
-      source = ./.config/tmux;
-      recursive = true;
-    };
     ".config/hypr".source = config.lib.file.mkOutOfStoreSymlink ./.config/hypr; 
-    ".config/kitty".source = config.lib.file.mkOutOfStoreSymlink ./.config/kitty;
+    ".config/kitty/current-theme.conf".source = config.lib.file.mkOutOfStoreSymlink ./.config/kitty/current-theme.conf;
     ".config/yazi".source = config.lib.file.mkOutOfStoreSymlink ./.config/yazi;
     ".config/waybar".source = config.lib.file.mkOutOfStoreSymlink ./.config/waybar;
     ".config/rofi".source = config.lib.file.mkOutOfStoreSymlink ./.config/rofi;
