@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, systemSettings, userSettings, ... }:
+{ pkgs, inputs, systemSettings, userSettings, ... }:
 
 {
   networking.hostName = systemSettings.hostname; # Define your hostname.
@@ -79,7 +79,7 @@
     description = userSettings.username;
     extraGroups = [ "networkmanager" "audio" "wheel" "docker" ];
     uid = 1000;
-    packages = with pkgs; [];
+    packages = [];
   };
 
   # Enable automatic login for the user.
@@ -90,7 +90,7 @@
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
 
-  environment.systemPackages = with pkgs; [];
+  environment.systemPackages = [];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 

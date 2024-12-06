@@ -13,7 +13,7 @@ return {
 					--"lua_ls", -- lua language server. Uncomment for non-nixos setup
 					"ts_ls", -- js/ts language server
 					"pyright", -- python language server
-					"clangd", -- C++ language server
+					-- "clangd", -- C++ language server. Uncomment for non-nixos setup
 					-- "csharp_ls", -- C# language server. Uncomment for non-nixos setup
 					-- "dockerls", -- Dockerfile language server. Uncomment for non-nixos setup
 					-- "sqls", -- SQL language server. Uncomment for non-nixos setup
@@ -32,20 +32,20 @@ return {
 
 			installer.setup({
 				ensure_installed = {
-					"prettier", -- js/ts formatter
-					"prettierd", -- js/ts formatter
+					"prettier",    -- js/ts formatter
+					"prettierd",   -- js/ts formatter
 					-- "biome", -- js/ts/json formatter, js/ts linter. Uncomment for non-nixos setup
 					"js-debug-adapter", -- js/ts debug adapter
-					"stylua", -- lua formatter
-					"eslint_d", -- js/ts linter
-					"csharpier", -- C# formatter
-					"mypy", -- python static typing analysis
-					"ruff", -- python linter
-					"isort", -- python formatter
-					"black", -- python formatter
-					"debugpy", -- python debug adapter
-					"clang-format", -- C++ formatter
-					"codelldb", -- C++ debug adapter
+					"stylua",      -- lua formatter
+					"eslint_d",    -- js/ts linter
+					"csharpier",   -- C# formatter
+					"mypy",        -- python static typing analysis
+					"ruff",        -- python linter
+					"isort",       -- python formatter
+					"black",       -- python formatter
+					"debugpy",     -- python debug adapter
+					-- "clang-format", -- C++ formatter. Uncomment for non-nixos setup
+					"codelldb",    -- C++ debug adapter
 				},
 			})
 		end,
@@ -81,7 +81,7 @@ return {
 				filetypes = { "lua" },
 				settings = {
 					misc = {
-						executablePath = "/home/wolfen/lua-language-server/bin/lua-language-server", --NIXOS
+						executablePath = "~/lua-language-server/bin/lua-language-server", --NIXOS
 					},
 					Lua = {
 						diagnostics = {
@@ -115,7 +115,7 @@ return {
 				filetypes = { "cs" },
 				settings = {
 					misc = {
-						executablePath = "/home/wolfen/csharp-ls/bin/csharp-ls", --NIXOS
+						executablePath = "~/csharp-ls/bin/csharp-ls", --NIXOS
 					},
 				},
 			})
@@ -124,6 +124,11 @@ return {
 				capabilities = capabilities,
 				on_attach = on_attach,
 				filetypes = { "cpp" },
+				settings = {
+					misc = {
+						executablePath = "~/clang-tools/bin/clangd", --NIXOS
+					},
+				},
 			})
 
 			lspconfig.biome.setup({
@@ -132,7 +137,7 @@ return {
 				filetypes = { "json" },
 				settings = {
 					misc = {
-						executablePath = "/home/wolfen/biome/bin/biome", --NIXOS
+						executablePath = "~/biome/bin/biome", --NIXOS
 					},
 				},
 			})
@@ -143,7 +148,7 @@ return {
 				filetypes = { "Dockerfile" },
 				settings = {
 					misc = {
-						executablePath = "/home/wolfen/docker-ls/bin/docker-ls", --NIXOS
+						executablePath = "~/docker-ls/bin/docker-ls", --NIXOS
 					},
 				},
 			})
@@ -154,7 +159,7 @@ return {
 				filetypes = { "xml" },
 				settings = {
 					misc = {
-						executablePath = "/home/wolfen/lemminx/bin/lemminx", --NIXOS
+						executablePath = "~/lemminx/bin/lemminx", --NIXOS
 					},
 				},
 			})
@@ -165,7 +170,7 @@ return {
 				filetypes = { "yaml" },
 				settings = {
 					misc = {
-						executablePath = "/home/wolfen/yaml-language-server/bin/yaml-language-server", --NIXOS
+						executablePath = "~/yaml-language-server/bin/yaml-language-server", --NIXOS
 					},
 				},
 			})
@@ -176,7 +181,7 @@ return {
 				filetypes = { "sql" },
 				settings = {
 					misc = {
-						executablePath = "/home/wolfen/sqls/bin/sqls", --NIXOS
+						executablePath = "~/sqls/bin/sqls", --NIXOS
 					},
 				},
 			})
@@ -187,7 +192,7 @@ return {
 				filetypes = { "nix" },
 				settings = {
 					misc = {
-						executablePath = "/home/wolfen/nil/bin/nil", --NIXOS
+						executablePath = "~/nil/bin/nil", --NIXOS
 					},
 				},
 			})
@@ -198,7 +203,7 @@ return {
 				filetypes = { "hyprlang" },
 				settings = {
 					misc = {
-						executablePath = "/home/wolfen/hyprls/bin/hyprls", --NIXOS
+						executablePath = "~/hyprls/bin/hyprls", --NIXOS
 					},
 				},
 			})

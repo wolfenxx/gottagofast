@@ -1,5 +1,5 @@
 {
-  description = "NixOS Flake";
+  description = "Wolfen's System";
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
@@ -56,7 +56,14 @@
         user = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [
-            ./home.nix
+            ./home_modules/home.nix
+						./home_modules/audio.nix
+						./home_modules/browsers.nix
+						./home_modules/chat.nix
+						./home_modules/development.nix
+						./home_modules/hyprland.nix
+						./home_modules/terminals.nix
+						./home_modules/video.nix
           ];
           extraSpecialArgs = {
             inherit userSettings;
@@ -71,11 +78,11 @@
           system = systemSettings.system;
           inherit pkgs;
           modules = [
+						./configuration.nix
             ./hardware-configuration.nix
-            ./virtualization.nix
-            ./containerization.nix
-            ./gaming.nix
-            ./configuration.nix
+            ./system_modules/virtualization.nix
+            ./system_modules/containerization.nix
+            ./system_modules/gaming.nix
           ];
           specialArgs = {
             inherit systemSettings;
@@ -93,7 +100,7 @@
           install = pkgs.writeShellApplication {
             name = "install";
             runtimeInputs = with pkgs; [ git ];
-            text = ''${./install.sh} "$@"'';
+            text = ''${../scripts/nix_install_system.sh} "$@"'';
           };
         });
     };

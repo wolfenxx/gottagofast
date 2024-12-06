@@ -92,7 +92,7 @@ return {
 				host = "127.0.0.1",
 				port = 8123,
 				executable = {
-					command = "/home/wolfen/lldb/bin/lldb-vscode", --NIXOS
+					command = "~/lldb/bin/lldb-dap", --NIXOS
 					-- command = "codelldb",
 					args = {
 						"--port",

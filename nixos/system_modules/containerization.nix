@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, systemSettings, userSettings, ... }:
+{ pkgs, userSettings, ... }:
 {
   # Enable virtualization for Docker daemon
   virtualisation.docker.enable = true;

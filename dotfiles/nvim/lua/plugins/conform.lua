@@ -8,13 +8,13 @@ return {
 		conform.setup({
 			formatters = {
 				stylua = {
-					command = "/home/wolfen/stylua/bin/stylua", --NIXOS
+					command = "~/stylua/bin/stylua", --NIXOS
 				},
 				clang_format = {
-					command = "/home/wolfen/clang-tools/bin/clang-format", --NIXOS
+					command = "~/clang-tools/bin/clang-format", --NIXOS
 				},
 				biome = {
-					command = "/home/wolfen/biome/bin/biome", --NIXOS
+					command = "~/biome/bin/biome", --NIXOS
 				},
 			},
 			formatters_by_ft = {

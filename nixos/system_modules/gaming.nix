@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, systemSettings, userSettings, ... }:
+{ config, ... }:
 {
   # Gaming modules
   programs.gamemode.enable = true;

@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, systemSettings, userSettings, ... }:
+{ pkgs, userSettings, ... }:
 
 {
   # Enable dconf (System Management Tool)
