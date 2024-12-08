@@ -103,5 +103,20 @@
             text = ''${../scripts/nix_install_system.sh} "$@"'';
           };
         });
+
+      devShells = forAllSystems (system:
+        let pkgs = nixpkgsFor.${system};
+        in {
+          node = pkgs.mkShell {
+            packages = with pkgs; [
+              nodejs_20
+              cypress
+            ];
+
+            shellHook = ''
+              echo "Welcome to NodeJS dev environment"
+            '';
+          };
+      });
     };
 }
