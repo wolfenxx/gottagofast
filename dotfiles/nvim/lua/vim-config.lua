@@ -13,6 +13,8 @@ vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv")          -- move line down(v)
 vim.keymap.set("n", "<Leader>bn", ":bn<CR>", {})          -- next buffer
 vim.keymap.set("n", "<Leader>bp", ":bp<CR>", {})          -- previous buffer
 vim.keymap.set("n", "<Leader>bd", ":bd<CR>", {})          -- close buffer
+vim.keymap.set("n", "<Leader>sh", ":split<CR>", {})       -- split window horizontally
+vim.keymap.set("n", "<Leader>sv", ":vsplit<CR>", {})      -- split window vertically
 vim.g.OmniSharp_server_path = "~/omnisharp/bin/OmniSharp" --NIXOS
 vim.o.foldcolumn = "1"
 vim.o.foldlevel = 99                                      -- Using ufo provider need a large value, feel free to decrease the value
