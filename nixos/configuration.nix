@@ -20,6 +20,7 @@
 
 	# Enable wireshark
 	programs.wireshark.enable = true;
+  programs.wireshark.package = pkgs.wireshark;
 
   # Enable Hyprland
   programs.hyprland.enable = true;
