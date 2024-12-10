@@ -66,7 +66,6 @@ in
      atac
      tshark
      termshark
-		#wireshark
   ]; 
 
   programs.bash = {

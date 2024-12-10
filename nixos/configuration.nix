@@ -18,6 +18,9 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+	# Enable wireshark
+	programs.wireshark.enable = true;
+
   # Enable Hyprland
   programs.hyprland.enable = true;
   programs.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland;
