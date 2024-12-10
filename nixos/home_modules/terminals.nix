@@ -29,19 +29,28 @@ in
 {
   home.packages = with pkgs; [
      tmux
+     tmuxinator
      waveterm
      bat
      eza
      curl
+     xh
      ripgrep
      fzf
      fd
+     sd
+     dust
+     duf
+     dogdns
      jq
+     jqp
+     yq
      difftastic
      jless
      yazi
      zoxide
      btop
+     powertop
      unzip
      kitty
      fastfetch
@@ -53,6 +62,11 @@ in
      gparted
      parted
      file
+     entr
+     atac
+     tshark
+     termshark
+		#wireshark
   ]; 
 
   programs.bash = {
