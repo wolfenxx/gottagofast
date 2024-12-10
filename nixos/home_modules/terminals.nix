@@ -29,6 +29,7 @@ in
 {
   home.packages = with pkgs; [
      tmux
+     waveterm
      bat
      eza
      curl
