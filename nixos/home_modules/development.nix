@@ -11,6 +11,7 @@ in
     git
     python3
     nodejs_20
+    bun
     lazygit
     lazydocker
     docker
