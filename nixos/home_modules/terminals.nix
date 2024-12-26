@@ -3,10 +3,6 @@ let
   shellAliases = {
     sd = "shutdown 0";
     rs = "reboot";
-    bk = "cd ..";
-    hd = "cd ~";
-    gg = "cd ~/repos/gottagofast";
-    pr = "cd ~/projects";
     cl = "clear";
     bat = "bat";
     cat = "bat";
@@ -21,9 +17,14 @@ let
     ff = "fzf --bind 'enter:become(nvim {})'";
     bluetooth = "blueman-manager";
     blueman = "blueman-manager";
-    pm = "pulsemixer";
+		pm = "pulsemixer";
+		bk = "cd ..";
+		hd = "cd ~";
+		gg = "cd ~/repos/gottagofast";
+		pr = "cd ~/projects";
     cy = "cd ~/repos/cypress/";
     ast = "cd ~/repos/astralnotes/";
+		rep = "cd ~/repos";
   };
 in
 {
