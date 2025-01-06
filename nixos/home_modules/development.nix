@@ -41,6 +41,7 @@ in
     biome
     sqlite
     teleport
+    vscode
   ] ++ stable-packages; 
 
   home.file = {
