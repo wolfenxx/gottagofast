@@ -42,6 +42,7 @@ in
     sqlite
     teleport
     vscode
+		postgresql
   ] ++ stable-packages; 
 
   home.file = {
