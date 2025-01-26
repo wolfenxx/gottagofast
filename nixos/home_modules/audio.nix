@@ -2,13 +2,13 @@
 let
   stable-packages = with pkgs-stable; [
     easyeffects
+    ardour
   ];
 in
 {
   home.packages = with pkgs; [
     qjackctl
     pulsemixer
-    ardour
     bluez
     spotify
     spotube
