@@ -28,7 +28,7 @@ let
 		es = "cd ~/repos/everactive-server/";
 		sbup = "docker compose -f ~/repos/supabase/docker/docker-compose.yml up -d";
 		sbdown = "docker compose -f ~/repos/supabase/docker/docker-compose.yml down";
-    up = "docker compose up -d && bun push";
+    up = "docker compose up -d";
     down = "docker compose down";
   };
 in
