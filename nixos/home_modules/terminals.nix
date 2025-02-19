@@ -70,6 +70,7 @@ in
      file
      entr
      atac
+     posting
      tshark
      termshark
   ]; 
