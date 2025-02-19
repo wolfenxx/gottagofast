@@ -26,10 +26,9 @@ let
     ast = "cd ~/repos/astralnotes/";
 		rep = "cd ~/repos";
 		es = "cd ~/repos/everactive-server/";
-		sbup = "docker compose -f ~/repos/supabase/docker/docker-compose.yml up -d";
-		sbdown = "docker compose -f ~/repos/supabase/docker/docker-compose.yml down";
     up = "docker compose up -d";
     down = "docker compose down";
+    posting-tds = "posting --env ~/projects/posting/tds-collections/.env --collection ~/projects/posting/tds-collections";
   };
 in
 {
