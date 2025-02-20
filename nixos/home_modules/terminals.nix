@@ -70,6 +70,7 @@ in
      entr
      atac
      posting
+     harlequin
      tshark
      termshark
   ]; 
