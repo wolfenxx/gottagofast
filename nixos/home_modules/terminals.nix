@@ -71,6 +71,7 @@ in
      atac
      posting
      harlequin
+     python313Packages.harlequin-postgres
      tshark
      termshark
   ]; 
