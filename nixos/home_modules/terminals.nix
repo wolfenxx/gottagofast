@@ -70,7 +70,7 @@ in
      file
      entr
      atac
-     posting
+     # posting # only available in unstable version
      tshark
      termshark
   ]; 
