@@ -14,6 +14,12 @@ else
     sed -i "0,/grubDevice.*=.*\".*\";/s//grubDevice = \"\/dev\/$grubDevice\";/" $REPO_LOCATION/nixos/flake.nix
 fi
 
+# Remove all docker containers and associated volumes to avoid build issues
+docker rm -vf $(docker ps -aq)
+
+# Remove lingering volumes
+docker volume prune -f
+
 sudo nixos-rebuild switch --flake $REPO_LOCATION/nixos#system;
 
 home-manager switch --flake $REPO_LOCATION/nixos#user;
