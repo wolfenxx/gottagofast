@@ -9,5 +9,10 @@
   home.packages = with pkgs; [
      protonup
      obsidian
+     pcsx2
+     mesen
+     snes9x
+     dolphin-emu
+     torzu # fork of yuzu
   ]; 
 }
