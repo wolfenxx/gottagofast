@@ -30,7 +30,7 @@ in
     lua-language-server
     stylua
     cypress
-    postman
+		#postman #intermittenly unavailable due to postman deleting old versions
     bruno
     docker-ls
     sqls

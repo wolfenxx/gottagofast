@@ -13,6 +13,6 @@
      mesen
      snes9x
      dolphin-emu
-     torzu # fork of yuzu
+		 #torzu # fork of yuzu (removed in latest version)
   ]; 
 }
