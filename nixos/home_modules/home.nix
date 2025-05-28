@@ -14,5 +14,6 @@
      snes9x
      dolphin-emu
 		 #torzu # fork of yuzu (removed in latest version)
+     ledger-live-desktop
   ]; 
 }

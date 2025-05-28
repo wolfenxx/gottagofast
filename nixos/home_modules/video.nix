@@ -5,5 +5,6 @@
     arandr
     autorandr
     mpv
+    davinci-resolve-studio
   ]; 
 }

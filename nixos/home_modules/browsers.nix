@@ -11,6 +11,7 @@
     extensions = [
       { id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; } # ublock origin
       { id = "ldgfbffkinooeloadekpmfoklnobpien"; } # raindrop
+      { id = "dbepggeogbaibhgnhhndojpepiihcmeb"; } # vimium
     ];
   };
 }
