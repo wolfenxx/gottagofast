@@ -38,9 +38,9 @@ return {
 					"js-debug-adapter", -- js/ts debug adapter
 					"stylua",      -- lua formatter
 					"eslint_d",    -- js/ts linter
-					"csharpier",   -- C# formatter
+					"csharpier",   -- C# formatter. Uncomment for non-nixos setup
 					"mypy",        -- python static typing analysis
-					"ruff",        -- python linter
+					-- "ruff",        -- python linter. Uncomment for non-nixos setup
 					"isort",       -- python formatter
 					"black",       -- python formatter
 					"debugpy",     -- python debug adapter
