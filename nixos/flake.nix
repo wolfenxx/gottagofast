@@ -9,7 +9,8 @@
 
     hyprland.url = "github:hyprwm/Hyprland";
   };
-  outputs = { self, nixpkgs, ... }@inputs: 
+  outputs =
+    { self, nixpkgs, ... }@inputs:
     let
       # ---- SYSTEM SETTINGS ---- #
       systemSettings = {
@@ -26,18 +27,18 @@
         username = "wolfen";
       };
 
-      pkgs = import inputs.nixpkgs { 
+      pkgs = import inputs.nixpkgs {
         system = systemSettings.system;
-          config = {
-            allowUnfree = true;
-          };
+        config = {
+          allowUnfree = true;
+        };
       };
 
       pkgs-stable = import inputs.nixpkgs-stable {
         system = systemSettings.system;
-          config = {
-            allowUnfree = true;
-          };
+        config = {
+          allowUnfree = true;
+        };
       };
 
       home-manager = inputs.home-manager;
@@ -57,13 +58,14 @@
           inherit pkgs;
           modules = [
             ./home_modules/home.nix
-						./home_modules/audio.nix
-						./home_modules/browsers.nix
-						./home_modules/chat.nix
-						./home_modules/development.nix
-						./home_modules/hyprland.nix
-						./home_modules/terminals.nix
-						./home_modules/video.nix
+            ./home_modules/audio.nix
+            ./home_modules/browsers.nix
+            ./home_modules/chat.nix
+            ./home_modules/development.nix
+            ./home_modules/hyprland.nix
+            ./home_modules/terminals.nix
+            ./home_modules/video.nix
+            ./home_modules/image.nix
           ];
           extraSpecialArgs = {
             inherit userSettings;
@@ -78,7 +80,7 @@
           system = systemSettings.system;
           inherit pkgs;
           modules = [
-						./configuration.nix
+            ./configuration.nix
             ./hardware-configuration.nix
             ./system_modules/virtualization.nix
             ./system_modules/containerization.nix
@@ -92,9 +94,12 @@
         };
       };
 
-      packages = forAllSystems (system:
-        let pkgs = nixpkgsFor.${system};
-        in {
+      packages = forAllSystems (
+        system:
+        let
+          pkgs = nixpkgsFor.${system};
+        in
+        {
           default = self.packages.${system}.install;
 
           install = pkgs.writeShellApplication {
@@ -102,11 +107,15 @@
             runtimeInputs = with pkgs; [ git ];
             text = ''${../scripts/nix_install_system.sh} "$@"'';
           };
-        });
+        }
+      );
 
-      devShells = forAllSystems (system:
-        let pkgs = nixpkgsFor.${system};
-        in {
+      devShells = forAllSystems (
+        system:
+        let
+          pkgs = nixpkgsFor.${system};
+        in
+        {
           node = pkgs.mkShell {
             packages = with pkgs; [
               nodejs_20
@@ -117,6 +126,7 @@
               echo "Welcome to NodeJS dev environment"
             '';
           };
-      });
+        }
+      );
     };
 }
