@@ -7,5 +7,7 @@
     mpv
     davinci-resolve-studio
     ffmpeg
+    shotcut
+    blender
   ];
 }

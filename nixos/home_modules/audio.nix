@@ -15,6 +15,10 @@ in
       spotify
       spotube
       audacity
+      llms
+      soundconverter
+      bitwig-studio
+      mixxx
     ]
     ++ stable-packages;
 }
