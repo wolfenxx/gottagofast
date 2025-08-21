@@ -15,7 +15,7 @@ in
       spotify
       spotube
       audacity
-      llms
+      lmms
       soundconverter
       bitwig-studio
       mixxx
