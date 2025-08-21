@@ -6,5 +6,6 @@
     autorandr
     mpv
     davinci-resolve-studio
-  ]; 
+    ffmpeg
+  ];
 }
