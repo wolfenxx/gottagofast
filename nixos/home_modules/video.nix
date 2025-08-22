@@ -9,5 +9,6 @@
     ffmpeg
     shotcut
     blender
+    ytdownloader
   ];
 }
