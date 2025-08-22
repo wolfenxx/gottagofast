@@ -19,6 +19,7 @@ in
       soundconverter
       bitwig-studio
       mixxx
+      ocenaudio
     ]
     ++ stable-packages;
 }
