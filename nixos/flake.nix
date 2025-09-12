@@ -8,9 +8,19 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     hyprland.url = "github:hyprwm/Hyprland";
+
+    hyprland-virtual-desktops = {
+      url = "github:levnikmyskin/hyprland-virtual-desktops";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
-    { self, nixpkgs, ... }@inputs:
+    {
+      self,
+      nixpkgs,
+      hyprland-virtual-desktops,
+      ...
+    }@inputs:
     let
       # ---- SYSTEM SETTINGS ---- #
       systemSettings = {
