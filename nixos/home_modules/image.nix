@@ -5,5 +5,6 @@
     krita
     inkscape
     drawing
+    pinta
   ];
 }
