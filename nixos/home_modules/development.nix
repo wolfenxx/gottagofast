@@ -32,8 +32,8 @@ in
       mono
       gnumake
       netcoredbg
-      dotnet-sdk_8
-      nuget-to-nix
+      dotnet-sdk_9
+      nuget-to-json
       csharp-ls
       omnisharp-roslyn
       lua
@@ -42,8 +42,9 @@ in
       cypress
       #postman #intermittenly unavailable due to postman deleting old versions
       bruno
-      docker-ls
+      docker-language-server
       sqls
+      sql-formatter
       nil
       hyprls
       lemminx
@@ -69,8 +70,9 @@ in
     "clang-tools".source = "${pkgs.clang-tools}";
     "lldb".source = "${pkgs.lldb}";
     "lua-language-server".source = "${pkgs.lua-language-server}";
-    "docker-ls".source = "${pkgs.docker-ls}";
+    "docker-language-server".source = "${pkgs.docker-language-server}";
     "sqls".source = "${pkgs.sqls}";
+    "sql-formatter".source = "${pkgs.sql-formatter}";
     "nil".source = "${pkgs.nil}";
     "hyprls".source = "${pkgs.hyprls}";
     "lemminx".source = "${pkgs.lemminx}";

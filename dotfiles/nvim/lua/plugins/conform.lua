@@ -8,13 +8,20 @@ return {
 		conform.setup({
 			formatters = {
 				stylua = {
-					command = "~/stylua/bin/stylua", --NIXOS
+					command = vim.fn.expand("~") .. "/stylua/bin/stylua", --NIXOS
 				},
 				clang_format = {
-					command = "~/clang-tools/bin/clang-format", --NIXOS
+					command = vim.fn.expand("~") .. "/clang-tools/bin/clang-format", --NIXOS
 				},
 				biome = {
-					command = "~/biome/bin/biome", --NIXOS
+					command = vim.fn.expand("~") .. "/biome/bin/biome", --NIXOS
+				},
+				csharpier = {
+					command = vim.fn.expand("~") .. "/csharpier/bin/csharpier", --NIXOS
+				},
+				sql_formatter = {
+					command = vim.fn.expand("~") .. "/sql-formatter/bin/sql-formatter", --NIXOS
+					-- stdin = true,
 				},
 			},
 			formatters_by_ft = {
@@ -27,6 +34,7 @@ return {
 				json = { "biome" },
 				cs = { "csharpier" },
 				cpp = { "clang_format" },
+				sql = { "sql_formatter" },
 			},
 			format_on_save = {
 				lsp_fallback = true,
