@@ -5,8 +5,12 @@ let
   ];
 in
 {
-  home.packages = with pkgs; [
-    slack
-    webcord
-  ] ++ stable-packages; 
+  home.packages =
+    with pkgs;
+    [
+      slack
+      webcord
+      discord
+    ]
+    ++ stable-packages;
 }
