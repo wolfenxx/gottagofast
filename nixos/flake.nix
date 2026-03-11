@@ -1,35 +1,31 @@
 {
   description = "Wolfen's System";
+
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.11";
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     hyprland.url = "github:hyprwm/Hyprland";
-
-    hyprland-virtual-desktops = {
-      url = "github:levnikmyskin/hyprland-virtual-desktops";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
+
   outputs =
     {
       self,
       nixpkgs,
-      hyprland-virtual-desktops,
       ...
     }@inputs:
     let
       # ---- SYSTEM SETTINGS ---- #
       systemSettings = {
-        system = "x86_64-linux";
+        hostSystem = "x86_64-linux";
         hostname = "nixos";
         timezone = "America/Chicago";
         bootMode = "uefi"; # uefi or bios
-        bootMountPath = "/boot"; # mount path for efi boot partition; only used for uefi boot mode
-        grubDevice = "/dev/sda"; # device identifier for grub; only used for legacy (bios) boot mode
+        bootMountPath = "/boot"; # mount path for efi boot partition
+        grubDevice = "/dev/sda"; # only used for legacy (bios) boot mode
       };
 
       # ----- USER SETTINGS ----- #
@@ -38,17 +34,13 @@
       };
 
       pkgs = import inputs.nixpkgs {
-        system = systemSettings.system;
-        config = {
-          allowUnfree = true;
-        };
+        system = systemSettings.hostSystem;
+        config.allowUnfree = true;
       };
 
       pkgs-stable = import inputs.nixpkgs-stable {
-        system = systemSettings.system;
-        config = {
-          allowUnfree = true;
-        };
+        system = systemSettings.hostSystem;
+        config.allowUnfree = true;
       };
 
       home-manager = inputs.home-manager;
@@ -60,7 +52,7 @@
       forAllSystems = inputs.nixpkgs.lib.genAttrs supportedSystems;
 
       # Attribute set of nixpkgs for each system:
-      nixpkgsFor = forAllSystems (system: import inputs.nixpkgs { inherit system; });
+      nixpkgsFor = forAllSystems (hostSystem: import inputs.nixpkgs { system = hostSystem; });
     in
     {
       homeConfigurations = {
@@ -78,16 +70,13 @@
             ./home_modules/image.nix
           ];
           extraSpecialArgs = {
-            inherit userSettings;
-            inherit inputs;
-            inherit pkgs-stable;
+            inherit userSettings inputs pkgs-stable;
           };
         };
       };
 
       nixosConfigurations = {
         system = nixpkgs.lib.nixosSystem {
-          system = systemSettings.system;
           inherit pkgs;
           modules = [
             ./configuration.nix
@@ -97,20 +86,18 @@
             ./system_modules/gaming.nix
           ];
           specialArgs = {
-            inherit systemSettings;
-            inherit userSettings;
-            inherit inputs;
+            inherit systemSettings userSettings inputs;
           };
         };
       };
 
       packages = forAllSystems (
-        system:
+        hostSystem:
         let
-          pkgs = nixpkgsFor.${system};
+          pkgs = nixpkgsFor.${hostSystem};
         in
         {
-          default = self.packages.${system}.install;
+          default = self.packages.${hostSystem}.install;
 
           install = pkgs.writeShellApplication {
             name = "install";
@@ -121,9 +108,9 @@
       );
 
       devShells = forAllSystems (
-        system:
+        hostSystem:
         let
-          pkgs = nixpkgsFor.${system};
+          pkgs = nixpkgsFor.${hostSystem};
         in
         {
           node = pkgs.mkShell {

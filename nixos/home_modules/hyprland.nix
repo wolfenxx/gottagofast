@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  inputs,
   ...
 }:
 {
@@ -9,7 +8,7 @@
     waybar
     libnotify
     dunst
-    rofi-wayland
+    rofi
     grim
     slurp
     hyprlock
@@ -23,23 +22,7 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
-    plugins = [
-      inputs.hyprland-virtual-desktops.packages.${pkgs.system}.virtual-desktops
-    ];
-    extraConfig =
-      ''
-          plugin {
-            virtual-desktops {
-                names = 1:coding, 2:internet, 3:mail and chats
-                cycleworkspaces = 1
-                rememberlayout = size
-                notifyinit = 0
-                verbose_logging = 0
-            }
-        }
-      ''
-      + builtins.readFile ../../dotfiles/hypr/hyprland.conf;
-
+    extraConfig = "" + builtins.readFile ../../dotfiles/hypr/hyprland.conf;
   };
 
   home.file = {

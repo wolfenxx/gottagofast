@@ -3,11 +3,11 @@
   home.username = userSettings.username;
   home.homeDirectory = "/home/" + userSettings.username;
 
-  home.stateVersion = "24.05";
+  home.stateVersion = "25.11";
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
-    protonup
+    protonup-ng
     obsidian
     pcsx2
     mesen

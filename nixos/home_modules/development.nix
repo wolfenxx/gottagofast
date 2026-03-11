@@ -1,7 +1,7 @@
 { pkgs, pkgs-stable, ... }:
 let
   stable-packages = with pkgs-stable; [
-    openlens
+    # openlens # removed from store
   ];
 
   python-wpkgs = pkgs.python3.withPackages (

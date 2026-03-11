@@ -46,7 +46,7 @@ in
     sd
     dust
     duf
-    dogdns
+    doggo # replaced from dogdns
     jq
     jqp
     yq
@@ -70,8 +70,8 @@ in
     entr
     atac
     posting
-    harlequin
-    python313Packages.harlequin-postgres
+    # harlequin # failed to build in latest nixos
+    # python313Packages.harlequin-postgres
     tshark
     termshark
     cmatrix
@@ -85,14 +85,13 @@ in
     enable = true;
     enableCompletion = true;
     shellAliases = shellAliases;
-    bashrcExtra =
-      ''
-        export DOTNET_ROOT="${pkgs.dotnet-sdk_8}"
+    bashrcExtra = ''
+      export DOTNET_ROOT="${pkgs.dotnet-sdk_8}"
 
-        export CYPRESS_INSTALL_BINARY=0
-        export CYPRESS_RUN_BINARY=${pkgs.cypress}/bin/Cypress
-      ''
-      + builtins.readFile ../../dotfiles/bash/.bashrc;
+      export CYPRESS_INSTALL_BINARY=0
+      export CYPRESS_RUN_BINARY=${pkgs.cypress}/bin/Cypress
+    ''
+    + builtins.readFile ../../dotfiles/bash/.bashrc;
   };
 
   programs.nushell = {
@@ -113,20 +112,18 @@ in
 
   programs.kitty = {
     enable = true;
-    extraConfig =
-      ''
-        shell ${pkgs.nushell}/bin/nu
-      ''
-      + builtins.readFile ../../dotfiles/kitty/kitty.conf;
+    extraConfig = ''
+      shell ${pkgs.nushell}/bin/nu
+    ''
+    + builtins.readFile ../../dotfiles/kitty/kitty.conf;
   };
 
   programs.tmux = {
     enable = true;
-    extraConfig =
-      ''
-        set-option -g default-shell ${pkgs.nushell}/bin/nu
-      ''
-      + builtins.readFile ../../dotfiles/tmux/tmux.conf;
+    extraConfig = ''
+      set-option -g default-shell ${pkgs.nushell}/bin/nu
+    ''
+    + builtins.readFile ../../dotfiles/tmux/tmux.conf;
   };
 
   home.file = {
