@@ -9,5 +9,5 @@ return {
 
 		vim.keymap.set("n", "<Leader>wr", "<cmd>SessionRestore<CR>", {})
 		vim.keymap.set("n", "<Leader>ws", "<cmd>SessionSave<CR>", {})
-	end
+	end,
 }

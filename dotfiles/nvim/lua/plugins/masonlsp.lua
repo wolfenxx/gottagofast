@@ -32,20 +32,20 @@ return {
 
 			installer.setup({
 				ensure_installed = {
-					"prettier",    -- js/ts formatter
-					"prettierd",   -- js/ts formatter
+					"prettier", -- js/ts formatter
+					"prettierd", -- js/ts formatter
 					-- "biome", -- js/ts/json formatter, js/ts linter. Uncomment for non-nixos setup
 					"js-debug-adapter", -- js/ts debug adapter
 					-- "stylua",      -- lua formatter. Uncomment for non-nixos setup
-					"eslint_d",    -- js/ts linter
+					"eslint_d", -- js/ts linter
 					-- "csharpier",   -- C# formatter. Uncomment for non-nixos setup
-					"mypy",        -- python static typing analysis
+					"mypy", -- python static typing analysis
 					-- "ruff",        -- python linter. Uncomment for non-nixos setup
-					"isort",       -- python formatter
-					"black",       -- python formatter
-					"debugpy",     -- python debug adapter
+					"isort", -- python formatter
+					"black", -- python formatter
+					"debugpy", -- python debug adapter
 					-- "clang-format", -- C++ formatter. Uncomment for non-nixos setup
-					"codelldb",    -- C++ debug adapter
+					"codelldb", -- C++ debug adapter
 				},
 			})
 		end,
@@ -82,8 +82,20 @@ return {
 				client.server_capabilities.documentRangeFormattingProvider = false
 			end
 
-			vim.lsp.enable({ "lua_ls", "ts_ls", "pyright", "csharp_ls", "clangd", "biome", "dockerls", "lemminx", "yamlls",
-				"sqls", "nil_ls", "hyprls" })
+			vim.lsp.enable({
+				"lua_ls",
+				"ts_ls",
+				"pyright",
+				"csharp_ls",
+				"clangd",
+				"biome",
+				"dockerls",
+				"lemminx",
+				"yamlls",
+				"sqls",
+				"nil_ls",
+				"hyprls",
+			})
 
 			vim.lsp.config("lua_ls", {
 				capabilities = capabilities,
