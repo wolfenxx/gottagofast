@@ -1,0 +1,27 @@
+{
+  "name": "factorial-calculator",
+  "version": "1.0.0",
+  "description": "A simple factorial calculator console application",
+  "main": "factorial.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node factorial.js",
+    "dev": "ts-node factorial.ts",
+    "lint": "eslint src/**/*.ts",
+    "lint:fix": "eslint src/**/*.ts --fix"
+  },
+  "keywords": ["factorial", "calculator", "console"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@typescript-eslint/eslint-plugin": "^6.13.0",
+    "@typescript-eslint/parser": "^6.13.0",
+    "eslint": "^8.54.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.3.2"
+  },
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}

@@ -6,11 +6,19 @@ let
   ];
 in
 {
-  home.packages = with pkgs; [
-    qjackctl
-    pulsemixer
-    bluez
-    spotify
-    spotube
-  ] ++ stable-packages; 
+  home.packages =
+    with pkgs;
+    [
+      qjackctl
+      pulsemixer
+      bluez
+      spotify
+      spotube
+      audacity
+      lmms
+      soundconverter
+      bitwig-studio
+      mixxx
+    ]
+    ++ stable-packages;
 }

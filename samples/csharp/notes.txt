@@ -1,0 +1,11 @@
+# Create new project
+
+dotnet new console -n Factorial
+
+dotnet run
+
+# Or run standalone file (lsp will not work without a dotnet project)
+
+csc factorial.cs
+
+mono factorial.exe

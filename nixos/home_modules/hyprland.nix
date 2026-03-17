@@ -1,10 +1,14 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  ...
+}:
 {
   home.packages = with pkgs; [
     waybar
     libnotify
     dunst
-    rofi-wayland
+    rofi
     grim
     slurp
     hyprlock
@@ -14,14 +18,18 @@
     xdg-desktop-portal-hyprland
     brightnessctl
     wl-clipboard-rs
-  ]; 
+  ];
 
   wayland.windowManager.hyprland = {
-    enable = false;
+    enable = true;
+    extraConfig = "" + builtins.readFile ../../dotfiles/hypr/hyprland.conf;
   };
 
   home.file = {
-    ".config/hypr".source = config.lib.file.mkOutOfStoreSymlink ../../dotfiles/hypr; 
+    ".config/hypr/hyprlock.conf".source =
+      config.lib.file.mkOutOfStoreSymlink ../../dotfiles/hypr/hyprlock.conf;
+    ".config/hypr/hyprpaper.conf".source =
+      config.lib.file.mkOutOfStoreSymlink ../../dotfiles/hypr/hyprpaper.conf;
     ".config/waybar".source = config.lib.file.mkOutOfStoreSymlink ../../dotfiles/waybar;
     ".config/rofi".source = config.lib.file.mkOutOfStoreSymlink ../../dotfiles/rofi;
     ".config/wlogout".source = config.lib.file.mkOutOfStoreSymlink ../../dotfiles/wlogout;
