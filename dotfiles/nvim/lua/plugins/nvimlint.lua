@@ -4,6 +4,8 @@ return {
 	config = function()
 		local lint = require("lint")
 
+		lint.linters.ruff.cmd = vim.fn.expand("~/ruff/bin/ruff") -- Comment out for non-nixos setup
+
 		lint.linters_by_ft = {
 			javascript = { "eslint_d" },
 			typescript = { "eslint_d" },

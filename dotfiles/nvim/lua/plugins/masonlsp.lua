@@ -32,20 +32,20 @@ return {
 
 			installer.setup({
 				ensure_installed = {
-					"prettier",    -- js/ts formatter
-					"prettierd",   -- js/ts formatter
+					"prettier", -- js/ts formatter
+					"prettierd", -- js/ts formatter
 					-- "biome", -- js/ts/json formatter, js/ts linter. Uncomment for non-nixos setup
 					"js-debug-adapter", -- js/ts debug adapter
-					"stylua",      -- lua formatter
-					"eslint_d",    -- js/ts linter
-					"csharpier",   -- C# formatter
-					"mypy",        -- python static typing analysis
-					"ruff",        -- python linter
-					"isort",       -- python formatter
-					"black",       -- python formatter
-					"debugpy",     -- python debug adapter
+					-- "stylua",      -- lua formatter. Uncomment for non-nixos setup
+					"eslint_d", -- js/ts linter
+					-- "csharpier",   -- C# formatter. Uncomment for non-nixos setup
+					"mypy", -- python static typing analysis
+					-- "ruff",        -- python linter. Uncomment for non-nixos setup
+					"isort", -- python formatter
+					"black", -- python formatter
+					"debugpy", -- python debug adapter
 					-- "clang-format", -- C++ formatter. Uncomment for non-nixos setup
-					"codelldb",    -- C++ debug adapter
+					"codelldb", -- C++ debug adapter
 				},
 			})
 		end,
@@ -57,7 +57,6 @@ return {
 			{ "antosha417/nvim-lsp-file-operations", config = true },
 		},
 		config = function()
-			local lspconfig = require("lspconfig")
 			local cmp_lsp = require("cmp_nvim_lsp")
 			local capabilities = cmp_lsp.default_capabilities()
 
@@ -75,14 +74,38 @@ return {
 				vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 			end
 
-			lspconfig.lua_ls.setup({
+			local disable_sqls_formatter = function(client, bufnr)
+				on_attach(client, bufnr)
+
+				-- Disable LSP formatting to avoid conflicts with conform.nvim
+				client.server_capabilities.documentFormattingProvider = false
+				client.server_capabilities.documentRangeFormattingProvider = false
+			end
+
+			vim.lsp.enable({
+				"lua_ls",
+				"ts_ls",
+				"pyright",
+				"csharp_ls",
+				"clangd",
+				"biome",
+				"dockerls",
+				"lemminx",
+				"yamlls",
+				"sqls",
+				"nil_ls",
+				"hyprls",
+			})
+
+			vim.lsp.config("lua_ls", {
 				capabilities = capabilities,
 				on_attach = on_attach,
 				filetypes = { "lua" },
+				cmd = { vim.fn.expand("~") .. "/lua-language-server/bin/lua-language-server" }, --NIXOS
 				settings = {
-					misc = {
-						executablePath = "~/lua-language-server/bin/lua-language-server", --NIXOS
-					},
+					-- misc = {
+					-- 	executablePath = "~/lua-language-server/bin/lua-language-server", --NIXOS
+					-- },
 					Lua = {
 						diagnostics = {
 							globals = { "vim" },
@@ -97,115 +120,124 @@ return {
 				},
 			})
 
-			lspconfig.ts_ls.setup({
+			vim.lsp.config("ts_ls", {
 				capabilities = capabilities,
 				on_attach = on_attach,
 				filetypes = { "javascript", "typescript" },
 			})
 
-			lspconfig.pyright.setup({
+			vim.lsp.config("pyright", {
 				capabilities = capabilities,
 				on_attach = on_attach,
 				filetypes = { "python" },
 			})
 
-			lspconfig.csharp_ls.setup({
+			vim.lsp.config("csharp_ls", {
 				capabilities = capabilities,
 				on_attach = on_attach,
 				filetypes = { "cs" },
-				settings = {
-					misc = {
-						executablePath = "~/csharp-ls/bin/csharp-ls", --NIXOS
-					},
-				},
+				cmd = { vim.fn.expand("~") .. "/csharp-ls/bin/csharp-ls" }, --NIXOS
+				-- settings = {
+				-- 	misc = {
+				-- 		executablePath = "~/csharp-ls/bin/csharp-ls", --NIXOS
+				-- 	},
+				-- },
 			})
 
-			lspconfig.clangd.setup({
+			vim.lsp.config("clangd", {
 				capabilities = capabilities,
 				on_attach = on_attach,
 				filetypes = { "cpp" },
-				settings = {
-					misc = {
-						executablePath = "~/clang-tools/bin/clangd", --NIXOS
-					},
-				},
+				cmd = { vim.fn.expand("~") .. "/clang-tools/bin/clangd" }, --NIXOS
+				-- settings = {
+				-- 	misc = {
+				-- 		executablePath = "~/clang-tools/bin/clangd", --NIXOS
+				-- 	},
+				-- },
 			})
 
-			lspconfig.biome.setup({
+			vim.lsp.config("biome", {
 				capabilities = capabilities,
 				on_attach = on_attach,
 				filetypes = { "json" },
-				settings = {
-					misc = {
-						executablePath = "~/biome/bin/biome", --NIXOS
-					},
-				},
+				cmd = { vim.fn.expand("~") .. "/biome/bin/biome" }, --NIXOS
+				-- settings = {
+				-- 	misc = {
+				-- 		executablePath = "~/biome/bin/biome", --NIXOS
+				-- 	},
+				-- },
 			})
 
-			lspconfig.dockerls.setup({
+			vim.lsp.config("dockerls", {
 				capabilities = capabilities,
 				on_attach = on_attach,
 				filetypes = { "Dockerfile" },
-				settings = {
-					misc = {
-						executablePath = "~/docker-ls/bin/docker-ls", --NIXOS
-					},
-				},
+				cmd = { vim.fn.expand("~") .. "/docker-language-server/bin/docker-language-server", "start", "--stdio" },
+				-- settings = {
+				-- 	misc = {
+				-- 		executablePath = "~/docker-language-server/bin/docker-language-server", --NIXOS
+				-- 	},
+				-- },
 			})
 
-			lspconfig.lemminx.setup({
+			vim.lsp.config("lemminx", {
 				capabilities = capabilities,
 				on_attach = on_attach,
 				filetypes = { "xml" },
-				settings = {
-					misc = {
-						executablePath = "~/lemminx/bin/lemminx", --NIXOS
-					},
-				},
+				cmd = { vim.fn.expand("~") .. "/lemminx/bin/lemminx" }, --NIXOS
+				-- settings = {
+				-- 	misc = {
+				-- 		executablePath = "~/lemminx/bin/lemminx", --NIXOS
+				-- 	},
+				-- },
 			})
 
-			lspconfig.yamlls.setup({
+			vim.lsp.config("yamlls", {
 				capabilities = capabilities,
 				on_attach = on_attach,
 				filetypes = { "yaml" },
-				settings = {
-					misc = {
-						executablePath = "~/yaml-language-server/bin/yaml-language-server", --NIXOS
-					},
-				},
+				cmd = { vim.fn.expand("~") .. "/yaml-language-server/bin/yaml-language-server", "--stdio" }, --NIXOS
+				-- settings = {
+				-- 	misc = {
+				-- 		executablePath = "~/yaml-language-server/bin/yaml-language-server", --NIXOS
+				-- 	},
+				-- },
 			})
 
-			lspconfig.sqls.setup({
+			vim.lsp.config("sqls", {
 				capabilities = capabilities,
-				on_attach = on_attach,
+				on_attach = disable_sqls_formatter,
 				filetypes = { "sql" },
-				settings = {
-					misc = {
-						executablePath = "~/sqls/bin/sqls", --NIXOS
-					},
-				},
+				cmd = { vim.fn.expand("~") .. "/sqls/bin/sqls" }, --NIXOS
+				-- settings = {
+				-- 	misc = {
+				-- 		executablePath = "~/sqls/bin/sqls", --NIXOS
+				-- 	},
+				-- },
 			})
 
-			lspconfig.nil_ls.setup({
+			vim.lsp.config("nil_ls", {
 				capabilities = capabilities,
 				on_attach = on_attach,
 				filetypes = { "nix" },
-				settings = {
-					misc = {
-						executablePath = "~/nil/bin/nil", --NIXOS
-					},
-				},
+				cmd = { vim.fn.expand("~") .. "/nil/bin/nil" }, --NIXOS
+				-- settings = {
+				-- 	misc = {
+				-- 		executablePath = "~/nil/bin/nil", --NIXOS
+				-- 	},
+				-- },
 			})
 
-			lspconfig.hyprls.setup({
+			vim.lsp.config("hyprls", {
 				capabilities = capabilities,
 				on_attach = on_attach,
 				filetypes = { "hyprlang" },
-				settings = {
-					misc = {
-						executablePath = "~/hyprls/bin/hyprls", --NIXOS
-					},
-				},
+				cmd = { vim.fn.expand("~") .. "/hyprls/bin/hyprls" }, --NIXOS
+				-- settings = {
+				-- 	misc = {
+				-- 		executablePath = "~/hyprls/bin/hyprls", --NIXOS
+				-- 	},
+				-- },
 			})
 		end,
 	},

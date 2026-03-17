@@ -3,7 +3,7 @@ return {
 	config = function()
 		require("lualine").setup({
 			options = {
-				theme = "dracula"
+				theme = "dracula",
 			},
 			sections = {
 				lualine_a = { "mode" },
@@ -12,13 +12,13 @@ return {
 					{
 						"filename",
 						file_status = false,
-						path = 1
-					}
+						path = 1,
+					},
 				},
 				lualine_x = {},
 				lualine_y = { "progress" },
-				lualine_z = { "location" }
+				lualine_z = { "location" },
 			},
 		})
-	end
+	end,
 }

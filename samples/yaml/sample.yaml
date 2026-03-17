@@ -1,0 +1,71 @@
+services:
+  postgres:
+    image: postgres
+    restart: unless-stopped
+    shm_size: 500mb # set shared memory limit when using docker-compose
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: test123
+    ports:
+      - 5432:5432
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+
+  jaeger:
+    image: jaegertracing/jaeger
+    ports:
+      - 16686:16686 # web view
+      - 4317:4317
+      - 4318:4318
+      - 5778:5778
+      - 9411:9411
+
+  prometheus:
+    image: prom/prometheus:latest
+    ports:
+      - 9090:9090
+    volumes:
+      - /home/user/prometheus:/etc/prometheus
+
+  grafana:
+    image: grafana/grafana:latest
+    user: "1000"
+    volumes:
+      - /home/user/grafana:/var/lib/grafana
+    ports:
+      - 5000:3000
+    restart: unless-stopped
+
+  loki:
+    image: grafana/loki:latest
+    volumes:
+      - /home/user/loki:/etc/loki
+    ports:
+      - 5001:3100
+    restart: unless-stopped
+    command: -config.file=/etc/loki/loki-config.yml
+
+  promtail:
+    image: grafana/promtail:latest
+    volumes:
+      - /var/log:/var/log
+      - /home/user/promtail:/etc/promtail
+    restart: unless-stopped
+    command: -config.file=/etc/promtail/promtail-config.yml
+
+  #pgadmin4:
+  #  image: elestio/pgadmin
+  #  restart: always
+  #  environment:
+  #   PGADMIN_DEFAULT_EMAIL: admin@gmail.com
+  #   PGADMIN_DEFAULT_PASSWORD: test123
+  #   PGADMIN_LISTEN_PORT: 8080
+  #  ports:
+  #  - 8080:8080
+  #  #volumes:
+  #    #- ./servers.json:/pgadmin4/servers.json

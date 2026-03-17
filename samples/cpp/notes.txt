@@ -1,0 +1,12 @@
+# Use clang++
+
+clang++ -o factorial factorial.cpp
+
+./factorial
+
+# Use g++
+
+g++ -o factorial program.cpp
+
+./factorial
+

@@ -1,31 +1,37 @@
-{ pkgs, inputs, systemSettings, userSettings, ... }:
+{
+  pkgs,
+  inputs,
+  systemSettings,
+  userSettings,
+  ...
+}:
 
 {
   networking.hostName = systemSettings.hostname; # Define your hostname.
 
   # Bootloader
   # Use systemd-boot if uefi, default to grub otherwise
-	boot.loader.timeout = 60;
+  boot.loader.timeout = 60;
   boot.loader.systemd-boot.enable = if (systemSettings.bootMode == "uefi") then true else false;
   boot.loader.efi.canTouchEfiVariables = if (systemSettings.bootMode == "uefi") then true else false;
   boot.loader.efi.efiSysMountPoint = systemSettings.bootMountPath; # does nothing if running bios rather than uefi
   boot.loader.grub.enable = if (systemSettings.bootMode == "uefi") then false else true;
   boot.loader.grub.device = systemSettings.grubDevice; # does nothing if running uefi rather than bios
   boot.loader.grub.useOSProber = if (systemSettings.bootMode == "uefi") then false else true;
-	boot.loader.grub.gfxmodeEfi = "1920x1080";
-	boot.loader.grub.gfxmodeBios = "1920x1080";
+  boot.loader.grub.gfxmodeEfi = "1920x1080";
+  boot.loader.grub.gfxmodeBios = "1920x1080";
 
   # Enable networking
   networking.networkmanager.enable = true;
 
-	# Enable wireshark
-	programs.wireshark.enable = true;
+  # Enable wireshark
+  programs.wireshark.enable = true;
   programs.wireshark.package = pkgs.wireshark;
 
   # Enable Hyprland
   programs.hyprland.enable = true;
-  programs.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland;
- 
+  programs.hyprland.package = inputs.hyprland.packages."${pkgs.stdenv.hostPlatform.system}".hyprland;
+
   # Bluetooth
   services.blueman.enable = true;
   hardware.bluetooth.enable = true;
@@ -52,8 +58,8 @@
   services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.displayManager.gdm.enable = true;
+  services.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -81,9 +87,14 @@
   users.users.${userSettings.username} = {
     isNormalUser = true;
     description = userSettings.username;
-    extraGroups = [ "networkmanager" "audio" "wheel" "docker" ];
+    extraGroups = [
+      "networkmanager"
+      "audio"
+      "wheel"
+      "docker"
+    ];
     uid = 1000;
-    packages = [];
+    packages = [ ];
   };
 
   # Enable automatic login for the user.
@@ -94,16 +105,19 @@
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
 
-  environment.systemPackages = [];
+  environment.systemPackages = [ ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   fonts.packages = with pkgs; [
     iosevka
     roboto
     fantasque-sans-mono
     nerd-fonts.mononoki
-	];
+  ];
 
-  system.stateVersion = "24.05";
+  system.stateVersion = "25.11";
 }
