@@ -79,6 +79,7 @@ in
     croc
     jrnl
     grex
+    claude-code
   ];
 
   programs.bash = {
