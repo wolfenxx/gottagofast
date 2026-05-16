@@ -28,7 +28,7 @@ let
     es = "cd ~/repos/everactive-server/";
     up = "docker compose up -d";
     down = "docker compose down";
-    posting-tds = "posting --env ~/projects/posting/tds-collections/.env --collection ~/projects/posting/tds-collections";
+    # posting-tds = "posting --env ~/projects/posting/tds-collections/.env --collection ~/projects/posting/tds-collections";
   };
 in
 {
@@ -70,8 +70,8 @@ in
     entr
     atac
     posting
-    # harlequin # failed to build in latest nixos
-    # python313Packages.harlequin-postgres
+    harlequin
+    python313Packages.harlequin-postgres
     tshark
     termshark
     cmatrix

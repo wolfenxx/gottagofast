@@ -5,7 +5,7 @@
     arandr
     autorandr
     mpv
-    # davinci-resolve-studio # cannot build in latest nixos
+    davinci-resolve-studio
     ffmpeg
     shotcut
     blender
