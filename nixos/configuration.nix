@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   inputs,
   systemSettings,
@@ -23,6 +24,22 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+
+  # Tailscale: daemon + firewall trust for its interface. Run `sudo tailscale up`
+  # after rebuilding to authenticate (the CLI package alone, in home.nix, does
+  # nothing without this service actually running).
+  services.tailscale.enable = true;
+  networking.firewall.trustedInterfaces = [ "tailscale0" ];
+  networking.firewall.allowedUDPPorts = [ config.services.tailscale.port ];
+  networking.firewall.checkReversePath = "loose";
+
+  # LAN hostname aliases (NixOS-managed /etc/hosts, edits here instead of by hand).
+  # The *wolf names are routed by Caddy (media-server/caddy/Caddyfile) on port 80,
+  # so e.g. http://jellywolf works with no port needed.
+  networking.extraHosts = ''
+    192.168.1.67 jellywolf sonarrwolf radarrwolf lidarrwolf bazarrwolf prowlarrwolf qbitwolf nzbwolf flarewolf seerrwolf statwolf portainerwolf dashwolf
+    192.168.1.131 nas
+  '';
 
   # Enable wireshark
   programs.wireshark.enable = true;
@@ -119,5 +136,5 @@
     nerd-fonts.mononoki
   ];
 
-  system.stateVersion = "25.11";
+  system.stateVersion = "26.05";
 }

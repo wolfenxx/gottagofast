@@ -3,7 +3,7 @@
   home.username = userSettings.username;
   home.homeDirectory = "/home/" + userSettings.username;
 
-  home.stateVersion = "25.11";
+  home.stateVersion = "26.05";
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
@@ -16,5 +16,6 @@
     #torzu # fork of yuzu (removed in latest version)
     ledger-live-desktop
     usbimager
+    tailscale
   ];
 }

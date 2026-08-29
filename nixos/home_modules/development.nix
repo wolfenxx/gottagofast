@@ -20,7 +20,7 @@ in
       silicon
       git
       python-wpkgs
-      nodejs_20
+      nodejs_24
       bun
       lazygit
       lazydocker

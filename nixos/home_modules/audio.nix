@@ -3,6 +3,7 @@ let
   stable-packages = with pkgs-stable; [
     easyeffects
     ardour
+    soundconverter
   ];
 in
 {
@@ -16,7 +17,6 @@ in
       spotube
       audacity
       lmms
-      soundconverter
       bitwig-studio
       mixxx
     ]
