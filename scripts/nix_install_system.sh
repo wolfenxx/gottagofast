@@ -8,6 +8,13 @@ nix-shell -p git --command "git clone https://github.com/wolfenxx/gottagofast $R
 # Clone tmux plugin manager repo. Required for tmux plugins to be sourced
 nix-shell -p git --command "git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm"
 
+# Unmount declarative network shares (e.g. /mnt/z) first -- when one is
+# actively mounted, nixos-generate-config sees both the autofs parent entry
+# and the resolved submount as separate rows for the same target and emits
+# two conflicting fileSystems blocks for it. These are noauto/automount, so
+# unmounting is harmless; they remount on next access.
+sudo umount /mnt/z 2>/dev/null || true
+
 # Generate hardware config for the system
 sudo nixos-generate-config --show-hardware-config > $REPO_LOCATION/nixos/hardware-configuration.nix
 
