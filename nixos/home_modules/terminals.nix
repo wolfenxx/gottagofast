@@ -28,6 +28,7 @@ let
     es = "cd ~/repos/everactive-server/";
     up = "docker compose up -d";
     down = "docker compose down";
+    media = "cd ~/repos/media-server/";
     # posting-tds = "posting --env ~/projects/posting/tds-collections/.env --collection ~/projects/posting/tds-collections";
   };
 in

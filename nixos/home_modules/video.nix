@@ -10,5 +10,7 @@
     shotcut
     blender
     ytdownloader
+    mkvtoolnix
+    mediainfo
   ];
 }
