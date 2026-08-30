@@ -37,7 +37,7 @@
   # The *wolf names are routed by Caddy (media-server/caddy/Caddyfile) on port 80,
   # so e.g. http://jellywolf works with no port needed.
   networking.extraHosts = ''
-    192.168.1.67 jellywolf sonarrwolf radarrwolf lidarrwolf bazarrwolf prowlarrwolf qbitwolf nzbwolf flarewolf seerrwolf statwolf portainerwolf dashwolf
+    192.168.1.67 jellywolf sonarrwolf radarrwolf lidarrwolf bazarrwolf prowlarrwolf qbitwolf quiwolf nzbwolf flarewolf seerrwolf statwolf portainerwolf dashwolf
     192.168.1.131 nas
   '';
 
