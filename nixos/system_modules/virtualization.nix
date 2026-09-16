@@ -17,6 +17,7 @@
     virtio-win
     win-spice
     adwaita-icon-theme
+    rustdesk
   ];
 
   # Manage the virtualisation services

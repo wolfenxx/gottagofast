@@ -22,7 +22,7 @@ let
     hd = "cd ~";
     gg = "cd ~/repos/gottagofast";
     pr = "cd ~/projects";
-    cy = "cd ~/repos/cypress/";
+    # cy = "cd ~/repos/cypress/";
     ast = "cd ~/repos/astralnotes/";
     rep = "cd ~/repos";
     es = "cd ~/repos/everactive-server/";
@@ -91,7 +91,6 @@ in
       export DOTNET_ROOT="${pkgs.dotnet-sdk_8}"
 
       export CYPRESS_INSTALL_BINARY=0
-      export CYPRESS_RUN_BINARY=${pkgs.cypress}/bin/Cypress
     ''
     + builtins.readFile ../../dotfiles/bash/.bashrc;
   };
@@ -108,7 +107,6 @@ in
       			$env.DOTNET_ROOT = "${pkgs.dotnet-sdk_8}"
 
             $env.CYPRESS_INSTALL_BINARY = 0
-            $env.CYPRESS_RUN_BINARY = "${pkgs.cypress}/bin/Cypress"
       		'';
   };
 

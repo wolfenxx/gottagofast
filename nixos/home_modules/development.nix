@@ -39,7 +39,7 @@ in
       lua
       lua-language-server
       stylua
-      cypress
+      # cypress
       postman
       bruno
       docker-language-server

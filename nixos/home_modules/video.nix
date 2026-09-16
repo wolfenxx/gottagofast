@@ -5,7 +5,7 @@
     arandr
     autorandr
     mpv
-    davinci-resolve-studio
+    # davinci-resolve-studio
     ffmpeg
     shotcut
     blender
