@@ -36,7 +36,7 @@ in
   home.packages = with pkgs; [
     tmux
     tmuxinator
-    waveterm
+    # waveterm
     bat
     eza
     curl
