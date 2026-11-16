@@ -1,5 +1,6 @@
 {
   config,
+  lib,
   pkgs,
   inputs,
   systemSettings,
@@ -33,13 +34,12 @@
   networking.firewall.allowedUDPPorts = [ config.services.tailscale.port ];
   networking.firewall.checkReversePath = "loose";
 
-  # LAN hostname aliases (NixOS-managed /etc/hosts, edits here instead of by hand).
-  # The *wolf names are routed by Caddy (media-server/caddy/Caddyfile) on port 80,
-  # so e.g. http://jellywolf works with no port needed.
-  networking.extraHosts = ''
-    192.168.1.67 jellywolf sonarrwolf radarrwolf lidarrwolf bazarrwolf prowlarrwolf qbitwolf quiwolf nzbwolf flarewolf seerrwolf statwolf portainerwolf dashwolf
-    192.168.1.131 nas
-  '';
+  # LAN hostname aliases (NixOS-managed /etc/hosts, edits in flake.nix's
+  # systemSettings.lan.hosts instead of by hand). The *wolf names are routed by
+  # Caddy (media-server/caddy/Caddyfile) on port 80, so http://jellywolf works.
+  networking.extraHosts = lib.concatMapStringsSep "\n" (ip: "${ip} ${systemSettings.lan.hosts.${ip}}") (
+    builtins.attrNames systemSettings.lan.hosts
+  ) + "\n";
 
   # Enable wireshark
   programs.wireshark.enable = true;
@@ -48,6 +48,11 @@
   # Enable Hyprland
   programs.hyprland.enable = true;
   programs.hyprland.package = inputs.hyprland.packages."${pkgs.stdenv.hostPlatform.system}".hyprland;
+  # Hyprland's flake is not built by Hydra, so a fresh machine compiles it from
+  # source (~10-20 min) unless its own cache is trusted. Only valid because the
+  # hyprland input does NOT `follows` our nixpkgs (see wiki.hypr.land/Nix/Cachix).
+  nix.settings.substituters = [ "https://hyprland.cachix.org" ];
+  nix.settings.trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
 
   # Bluetooth
   services.blueman.enable = true;
@@ -116,7 +121,7 @@
 
   # Enable automatic login for the user.
   services.displayManager.autoLogin.enable = true;
-  services.displayManager.autoLogin.user = "wolfen";
+  services.displayManager.autoLogin.user = userSettings.username;
 
   # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
   systemd.services."getty@tty1".enable = false;

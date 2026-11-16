@@ -9,6 +9,13 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     hyprland.url = "github:hyprwm/Hyprland";
+
+    # ComfyUI with prebuilt CUDA wheels. Deliberately NOT following our nixpkgs:
+    # the flake pins its own to match the PyTorch wheels it was tested with.
+    # Pinned to an exact rev on purpose: its CUDA closure is never in a binary
+    # cache (xformers compiles CUDA kernels locally, ~1.5-3h), so bump this
+    # only when you mean to pay for a rebuild. `nix flake update` won't move it.
+    comfyui-nix.url = "github:utensils/comfyui-nix/58f91b001c99a97df46b7be8d58b08f01cb8f6ff";
   };
 
   outputs =
@@ -26,6 +33,25 @@
         bootMode = "uefi"; # uefi or bios
         bootMountPath = "/boot"; # mount path for efi boot partition
         grubDevice = "/dev/sda"; # only used for legacy (bios) boot mode
+        # GPU vendor: "nvidia" | "amd" | "intel" | "none". Drives the driver
+        # block in gaming.nix and whether the CUDA-only ComfyUI service is on.
+        gpu = "nvidia";
+        # LAN-specific bits. Harmless elsewhere, but they belong here, not in
+        # the modules, so a different network only means editing this block.
+        lan = {
+          # Hostname aliases written to /etc/hosts (name -> IP).
+          hosts = {
+            "192.168.1.67" = "jellywolf sonarrwolf radarrwolf lidarrwolf bazarrwolf prowlarrwolf qbitwolf quiwolf nzbwolf flarewolf seerrwolf statwolf portainerwolf dashwolf";
+            "192.168.1.131" = "nas";
+          };
+          # SMB share automounted at /mnt/z (network-shares.nix). Set to null to
+          # drop the mount entirely on a machine without this NAS.
+          nas = {
+            host = "192.168.1.131";
+            share = "Personal-Drive";
+            credentials = "/etc/nixos/secrets/smb-credentials"; # created by hand, never in the repo
+          };
+        };
       };
 
       # ----- USER SETTINGS ----- #
@@ -68,6 +94,7 @@
             ./home_modules/terminals.nix
             ./home_modules/video.nix
             ./home_modules/image.nix
+            ./home_modules/games.nix
           ];
           extraSpecialArgs = {
             inherit userSettings inputs pkgs-stable;
@@ -85,6 +112,8 @@
             ./system_modules/containerization.nix
             ./system_modules/gaming.nix
             ./system_modules/network-shares.nix
+            ./system_modules/comfyui.nix
+            ./system_modules/remote-desktop.nix
           ];
           specialArgs = {
             inherit systemSettings userSettings inputs;

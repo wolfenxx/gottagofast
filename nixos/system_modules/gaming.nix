@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, lib, systemSettings, ... }:
 {
   # Gaming modules
   programs.gamemode.enable = true;
@@ -7,15 +7,20 @@
     gamescopeSession.enable = true;
   };
 
-  # Load nvidia driver for Xorg and Wayland
-  services.xserver.videoDrivers = ["nvidia"];
-
   hardware.graphics.enable = true;
 
-  hardware.nvidia.modesetting.enable = true;
-  hardware.nvidia.powerManagement.enable = false;
-  hardware.nvidia.powerManagement.finegrained = false;
-  hardware.nvidia.open = false;
-  hardware.nvidia.nvidiaSettings = true;
-  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
+  # GPU driver, selected by systemSettings.gpu in flake.nix. AMD and Intel are
+  # in-kernel (amdgpu / i915 / xe) and need nothing declared here; only the
+  # proprietary NVIDIA stack has to be opted into. On a machine with no NVIDIA
+  # card, loading it would leave the display stack without a usable driver.
+  services.xserver.videoDrivers = lib.mkIf (systemSettings.gpu == "nvidia") [ "nvidia" ];
+
+  hardware.nvidia = lib.mkIf (systemSettings.gpu == "nvidia") {
+    modesetting.enable = true;
+    powerManagement.enable = false;
+    powerManagement.finegrained = false;
+    open = false;
+    nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+  };
 }

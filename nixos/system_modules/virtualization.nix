@@ -17,7 +17,6 @@
     virtio-win
     win-spice
     adwaita-icon-theme
-    rustdesk
   ];
 
   # Manage the virtualisation services
@@ -35,6 +34,12 @@
 
   services.spice-vdagentd.enable = true;
 
-  # Enable nested virtualization
-  boot.extraModprobeConfig = "options kvm_intel nested=1";
+  # Enable nested virtualization. Both vendors' modules are listed: modprobe
+  # options for a module that never loads are simply ignored, so this is
+  # correct on Intel and AMD hosts alike (hardware-configuration.nix decides
+  # which kvm module actually loads).
+  boot.extraModprobeConfig = ''
+    options kvm_intel nested=1
+    options kvm_amd nested=1
+  '';
 }

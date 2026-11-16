@@ -1,4 +1,7 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, systemSettings, ... }:
+let
+  nas = systemSettings.lan.nas; # null = no share on this machine
+in
 {
   environment.systemPackages = with pkgs; [ cifs-utils ];
 
@@ -8,16 +11,16 @@
   # fileSystems."/mnt/z" (device = "systemd-1"; fsType = "autofs";) into
   # hardware-configuration.nix on every regeneration. Forcing priority here
   # means that's a harmless no-op instead of a build-breaking conflict.
-  fileSystems."/mnt/z" = lib.mkForce {
-    device = "//192.168.1.131/Personal-Drive";
+  fileSystems."/mnt/z" = lib.mkIf (nas != null) (lib.mkForce {
+    device = "//${nas.host}/${nas.share}";
     fsType = "cifs";
     options = [
-      "credentials=/etc/nixos/secrets/smb-credentials"
+      "credentials=${nas.credentials}"
       "uid=1000"
       "gid=100"
       "x-systemd.automount"
       "noauto"
       "x-systemd.idle-timeout=60"
     ];
-  };
+  });
 }

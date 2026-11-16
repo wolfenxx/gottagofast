@@ -51,11 +51,12 @@ in
       yaml-language-server
       biome
       sqlite
-      teleport
+      # teleport
       vscode
       postgresql
       ruff
       csharpier
+      uv # uvx runs the MCP for Blender server (mcp-for-blender) the Claude Code `blender` MCP entry launches, 2026-10-30
     ]
     ++ stable-packages;
 

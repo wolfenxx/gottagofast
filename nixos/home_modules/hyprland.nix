@@ -31,6 +31,8 @@
       config.lib.file.mkOutOfStoreSymlink ../../dotfiles/hypr/hyprlock.conf;
     ".config/hypr/hyprpaper.conf".source =
       config.lib.file.mkOutOfStoreSymlink ../../dotfiles/hypr/hyprpaper.conf;
+    ".config/hypr/xdph.conf".source =
+      config.lib.file.mkOutOfStoreSymlink ../../dotfiles/hypr/xdph.conf;
     ".config/waybar".source = config.lib.file.mkOutOfStoreSymlink ../../dotfiles/waybar;
     ".config/rofi".source = config.lib.file.mkOutOfStoreSymlink ../../dotfiles/rofi;
     ".config/wlogout".source = config.lib.file.mkOutOfStoreSymlink ../../dotfiles/wlogout;

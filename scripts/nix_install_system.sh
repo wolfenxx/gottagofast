@@ -18,6 +18,10 @@ sudo umount /mnt/z 2>/dev/null || true
 # Generate hardware config for the system
 sudo nixos-generate-config --show-hardware-config > $REPO_LOCATION/nixos/hardware-configuration.nix
 
+# Secrets are never in the repo (see CLAUDE.md). Warn early rather than letting
+# the first access of /mnt/z fail quietly after the switch.
+[ -f /etc/nixos/secrets/smb-credentials ] || echo "WARNING: /etc/nixos/secrets/smb-credentials is missing -- the /mnt/z SMB automount will fail until you create it (chmod 600), or set systemSettings.lan.nas = null in flake.nix."
+
 # Check if uefi or bios
 if [ -d /sys/firmware/efi/efivars ]; then
     sed -i "0,/bootMode.*=.*\".*\";/s//bootMode = \"uefi\";/" $REPO_LOCATION/nixos/flake.nix
