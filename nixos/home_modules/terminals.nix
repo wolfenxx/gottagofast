@@ -1,5 +1,15 @@
 { config, pkgs, ... }:
 let
+  # See hyprland.nix for why these MUST be string paths, not path
+  # literals: under flakes a literal like ../../dotfiles/waybar is copied into
+  # the store first, so mkOutOfStoreSymlink would point at that frozen copy --
+  # which nothing holds a GC root for, so the next nix-collect-garbage leaves
+  # every one of these dangling (happened 2026-11-16: waybar/dunst/rofi/... all
+  # fell back to defaults). A string is never copied; the link goes straight to
+  # the checkout. Repo location is the same ~/repos/gottagofast the scripts and
+  # the `hms` alias assume.
+  dotfiles = "${config.home.homeDirectory}/repos/gottagofast/dotfiles";
+
   shellAliases = {
     sd = "shutdown 0";
     rs = "reboot";
@@ -127,12 +137,12 @@ in
   };
 
   home.file = {
-    ".config/yazi".source = config.lib.file.mkOutOfStoreSymlink ../../dotfiles/yazi;
+    ".config/yazi".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/yazi";
     ".config/kitty/current-theme.conf".source =
-      config.lib.file.mkOutOfStoreSymlink ../../dotfiles/kitty/current-theme.conf;
+      config.lib.file.mkOutOfStoreSymlink "${dotfiles}/kitty/current-theme.conf";
     ".config/starship.toml".source =
-      config.lib.file.mkOutOfStoreSymlink ../../dotfiles/starship/starship.toml;
-    ".config/fastfetch".source = config.lib.file.mkOutOfStoreSymlink ../../dotfiles/fastfetch;
+      config.lib.file.mkOutOfStoreSymlink "${dotfiles}/starship/starship.toml";
+    ".config/fastfetch".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/fastfetch";
   };
 
 }
